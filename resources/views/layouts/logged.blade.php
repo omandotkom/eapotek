@@ -21,9 +21,9 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <nav class="navbar navbar-expand-md navbar-light navbar-laravel bg-success">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand text-white" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
 
@@ -35,7 +35,25 @@
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Obat') }}</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Supplier') }}</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Karyawan') }}</a>
+                            </li>
+                            
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Informasi Supply') }}</a>
                             </li>
                             
                         </ul>
@@ -54,7 +72,7 @@
                             @endif
                             @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     ({{ Auth::user()->role }}) | {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
