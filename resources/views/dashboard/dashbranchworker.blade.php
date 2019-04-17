@@ -12,6 +12,7 @@
                          <div class="card-block">
                         <p class="card-text text-justify py-3 px-3">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
+                         <a href="{{ route('inputObat') }}" class="btn btn-primary">Go somewhere</a>
                 </div>
                 <div class="card">
                     <h4 class="card-title text-center pt-2">Informasi Obat</h4>
@@ -20,6 +21,7 @@
                          <div class="card-block">
                         <p class="card-text text-justify py-3 px-3">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                         </div>
+                         <a href="{{ route('inputObat') }}" class="btn btn-primary">Go somewhere</a>
                 </div>
 
             </div>
