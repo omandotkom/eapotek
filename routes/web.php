@@ -33,4 +33,4 @@ Route::get('/login/checklogin','Auth\LoginController@redirectTo')->name('dashboa
 
 Route::get('/input/obat',function(){
     return view('input.obat');
-});
+})->name('inputObat');
