@@ -29,8 +29,4 @@ Route::get('/dashboard/branchworker', function(){
     return view('dashboard.dashbranchworker');
 })->middleware('auth');
 
-Route::get('/logincheck','Auth\LoginController@redirectTo')->name('dashboard');
-
-Route::get('/dashboard/branchhead/input/obat', function(){
-    return view('input.obat');
-})->middleware('auth');
+Route::get('/login/checklogin','Auth\LoginConroller@redirectTo')->name('hehehe');
