@@ -12,12 +12,8 @@
                         @csrf
 
                         <div class="form-group row">
-<<<<<<< HEAD
-=======
                             <label for="nik" class="col-md-4 col-form-label text-md-right">{{ __('NIK') }}</label>
->>>>>>> 27f4b3af5cfc5589e6d3c84494a4889f60c5778f
 
-                            <label for="nik" class="col-md-4 col-form-label text-md-right">{{ __('NIK Karyawan') }}</label>
                             <div class="col-md-6">
                                 <input id="nik" type="text" class="form-control" name="nik"  required autofocus>
                             </div>
