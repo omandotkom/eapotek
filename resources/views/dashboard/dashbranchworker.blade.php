@@ -10,7 +10,7 @@
 
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdataobat.png') }} alt="Card image cap">
                          <div class="card-block">
-                        <p class="card-text text-justify py-3 px-3">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text text-justify py-3 px-3">Transaksi adalah sebuah kegiatan pengambilan data yang dilakukan oleh Karyawan yang dalam hal ini yaitu Kasir, guna mendata penjualan Obat di EAPOTEK.</p>
                     </div>
                          <a href="{{ route('inputObat') }}" class="btn btn-primary">Go somewhere</a>
                 </div>
@@ -19,7 +19,7 @@
 
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdatasupplier.png') }} alt="Card image cap">
                          <div class="card-block">
-                        <p class="card-text text-justify py-3 px-3">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text text-justify py-3 px-3">Informasi Obat adalah tempat / halaman dimana Karyawan akan melihat informasi Obat yang tersedia dan di jual sesuai Cabang Karyawan EPOTEK bekerja.</p>
                         </div>
                          <a href="{{ route('inputObat') }}" class="btn btn-primary">Go somewhere</a>
                 </div>
