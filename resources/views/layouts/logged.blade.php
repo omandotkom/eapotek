@@ -39,11 +39,11 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Obat') }}</a>
+                                <a class="nav-link text-white" href="{{ route('inputObat') }}">{{ __('Obat') }}</a>
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Supplier') }}</a>
+                                <a class="nav-link text-white" href="{{ route('inputSupplier') }}">{{ __('Supplier') }}</a>
                             </li>
                             
                             
