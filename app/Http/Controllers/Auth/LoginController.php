@@ -54,4 +54,8 @@ use AuthenticatesUsers;
         }
     }
 
+    public function username() {
+        return 'nik';
+    }
+
 }
