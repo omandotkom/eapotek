@@ -10,8 +10,9 @@
         <title>{{ config('app.name', 'E-APOTEK') }}</title>
 
         <!-- Scripts -->
+        <script src="{{asset('js/jquery-3.4.0.min.js')}}"></script>
+        
         <script src="{{ asset('js/app.js') }}" defer></script>
-
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -37,25 +38,25 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inputObat') }}">{{ __('Obat') }}</a>
                             </li>
-                            
+
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inputSupplier') }}">{{ __('Supplier') }}</a>
                             </li>
-                            
-                            
+
+
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Karyawan') }}</a>
                             </li>
-                            
-                            
+
+
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Informasi Supply') }}</a>
                             </li>
-                            
+
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -79,7 +80,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">
+                                               document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
