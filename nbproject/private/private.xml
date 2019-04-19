@@ -2,23 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/Auth/LoginController.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Providers/AppServiceProvider.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/dashboard/dashbranchworker.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/supplier.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/dashboard/dashowner.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/dashboard/dashbranchhead.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/Auth/RegisterController.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/obat.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/seeds/DatabaseSeeder.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/auth/login.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/migrations/2019_04_16_033925_create_branches_table.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/seeds/User_Table_Seeder.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/layouts/logged.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/routes/web.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/layouts/app.blade.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

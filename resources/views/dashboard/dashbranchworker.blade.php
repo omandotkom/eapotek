@@ -5,23 +5,23 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-deck">
-                <div class="card">
-                    <h4 class="card-title text-center pt-2">Transaksi</h4>
-
+                
+                <div class="card shadow">
+                    <h4 class="card-header text-center pb-2">Transaksi</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdataobat.png') }} alt="Card image cap">
-                         <div class="card-block">
-                        <p class="card-text text-justify py-3 px-3">Transaksi adalah sebuah kegiatan pengambilan data yang dilakukan oleh Karyawan yang dalam hal ini yaitu Kasir, guna mendata penjualan Obat di EAPOTEK.</p>
+                    <div class="card-body">
+                        <p class="card-text text-justify">Transaksi adalah sebuah kegiatan yang dilakukan oleh Karyawan (bagian Kasir) guna mendata atau memasukan informasi penjualan Obat di EAPOTEK sesuai permintaan konsumen.</p>
                     </div>
-                         <a href="{{ route('inputObat') }}" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
                 </div>
-                <div class="card">
-                    <h4 class="card-title text-center pt-2">Informasi Obat</h4>
-
+                
+                <div class="card shadow">
+                    <h4 class="card-header text-center pb-2">Informasi Obat</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdatasupplier.png') }} alt="Card image cap">
-                         <div class="card-block">
-                        <p class="card-text text-justify py-3 px-3">Informasi Obat adalah tempat / halaman dimana Karyawan akan melihat informasi Obat yang tersedia dan di jual sesuai Cabang Karyawan EPOTEK bekerja.</p>
-                        </div>
-                         <a href="{{ route('inputObat') }}" class="btn btn-primary">Go somewhere</a>
+                    <div class="card-body">
+                        <p class="card-text text-justify">Informasi Obat adalah sebuah halaman dimana Karyawan akan melihat informasi detail Obat yang tersedia dan dijual oleh Cabang EAPOTEK sesuai lokasi Karyawan bekerja.</p>
+                    </div>
+                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
                 </div>
 
             </div>
