@@ -34,7 +34,10 @@ Route::get('/login/checklogin','Auth\LoginController@redirectTo')->name('dashboa
 Route::get('/input/obat',function(){
     return view('input.obat');
 })->name('inputObat');
-
+/*
 Route::get('/input/supplier',function(){
     return view('input.supplier');
-})->name('inputSupplier');
+})->name('inputSupplier');*/
+Route::get('/input/supplier','SupplierController@showInputSupplierView')->name('inputSupplier');
+Route::post('/supplier/store','SupplierController@store')->name('storeSupplier');
+ 
