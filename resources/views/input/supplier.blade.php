@@ -21,9 +21,6 @@
                             <input type="text" class="form-control" name="kodeSupplier" id="kodeSupplier" placeholder="--">
                         </div>
 
-
-
-
                         <div class="form-group">
                             <label for="namaSupplier">Nama Supplier</label>
                             <input type="text" class="form-control" name="namaSupplier" id="namaSupplier" placeholder="--">
@@ -41,40 +38,29 @@
                             <textarea class="form-control" id="lokasi" name="lokasi" rows="3"></textarea>
                         </div>
                         <div class="text-right">
-                            <button type="submit" id="send_form" class="btn btn-outline-success">Simpan</button>
+                            <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
                         </div>
                         <script>
-                            jQuery(document).ready(function () {
+                            async function onSubmitClicked() {
+                                
+                                $("#send_form").html('Menyimpan...');
+                                axios.post('http://homestead.test/supplier/store', {
+                                    branch_id: '{{$cabang->id}}',
+                                    nama: jQuery('#namaSupplier').val(),
+                                    alamat: jQuery('#lokasi').val(),
+                                    telepon: jQuery('#kontak').val(),
+                                    email: jQuery('#email').val()
 
-                                jQuery('#send_form').click(function (e) {
-                                    e.preventDefault();
-                                    $.ajaxSetup({
-                                        headers: {
-                                            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                                        }
-                                    });
-                                    $('#send_form').html('Menyimpan...');
-                                    console.log("{{ route('storeSupplier') }}");
-                                    jQuery.ajax({
-                                        url: "{{ route('storeSupplier') }}",
-                                        method: 'post',
-                                        data: {
-
-                                            email: jQuery('#email').val(),
-                                            branch_id: "{{$cabang->id}}",
-                                            nama: jQuery('#namaSupplier').val(),
-                                            lokasi: jQuery('#lokasi'),
-                                            kontak: jQuery('#kontak').val()
-                                        },
-                                        success: function (result) {
-
-                                            console.log(result);
-                                        }, error: function (XMLHttpRequest, textStatus, errorThrown) {
-                                            alert("some error");
-                                        }
-                                    });
-                                });
-                            });
+                                })
+                                        .then(function (response) {
+                                            console.log(response);
+                                            $("#send_form").html('Simpan');
+                                        })
+                                        .catch(function (error) {
+                                            $("#send_form").html('Simpan');
+                                            console.log(error);
+                                        });
+                            }
                         </script>
                     </form>
                 </div>
