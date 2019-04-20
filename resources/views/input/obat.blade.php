@@ -42,9 +42,6 @@
                                 <input type="text" class="form-control" aria-label="Default"  placeholder="32.000" aria-describedby="inputGroup-sizing-default">
                             </div>   
                         </div>
-
-
-
                         <div class="form-group">
                             <label for="stokObat">Stok Obat</label>
                             <input type="text" class="form-control" id="stokObat" placeholder="">
