@@ -10,7 +10,9 @@
   | contains the "web" middleware group. Now create something great!
   |
  */
+
 use App\Supplier;
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -39,6 +41,9 @@ Route::get('/input/obat', function() {
   return view('input.supplier');
   })->name('inputSupplier'); */
 Route::get('/input/supplier', 'SupplierController@showInputSupplierView')->name('inputSupplier');
+Route::get('/input/supplyobat', function() {
+    return view('input.supplyobat');
+})->name('inputSupplyObat');
 Route::post('/supplier', function() {
     $data = $request->all();
     $supplier = new Supplier($data);
@@ -46,4 +51,5 @@ Route::post('/supplier', function() {
     echo $result;
 })->name('storeSupplier');
 
-Route::post('/supplier/store','SupplierControllerNew@store');
+Route::post('/supplier/store', 'SupplierControllerNew@store');
+
