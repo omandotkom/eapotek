@@ -48,8 +48,12 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inputSupplier') }}">{{ __('Supplier') }}</a>
                             </li>
-
-
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('inputSupplyObat') }}">{{ __('Supply') }}</a>
+                            </li>
+                             
+                                
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Karyawan') }}</a>
                             </li>
