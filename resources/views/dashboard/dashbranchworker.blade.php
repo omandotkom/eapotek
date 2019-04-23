@@ -3,8 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-11">
             <div class="card-deck">
+                
+                <div class="card bg-transparent border-0">
+                </div>
                 
                 <div class="card shadow">
                     <h4 class="card-header text-center pb-2">Transaksi</h4>
@@ -23,7 +26,10 @@
                     </div>
                     <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
                 </div>
-
+                
+                <div class="card bg-transparent border-0">
+                </div>
+                
             </div>
         </div>
     </div>
