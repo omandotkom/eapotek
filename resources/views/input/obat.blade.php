@@ -19,7 +19,7 @@
                             <input type="text" class="form-control" id="namaObat" placeholder="OBH Combine">
                         </div>
                         <div class="form-group">
-                            <label for="inputState">Bentuk</label>
+                            <label for="inputState">Satuan</label>
                             <select id="inputState" class="form-control">
                                 <option value="1">Tablet</option>
                                 <option value="2">Kapsul</option>
