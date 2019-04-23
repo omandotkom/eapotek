@@ -1,0 +1,22 @@
+<script>
+                            async function onSubmitClicked() {
+
+                                $("#send_form").html('Menyimpan...');
+                                axios.post('http://homestead.test/supplier/store', {
+                                    branch_id: '{{$cabang->id}}',
+                                    nama: jQuery('#namaSupplier').val(),
+                                    alamat: jQuery('#lokasi').val(),
+                                    telepon: jQuery('#kontak').val(),
+                                    email: jQuery('#email').val()
+
+                                })
+                                        .then(function (response) {
+                                            console.log(response);
+                                            $("#send_form").html('Simpan');
+                                        })
+                                        .catch(function (error) {
+                                            $("#send_form").html('Simpan');
+                                            console.log(error);
+                                        });
+                            }
+                        </script>
