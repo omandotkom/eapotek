@@ -42,7 +42,7 @@
                         </div>
                         <script>
                             async function onSubmitClicked() {
-                                
+
                                 $("#send_form").html('Menyimpan...');
                                 axios.post('http://homestead.test/supplier/store', {
                                     branch_id: '{{$cabang->id}}',
