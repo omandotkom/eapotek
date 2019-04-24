@@ -18,15 +18,14 @@
                     <div class="form-group">
                         <label for="kodeCabang">Kode Cabang</label>
                         <select id="kodeCabang" class="form-control col-md-2">
-                            <option selected>Pilih ..</option>
-                            <option value="1">CBG001</option>
-                            <option value="2">CBG002</option>
-                            <option value="3">CBG003</option>
-                            <option value="4">CBG004</option>
+                            <option selected>CBG001</option>
+                            <option value="1">CBG002</option>
+                            <option value="2">CBG003</option>
+                            <option value="3">CBG004</option>
                         </select> 
                     </div>
                     <table class="table table-responsive-lg table-striped">
-                        <thead class="thead bg-success">
+                        <thead class="thead text-light bg-success">
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Kode Obat</th>
