@@ -10,7 +10,7 @@
                     <h4 class="card-header text-center px-1 pb-2">Masukan Informasi</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdataobat.png') }} alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text text-justify">Masukan Informasi adalah sebuah kegiatan yang di- lakukan oleh Kepala Cabang guna menambah / bahkan memanipulasi informasi yang ada di EAPOTEK mulai dari Obat, Karyawan, Supplier hingga Supply Obat.</p>
+                        <p class="card-text text-justify">Masukan Informasi adalah sebuah kegiatan yang di- lakukan oleh Kepala Cabang guna menambah / bahkan memanipulasi informasi yang ada di E-APOTEK mulai dari Obat, Karyawan, Supplier hingga Supply Obat.</p>
                     </div>
                     <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
                 </div>
@@ -19,7 +19,7 @@
                     <h4 class="card-header text-center pb-2">Melihat Informasi</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdatasupplier.png') }} alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text text-justify">Melihat Informasi adalah sebuah kegiatan yang di- lakukan oleh Kepala Cabang untuk dapat melihat seluruh informasi EAPOTEK mulai dari Obat, Karyawan, Supplier hingga Supply Obat.</p>
+                        <p class="card-text text-justify">Melihat Informasi adalah sebuah kegiatan yang di- lakukan oleh Kepala Cabang untuk dapat melihat seluruh informasi E-APOTEK mulai dari Obat, Karyawan, Supplier hingga Supply Obat.</p>
                     </div>
                     <a href="#" class="btn btn-success">Telusuri</a>
                 </div>
@@ -28,7 +28,7 @@
                     <h4 class="card-header text-center pb-2">Absensi</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdatakaryawan.png') }} alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text text-justify">Absensi adalah sebuah kegiatan pengambilan data yang dilakukan oleh Kepala Cabang guna mengetahui jumlah kehadiran Karyawan di EAPOTEK.</p>
+                        <p class="card-text text-justify">Absensi adalah sebuah kegiatan pengambilan data yang dilakukan oleh Kepala Cabang guna mengetahui jumlah kehadiran Karyawan di E-APOTEK.</p>
                     </div>
                     <a href="{{ route('absensi') }}" class="btn btn-success">Telusuri</a>
                 </div>
