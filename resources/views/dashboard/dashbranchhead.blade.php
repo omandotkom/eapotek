@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Absensi adalah sebuah kegiatan pengambilan data yang dilakukan oleh Kepala Cabang guna mengetahui jumlah kehadiran Karyawan di EAPOTEK.</p>
                     </div>
-                    <a href="#" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('absensi') }}" class="btn btn-success">Telusuri</a>
                 </div>
             </div>
 
