@@ -33,9 +33,7 @@ Route::get('/dashboard/branchworker', function() {
 
 Route::get('/login/checklogin', 'Auth\LoginController@redirectTo')->name('dashboard');
 
-Route::get('/input/obat', function() {
-    return view('input.obat');
-})->name('inputObat');
+Route::get('/input/obat', 'MedicineController@showInputObatView')->name('inputObat');
 /*
   Route::get('/input/supplier',function(){
   return view('input.supplier');
