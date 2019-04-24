@@ -26,7 +26,7 @@
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel bg-success">
                 <div class="container">
-                    <a class="navbar-brand text-white" href="{{ url('/') }}">
+                    <a class="navbar-brand text-white" href="{{ __('Dashboard') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
 
@@ -55,7 +55,7 @@
                              
                                 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Karyawan') }}</a>
+                                <a class="nav-link text-white" href="{{ route('inputKaryawan') }}">{{ __('Karyawan') }}</a>
                             </li>
 
 
