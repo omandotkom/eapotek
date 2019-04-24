@@ -35,7 +35,7 @@
                                 <option value="1">CBG001</option>
                                 <option value="2">CBG002</option>
                                 <option value="3">CBG003</option>
-                                <option value="4">CBG004    </option>
+                                <option value="4">CBG004</option>
                             </select> 
                         </div>
                         <div class="form-group">
