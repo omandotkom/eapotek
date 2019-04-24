@@ -10,12 +10,11 @@
 
                 <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
-                        <fieldset disabled>
                             <div class="form-group">
                                 <label for="nik">NIK</label>
                                 <input type="text" class="form-control" name="nik" id="kontak" placeholder="16102126">
                             </div>
-                        </fieldset>
+                        
                         <div class="form-group">
                             <label for="nama">Nama Lengkap</label>
                             <input type="text" class="form-control" name="nama" id="kontak" placeholder="Khalid Abdurrahman">
