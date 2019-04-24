@@ -18,6 +18,13 @@
                             <label for="namaObat">Nama Obat</label>
                             <input type="text" class="form-control" id="namaObat" placeholder="OBH Combine">
                         </div>
+
+                        <div class="form-group">
+                            <label for="namaObat">Supplier</label>
+                            <select class="form-control">
+                                <option>Small select</option>
+                            </select>   
+                        </div>
                         <div class="form-group">
                             <label for="inputState">Satuan</label>
                             <select id="inputState" class="form-control">
