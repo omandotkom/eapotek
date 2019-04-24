@@ -41,7 +41,7 @@ Route::get('/input/obat', function() {
   return view('input.supplier');
   })->name('inputSupplier'); */
 Route::get('/input/supplier', 'SupplierController@showInputSupplierView')->name('inputSupplier');
-Route::get('/input/karyawan',function(){
+Route::get('/input/karyawan', function() {
     return view('input.karyawan');
 })->name('inputKaryawan');
 Route::get('/input/supplyobat', function() {
@@ -53,11 +53,15 @@ Route::post('/supplier', function() {
     $result = $transaction->isValid();
     echo $result;
 })->name('storeSupplier');
-Route::get('/supplier/branch/{branch_id}','SupplierController@showSupplierByBranch')->name('getSupplierbyBranchID');
+Route::get('/supplier/branch/{branch_id}', 'SupplierController@showSupplierByBranch')->name('getSupplierbyBranchID');
 
 Route::post('/supplier/store', 'SupplierControllerNew@store');
 
-Route::get('/absensi',function(){
+Route::get('/absensi', function() {
     return view('absensi.absensi');
 })->name('absensi');
+
+Route::get('/view/obat',function(){
+    return view('view.obat');
+})->name('viewObat');
 
