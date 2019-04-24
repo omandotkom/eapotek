@@ -41,6 +41,9 @@ Route::get('/input/obat', function() {
   return view('input.supplier');
   })->name('inputSupplier'); */
 Route::get('/input/supplier', 'SupplierController@showInputSupplierView')->name('inputSupplier');
+Route::get('/input/karyawan',function(){
+    return view('input.karyawan');
+})->name('inputKaryawan');
 Route::get('/input/supplyobat', function() {
     return view('input.supplyobat');
 })->name('inputSupplyObat');
