@@ -22,7 +22,11 @@
                         <div class="form-group">
                             <label for="namaObat">Supplier</label>
                             <select class="form-control">
-                                <option>Small select</option>
+                                @foreach($supplier as $sp)
+                                <option value="{{$sp->id}}">{{$sp->nama}}</option>
+                                @endforeach
+                               
+                                
                             </select>   
                         </div>
                         <div class="form-group">
@@ -41,7 +45,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="hargaObat">Harga Obat</label>
+                            <label for="hargaObat">Harga Obat / Satuan</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
@@ -52,6 +56,9 @@
                         <div class="form-group">
                             <label for="stokObat">Stok Obat</label>
                             <input type="text" class="form-control" id="stokObat" placeholder="">
+                        </div>
+                         <div class="text-right">
+                            <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
                         </div>
                     </form>
 
