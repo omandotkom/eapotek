@@ -23,7 +23,7 @@ class SupplierController extends Controller {
     }
     
     public function showSupplierByBranch(Request $request){
-        $supplier = Supplier::where('branch_id',1)
+        $supplier = Supplier::where('branch_id',$request->branch_id)
                 ->orderBy('nama','asc')
                 ->get();
         return (string ) $supplier;
