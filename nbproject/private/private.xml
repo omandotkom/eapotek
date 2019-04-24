@@ -3,22 +3,30 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/migrations/2019_04_23_143140_remove_supplier_i_d_from_medicine_table.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/MedicineController.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Middleware/RedirectIfAuthenticated.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/supplier.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/SupplierController.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/js_tmp_buttonsave</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Middleware/CheckForMaintenanceMode.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/obat.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/migrations/2019_04_16_034457_create_suppliers_table.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/storage/logs/laravel-2019-04-19.log</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Middleware/TrimStrings.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/Auth/LoginController.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Supplier.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/SupplierControllerNew.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Kernel.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/.env</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Middleware/RedirectIfAuthenticated.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Medicine.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/migrations/2019_04_23_143748_create_supplying_table.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Middleware/TrustProxies.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/supplier.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/SupplierController.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/supplyobat.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/migrations/2019_04_16_032856_create_medicines_table.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Middleware/Authenticate.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/Auth/RegisterController.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Middleware/CheckForMaintenanceMode.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/auth/login.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/obat.blade.php</file>
-            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/storage/logs/laravel-2019-04-19.log</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Middleware/VerifyCsrfToken-OLD.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/layouts/logged.blade.php</file>
             <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/routes/web.php</file>
