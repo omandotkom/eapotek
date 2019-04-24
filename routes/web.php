@@ -50,6 +50,7 @@ Route::post('/supplier', function() {
     $result = $transaction->isValid();
     echo $result;
 })->name('storeSupplier');
+Route::get('/supplier/branch/{branch_id}','SupplierController@showSupplierByBranch')->name('getSupplierbyBranchID');
 
 Route::post('/supplier/store', 'SupplierControllerNew@store');
 
