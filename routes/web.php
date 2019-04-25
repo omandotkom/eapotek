@@ -34,6 +34,7 @@ Route::get('/dashboard/branchworker', function() {
 Route::get('/login/checklogin', 'Auth\LoginController@redirectTo')->name('dashboard');
 
 Route::get('/input/obat', 'MedicineController@showInputObatView')->name('inputObat');
+Route::post('/input/obat/store','MedicineController@store')->name('storeObat');
 /*
   Route::get('/input/supplier',function(){
   return view('input.supplier');
@@ -63,13 +64,13 @@ Route::get('/view/obat', function() {
     return view('view.obat');
 })->name('viewObat');
 
-Route::get('/view/supplier', function(){
+Route::get('/view/supplier', function() {
     return view('view.supplier');
 })->name('viewSupplier');
-Route::get('/view/karyawan', function(){
+Route::get('/view/karyawan', function() {
     return view('view.karyawan');
 })->name('viewKaryawan');
 
-Route::get('/view/supplyobat',function(){
+Route::get('/view/supplyobat', function() {
     return view('view.supplyobat');
 })->name('viewSupplyObat');
