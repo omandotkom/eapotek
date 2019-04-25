@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Informasi Supplier adalah sebuah halaman dimana Pemilik Toko akan dapat melihat detail informasi Supplier yang telah be- kerjasama pada E-APOTEK sesuai cabang yang dipilih.</p>
                     </div>
-                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('viewSupplier') }}" class="btn btn-success">Telusuri</a>
                 </div>
                 
                 <div class="card shadow">
@@ -29,7 +29,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Informasi Karyawan adalah sebuah halaman dimana Pemilik Toko akan dapat melihat detail informasi Karyawan yang bekerja di E-APOTEK sesuai cabang yang dipilih.</p>
                     </div>
-                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('viewKaryawan') }}" class="btn btn-success">Telusuri</a>
                 </div>
             </div>
             
@@ -40,7 +40,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Supply Obat adalah sebuah halaman dimana Pemilik Toko akan dapat melihat informasi Obat yang di Supply oleh Supplier pada E-APOTEK sesuai cabang yang dipilih.</p>
                     </div>
-                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('viewSupplyObat') }}" class="btn btn-success">Telusuri</a>
                 </div>
                 
                 <div class="card shadow">
