@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Tambah / Edit Data Supply Obat</div>
+                <div class="card-header">Tambah / Edit Informasi Supply Obat</div>
 
                 <div class="card-body">
                     <form id="formNoteSupply" method="post" action="javascript:void(0)">
@@ -17,26 +17,26 @@
                             </div>
                         </fieldset>
                         <div class="form-group">
-                            <label for="kodeSupplier">Kode Supplier</label>
-                            <select id="kodeSupplier" class="form-control">
+                            <label for="namaCabang">Cabang</label>
+                            <select id="namaCabang" class="form-control col-md-2">
                                 <option selected>Pilih ..</option>
-                                <option value="1">SPL2109</option>
-                                <option value="2">SPL2124</option>
-                                <option value="3">SPL2126</option>
-                                <option value="4">SPL2127</option>
-                                <option value="5">SPL2131</option>
-                                <option value="6">SPL2137</option>
-                            </select>
+                                <option value="1">Bekasi1</option>
+                                <option value="2">Bekasi2</option>
+                                <option value="3">Purwokerto</option>
+                                <option value="4">Yogyakarta</option>
+                            </select> 
                         </div>
                         <div class="form-group">
-                            <label for="kodeCabang">Kode Cabang</label>
-                            <select id="kodeCabang" class="form-control">
+                            <label for="namaSupplier">Supplier</label>
+                            <select id="namaSupplier" class="form-control">
                                 <option selected>Pilih ..</option>
-                                <option value="1">CBG001</option>
-                                <option value="2">CBG002</option>
-                                <option value="3">CBG003</option>
-                                <option value="4">CBG004</option>
-                            </select> 
+                                <option value="1">Adinda Miftahul Ilmi Habiba</option>
+                                <option value="2">Hesa Abda Arrasyid</option>
+                                <option value="3">Khalid Abdurrahman</option>
+                                <option value="4">Lela Sari Kristina</option>
+                                <option value="5">Muhammad Ilham Hijriyanta</option>
+                                <option value="6">Ridwan Risandi</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
@@ -54,7 +54,7 @@
                             <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
                         </div>
                         <script>
-                            
+
                         </script>
                     </form>
                 </div>
