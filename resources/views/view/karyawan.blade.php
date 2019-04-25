@@ -6,97 +6,97 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Lihat Data Obat</div>
+                <div class="card-header">Lihat Informasi Karyawan</div>
                 <!-- tulis kode disini-->
 
                 <!--sampai sini-->
                 <div class="card-body">
                     <form class="form-inline justify-content-center">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                        <input class="form-control form-control-lg w-50" type="text" placeholder="Search" aria-label="Search">
+                        <input class="form-control w-50" type="text" placeholder="Cari Nama Karyawan">
                     </form>
                     <div class="form-group">
-                        <label for="kodeCabang">Kode Cabang</label>
-                        <select id="kodeCabang" class="form-control col-md-2">
-                            <option selected>CBG001</option>
-                            <option value="1">CBG002</option>
-                            <option value="2">CBG003</option>
-                            <option value="3">CBG004</option>
+                        <label for="namaCabang">Cabang</label>
+                        <select id="namaCabang" class="form-control col-md-2">
+                            <option selected>Semua</option>
+                            <option value="1">Bekasi1</option>
+                            <option value="2">Bekasi2</option>
+                            <option value="3">Purwokerto</option>
+                            <option value="4">Yogyakarta</option>
                         </select> 
                     </div>
                     <table class="table table-responsive-lg table-striped">
-                        <thead class="thead text-light bg-success">
+                        <thead class="thead text-light text-center bg-success">
                             <tr>
                                 <th scope="col">No.</th>
-                                <th scope="col">Kode Obat</th>
-                                <th scope="col">Kode Cabang</th>
-                                <th scope="col">Kode Supplier</th>
-                                <th scope="col">Nama Obat</th>
-                                <th scope="col">Satuan</th>
-                                <th scope="col">Stok</th>
-                                <th scope="col">Harga</th>
+                                <th scope="col">Cabang</th>
+                                <th scope="col">NIK</th>
+                                <th scope="col">No. KTP</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Alamat</th>
+                                <th scope="col">No. HP</th>
+                                <th scope="col">Jabatan</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td>BTK01</td>
-                                <td>CBG001</td>
-                                <td>SPL2109</td>
-                                <td>OBH Combi</td>
-                                <td>Larutan</td>
-                                <td>20</td>
-                                <td>Rp 15.000</td>
+                                <td>Bekasi1</td>
+                                <td>16102109</td>
+                                <td>3216102109960009</td>
+                                <td>Adinda Miftahul Ilmi Habiba</td>
+                                <td>Perum. Taman Gading Blok E10 Jl. Pajajaran RT/RW 09/09, Kecamatan Lain, Kabupaten Cilacap, Jawa Tengah - Indonesia 14022</td>
+                                <td>+62 82133155162</td>
+                                <td>Apoteker</td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td>FL01</td>
-                                <td>CBG002</td>
-                                <td>SPL2124</td>
-                                <td>Bodrexin</td>
-                                <td>Tablet</td>
-                                <td>15</td>
-                                <td>Rp 1.000</td>
+                                <td>Bekasi2</td>
+                                <td>16102124</td>
+                                <td>3216102124960009</td>
+                                <td>Hesa Abda Arrasyid</td>
+                                <td>Tawang Sari, Kecamatan Mana, Wonosobo, Jawa Tengah - Indonesia 1200</td>
+                                <td>+62 85729194007</td>
+                                <td>Apoteker</td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td>PSG01</td>
-                                <td>CBG001</td>
-                                <td>SPL2126</td>
-                                <td>Paramex</td>
-                                <td>Kaplet</td>
-                                <td>12</td>
-                                <td>Rp 1.500</td>
+                                <td>Bekasi1</td>
+                                <td>16102126</td>
+                                <td>3216102126960009</td>
+                                <td>Khalid Abdurrahman</td>
+                                <td>Perum. Telaga Harapan Blok D9/4, Kecamatan Cikarang Barat, Kabupaten Bekasi, Jawa Tengah - Indonesia 1945</td>
+                                <td>+62 81393558430</td>
+                                <td>Kepala Cabang</td>
                             </tr>
                             <tr>
                                 <th scope="row">4</th>
-                                <td>PSG01</td>
-                                <td>CBG001</td>
-                                <td>SPL2127</td>
-                                <td>Paramex</td>
-                                <td>Kaplet</td>
-                                <td>12</td>
-                                <td>Rp 1.500</td>
+                                <td>Purwokerto</td>
+                                <td>16102127</td>
+                                <td>3216102127960009</td>
+                                <td>Lela Sari Kristina</td>
+                                <td>Perum. Bandengan Indah A7 RT/RW 01/16, Kecamatan juga, Cilacap, Jawa Tengah - Indonesia 15347</td>
+                                <td>+62 85875104418</td>
+                                <td>Dokter</td>
                             </tr>
                             <tr>
                                 <th scope="row">5</th>
-                                <td>PGL01</td>
-                                <td>CBG004</td>
-                                <td>SPL2131</td>
-                                <td>Koyo</td>
-                                <td>Salep</td>
-                                <td>50</td>
-                                <td>Rp 5.500</td>
+                                <td>Yogyakarta</td>
+                                <td>16102131</td>
+                                <td>3216102131960009</td>
+                                <td>Muhammad Ilham Hijriyanta</td>
+                                <td>Pakajangan Gang 14 No.46 RT/RW 33/12, Kecamatan Kedungwuni, Kabupaten Pekalongan, Jawa Tengah - Indonesia 14045</td>
+                                <td>+62 85600116266</td>
+                                <td>Kasir</td>
                             </tr>
                             <tr>
                                 <th scope="row">6</th>
-                                <td>MTH01</td>
-                                <td>CBG003</td>
-                                <td>SPL2137</td>
-                                <td>Promaag</td>
-                                <td>Puyer</td>
-                                <td>25</td>
-                                <td>Rp 16.500</td>
+                                <td>Purwokerto</td>
+                                <td>16102137</td>
+                                <td>3216063110960009</td>
+                                <td>Ridwan Risandi</td>
+                                <td>Perum. Bumi Sani Permai Blok B7/8 RT/RW 010/014, Kelurahan Setia Mekar, Kecamatan Tambun Selatan, Kabupaten Bekasi, Jawa Barat - Indonesia 17510</td>
+                                <td>+62 89685802629</td>
+                                <td>Kepala Cabang</td>
                             </tr>
                         </tbody>
                     </table>
