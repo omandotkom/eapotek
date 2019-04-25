@@ -6,31 +6,31 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Lihat Data Obat</div>
+                <div class="card-header">Lihat Informasi Obat</div>
                 <!-- tulis kode disini-->
 
                 <!--sampai sini-->
                 <div class="card-body">
                     <form class="form-inline justify-content-center">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                        <input class="form-control form-control-lg w-50" type="text" placeholder="Search" aria-label="Search">
+                        <input class="form-control form-control h-30 w-50" type="text" placeholder="Cari Nama Obat">
                     </form>
                     <div class="form-group">
-                        <label for="kodeCabang">Kode Cabang</label>
-                        <select id="kodeCabang" class="form-control col-md-2">
-                            <option selected>CBG001</option>
-                            <option value="1">CBG002</option>
-                            <option value="2">CBG003</option>
-                            <option value="3">CBG004</option>
+                        <label for="namaCabang">Cabang</label>
+                        <select id="namaCabang" class="form-control col-md-2">
+                            <option selected>Semua</option>
+                            <option value="1">Bekasi1</option>
+                            <option value="2">Bekasi2</option>
+                            <option value="3">Purwokerto</option>
+                            <option value="4">Yogyakarta</option>
                         </select> 
                     </div>
                     <table class="table table-responsive-lg table-striped">
                         <thead class="thead text-light bg-success">
                             <tr>
                                 <th scope="col">No.</th>
-                                <th scope="col">Kode Obat</th>
-                                <th scope="col">Kode Cabang</th>
+                                <th scope="col">Cabang</th>
                                 <th scope="col">Kode Supplier</th>
+                                <th scope="col">Kode Obat</th>
                                 <th scope="col">Nama Obat</th>
                                 <th scope="col">Satuan</th>
                                 <th scope="col">Stok</th>
@@ -40,9 +40,9 @@
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
+                                <td>Bekasi1</td>
+                                <td>SPL2109</td
                                 <td>BTK01</td>
-                                <td>CBG001</td>
-                                <td>SPL2109</td>
                                 <td>OBH Combi</td>
                                 <td>Larutan</td>
                                 <td>20</td>
@@ -50,9 +50,9 @@
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td>FL01</td>
-                                <td>CBG002</td>
+                                <td>Bekasi2</td>
                                 <td>SPL2124</td>
+                                <td>FL01</td>
                                 <td>Bodrexin</td>
                                 <td>Tablet</td>
                                 <td>15</td>
@@ -60,9 +60,9 @@
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td>PSG01</td>
-                                <td>CBG001</td>
+                                <td>Bekasi1</td>
                                 <td>SPL2126</td>
+                                <td>PSG01</td>
                                 <td>Paramex</td>
                                 <td>Kaplet</td>
                                 <td>12</td>
@@ -70,29 +70,29 @@
                             </tr>
                             <tr>
                                 <th scope="row">4</th>
-                                <td>PSG01</td>
-                                <td>CBG001</td>
+                                <td>Purwokerto</td>
                                 <td>SPL2127</td>
-                                <td>Paramex</td>
+                                <td>PSG01</td>
+                                <td>Procold</td>
                                 <td>Kaplet</td>
                                 <td>12</td>
                                 <td>Rp 1.500</td>
                             </tr>
                             <tr>
                                 <th scope="row">5</th>
-                                <td>PGL01</td>
-                                <td>CBG004</td>
+                                <td>Yogyakarta</td>
                                 <td>SPL2131</td>
+                                <td>PGL01</td>
                                 <td>Koyo</td>
-                                <td>Salep</td>
+                                <td>Lainnya</td>
                                 <td>50</td>
                                 <td>Rp 5.500</td>
                             </tr>
                             <tr>
                                 <th scope="row">6</th>
-                                <td>MTH01</td>
-                                <td>CBG003</td>
+                                <td>Purwwokerto</td>
                                 <td>SPL2137</td>
+                                <td>MTH01</td>
                                 <td>Promaag</td>
                                 <td>Puyer</td>
                                 <td>25</td>
