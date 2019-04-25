@@ -59,7 +59,17 @@ Route::get('/absensi', function() {
     return view('absensi.absensi');
 })->name('absensi');
 
-Route::get('/view/obat',function(){
+Route::get('/view/obat', function() {
     return view('view.obat');
 })->name('viewObat');
 
+Route::get('/view/supplier', function(){
+    return view('view.supplier');
+})->name('viewSupplier');
+Route::get('/view/karyawan', function(){
+    return view('view.karyawan');
+})->name('viewKaryawan');
+
+Route::get('/view/supplyobat',function(){
+    return view('view.supplyobat');
+})->name('viewSupplyObat');
