@@ -12,7 +12,7 @@
                 <!--sampai sini-->
                 <div class="card-body">
                     <form class="form-inline justify-content-center">
-                        <input class="form-control form-control h-30 w-50" type="text" placeholder="Cari Nama Obat">
+                        <input class="form-control w-50" type="text" placeholder="Cari Nama Obat">
                     </form>
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
@@ -41,7 +41,7 @@
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Bekasi1</td>
-                                <td>SPL2109</td
+                                <td>SPL2109</td>
                                 <td>BTK01</td>
                                 <td>OBH Combi</td>
                                 <td>Larutan</td>
