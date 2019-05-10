@@ -26,8 +26,8 @@
                             <input type="text" class="form-control" name="namaSupplier" id="namaSupplier" placeholder="--">
                         </div>
                         <div class="form-group">
-                            <label for="kontak">Kontak</label>
-                            <input type="text" class="form-control" name="kontak" id="kontak" placeholder="">
+                            <label for="nomorHP">Nomor HP</label>
+                            <input type="text" class="form-control" name="nomorHP" id="kontak" placeholder="">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
