@@ -25,15 +25,15 @@
                         </select> 
                     </div>
                     <table class="table table-responsive-lg table-striped">
-                        <thead class="thead text-light text-center bg-success">
+                        <thead class="thead text-light bg-success">
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Cabang</th>
                                 <th scope="col">NIK</th>
-                                <th scope="col">No. KTP</th>
+                                <th scope="col">Nomor KTP</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Alamat</th>
-                                <th scope="col">No. HP</th>
+                                <th scope="col">Nomor HP</th>
                                 <th scope="col">Jabatan</th>
                             </tr>
                         </thead>
