@@ -25,13 +25,13 @@
                         </select> 
                     </div>
                     <table class="table table-responsive-lg table-striped">
-                        <thead class="thead text-light text-center bg-success">
+                        <thead class="thead text-light bg-success">
                             <tr>
-                                <th scope="col" class="text-center">No.</th>
+                                <th scope="col">No.</th>
                                 <th scope="col">Cabang</th>
-                                <th scope="col">Kode Supplier</th>
-                                <th scope="col">Nama Supplier</th>
-                                <th scope="col">Kontak</th>
+                                <th scope="col">Kode</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Nomor HP</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Lokasi</th>
                             </tr>
