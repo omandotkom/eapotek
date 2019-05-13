@@ -1,19 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<body class="bg-dark">
-        <div class="container pt-4 mr-5">
+<body style="background-image: url('img/dashboard/owner/Login.jpeg');background-size: cover;">
+    <div class="container pt-4 mr-5">
             <div class="row">
                 <div class="col">
-                    <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdataobat.png') }} alt="Card image cap">
+                    <img class="card-img-overlay" src="" alt="">
                 </div>
-                <div class="col-5 bg-success">
-                    <div class="card bg-transparent border-0 pt-5">
-                    </div>
-                    <div class="card bg-transparent border-0 pt-4">
-                    </div>
-                    <div class="card-body pt-5">
-                        <h2 class="card-title text-center text-uppercase font-weight-bold py-4 text-white">{{ __('Login') }}</h2>
+                <div class="col-5">
+                    <div class="card-body pt-3">
+                        <h1 class="card-body text-center text-white text-uppercase font-weight-bold py-5">{{ __('Login') }}</h1>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
@@ -49,7 +45,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-2">
-                                    <button type="submit" class="btn btn-light text-success font-weight-bold">
+                                    <button type="submit" class="btn btn-light btn-lg text-success">
                                         {{ __('Login') }}
                                     </button>
 
