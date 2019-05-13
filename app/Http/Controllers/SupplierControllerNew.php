@@ -31,13 +31,23 @@ class SupplierControllerNew extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        return Supplier::create([
+       /* return Supplier::create([
             'branch_id' => $request['branch_id'],
             'nama' => $request['nama'],
             'alamat' => $request['alamat'],
             'telepon' => $request['telepon'],
             'email' => $request['email'],
-        ]);
+        ]);*/
+        $supplier = new Supplier;
+        $supplier->branch_id = $request->branch_id;
+        $supplier->nama = $request->nama;
+        $supplier->alamat = $request->alamat;
+        $supplier->telepon = $request->telepon;
+        $supplier->email = $request->email;
+        $supplier->save();
+        return Response::json([
+                    'action' => 'save_supplier'
+                        ], 201); // Status code here
     }
 
     /**
