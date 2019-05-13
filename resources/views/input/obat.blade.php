@@ -71,7 +71,7 @@
                                         }
                                     });
                                     $("#send_form").html('Menyimpan...');
-                                    axios.post('https://homestead.test/input/obat/store', {
+                                    axios.post('http://homestead.test/input/obat/store', {
                                         id: jQuery('#kodeObat').val(),
                                         id_medicine: jQuery('#kodeObat').val(),
                                         branch_id: '{{$cabang->id}}',
