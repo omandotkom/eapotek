@@ -16,10 +16,10 @@
                                 <input type="text" id="namaCabang" value="{{$cabang->nama}}" class="form-control" placeholder="Disabled input">
                             </div>
                         </fieldset>
-                        <div class="form-group">
+                       <!-- <div class="form-group">
                             <label for="kodeSupplier">Kode Supplier</label>
                             <input type="text" class="form-control" name="kodeSupplier" id="kodeSupplier" placeholder="--">
-                        </div>
+                        </div>-->
 
                         <div class="form-group">
                             <label for="namaSupplier">Nama Supplier</label>
@@ -44,7 +44,7 @@
                             async function onSubmitClicked() {
 
                                 $("#send_form").html('Menyimpan...');
-                                axios.post('http://homestead.test/supplier/store', {
+                                axios.post('https://homestead.test/supplier/store', {
                                     branch_id: '{{$cabang->id}}',
                                     nama: jQuery('#namaSupplier').val(),
                                     alamat: jQuery('#lokasi').val(),
@@ -53,10 +53,30 @@
 
                                 })
                                         .then(function (response) {
+                                            toastr.options = {
+                                                "closeButton": false,
+                                                "debug": false,
+                                                "newestOnTop": false,
+                                                "progressBar": false,
+                                                "positionClass": "toast-top-center",
+                                                "preventDuplicates": false,
+                                                "onclick": null,
+                                                "showDuration": "300",
+                                                "hideDuration": "1000",
+                                                "timeOut": "5000",
+                                                "extendedTimeOut": "1000",
+                                                "showEasing": "swing",
+                                                "hideEasing": "linear",
+                                                "showMethod": "fadeIn",
+                                                "hideMethod": "fadeOut"
+                                            };
+                                            Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
+
                                             console.log(response);
                                             $("#send_form").html('Simpan');
                                         })
                                         .catch(function (error) {
+                                            toastr.error("Gagal menyimpan data", "Kesalahan");
                                             $("#send_form").html('Simpan');
                                             console.log(error);
                                         });
