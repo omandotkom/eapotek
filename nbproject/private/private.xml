@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/eapotek/resources/views/dashboard/dashbranchhead.blade.php</file>
-            <file>file:/C:/xampp/htdocs/eapotek/resources/views/view/supplier.blade.php</file>
-            <file>file:/C:/xampp/htdocs/eapotek/resources/views/view/supplyobat.blade.php</file>
-            <file>file:/C:/xampp/htdocs/eapotek/resources/views/auth/login.blade.php</file>
-            <file>file:/C:/xampp/htdocs/eapotek/resources/views/dashboard/dashowner.blade.php</file>
-            <file>file:/C:/xampp/htdocs/eapotek/resources/views/view/karyawan.blade.php</file>
-            <file>file:/C:/xampp/htdocs/eapotek/resources/views/dashboard/dashbranchworker.blade.php</file>
-            <file>file:/C:/xampp/htdocs/eapotek/resources/views/view/obat.blade.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
