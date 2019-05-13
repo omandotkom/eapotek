@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Branch;
 use App\Supplier;
 use Illuminate\Support\Facades\Auth;
-
+use Response;
 class SupplierController extends Controller {
 
     public function showInputSupplierView() {
