@@ -44,7 +44,7 @@
                             async function onSubmitClicked() {
 
                                 $("#send_form").html('Menyimpan...');
-                                axios.post('https://homestead.test/supplier/store', {
+                                axios.post('http://homestead.test/supplier/store', {
                                     branch_id: '{{$cabang->id}}',
                                     nama: jQuery('#namaSupplier').val(),
                                     alamat: jQuery('#lokasi').val(),
