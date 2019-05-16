@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Transaksi adalah sebuah kegiatan yang dilakukan oleh Karyawan (bagian Kasir) guna mendata atau memasukan informasi penjualan Obat di E-APOTEK sesuai permintaan konsumen.</p>
                     </div>
-                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('transactionAdd') }}" class="btn btn-success">Telusuri</a>
                 </div>
                 
                 <div class="card shadow">
