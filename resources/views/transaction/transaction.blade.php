@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Tambah / Edit Informasi Supplier</div>
+                <div class="card-header">Transaksi</div>
 
                 <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
@@ -15,74 +15,153 @@
                             <div class="form-group">
                                 <label for="namaCabang">Cabang</label>
                                 <input type="text" id="namaCabang" value="{{$cabang->nama}}" class="form-control" placeholder="Disabled input">
+                </div>
+                </fieldset>
+                --}}
+                <div class="form-row">
+                    <fieldset disabled> 
+                        <div class="form-group ml-1 mr-2">
+                            <label for="kodeTransaksi">Kode Transaksi</label>
+                            <input type="text" class="form-control" id="kodeTransaksi">
+                        </div>
+                    </fieldset>
+                    <fieldset disabled>
+                        <div class="form-group mr-1">
+                            <label for="tanggalTransaksi">Tanggal</label>
+                            <input type="text" class="form-control" id="tanggalTransaksi">
+                        </div>
+                    </fieldset>
+                    <div class="form-group col-md-4">
+                        <label for="namaObat">Nama Obat</label>
+                        <input type="text" class="form-control" id="namaObat" placeholder="OBH Combine">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label for="jumlah">Jumlah</label>
+                        <input type="text" class="form-control" id="jumlah" placeholder="ex:10">
+                    </div>
+                    <div class="form-group col-md-1 pt-2 ml-3">
+                        <label></label>
+                        <button type="submit" onclick="onSubmitClicked();" id="add_form" class="btn btn-outline-success">Tambah</button>
+                    </div>
+                </div>
+                <table class="table table-responsive-lg table-striped">
+                    <thead class="thead text-light bg-success">
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Tangal</th>
+                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>                        
+                    </tbody>
+                </table>
+                <fieldset disabled> 
+                    <div class="form-group row offset-7">
+                        <label for="totalBiaya" class="col-sm-4 col-form-label">Total</label>
+                        <div class="input-group col-sm-8">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Rp</span>
                             </div>
-                        </fieldset>
-                        --}}
-                        <div class="form-group">
-                            <label for="namaSupplier">Nama Supplier</label>
-                            <input type="text" class="form-control" name="namaSupplier" id="namaSupplier" placeholder="--">
+                            <input type="text" class="form-control" id="totalBiaya" aria-label="totalBiaya" aria-describedby="basic-addon1">
                         </div>
-                        <div class="form-group">
-                            <label for="nomorHP">Nomor HP</label>
-                            <input type="text" class="form-control" name="nomorHP" id="kontak" placeholder="">
+                    </div>
+                </fieldset>
+                <div class="form-group row offset-7">
+                    <label for="jumlahBayar" class="col-sm-4 col-form-label">Jumlah Bayar</label>
+                    <div class="input-group col-sm-8">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon2">Rp</span>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="">
+                        <input type="text" class="form-control" id="jumlahBayar" aria-label="jumlahBayar" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <fieldset disabled>
+                    <div class="form-group row offset-7">
+                        <label for="sisa" class="col-sm-4 col-form-label">Sisa</label>
+                        <div class="input-group col-sm-8">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3">Rp</span>
                         </div>
-                        <div class="form-group">
-                            <label for="lokasi">Lokasi</label>
-                            <textarea class="form-control" id="lokasi" name="lokasi" rows="3"></textarea>
+                            <input type="text" class="form-control" id="sisa" aria-label="sisa" aria-describedby="basic-addon3">
                         </div>
-                        <div class="text-right">
-                            <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
-                        </div>
-                        {{--<script>
+                    </div>
+                </fieldset>
+                <div class="text-right">
+                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Cetak</button>
+                </div>
+                {{--<script>
                             async function onSubmitClicked() {
 
                                 $("#send_form").html('Menyimpan...');
                                 axios.post('http://homestead.test/supplier/store', {
                                     branch_id: '{{$cabang->id}}',
-                                    nama: jQuery('#namaSupplier').val(),
-                                    alamat: jQuery('#lokasi').val(),
-                                    telepon: jQuery('#kontak').val(),
-                                    email: jQuery('#email').val()
+                nama: jQuery('#namaSupplier').val(),
+                alamat: jQuery('#lokasi').val(),
+                telepon: jQuery('#kontak').val(),
+                email: jQuery('#email').val()
 
-                                })
-                                        .then(function (response) {
-                                            toastr.options = {
-                                                "closeButton": false,
-                                                "debug": false,
-                                                "newestOnTop": false,
-                                                "progressBar": false,
-                                                "positionClass": "toast-top-center",
-                                                "preventDuplicates": false,
-                                                "onclick": null,
-                                                "showDuration": "300",
-                                                "hideDuration": "1000",
-                                                "timeOut": "5000",
-                                                "extendedTimeOut": "1000",
-                                                "showEasing": "swing",
-                                                "hideEasing": "linear",
-                                                "showMethod": "fadeIn",
-                                                "hideMethod": "fadeOut"
-                                            };
-                                            Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
+                })
+                .then(function (response) {
+                toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+                };
+                Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
 
-                                            console.log(response);
-                                            $("#send_form").html('Simpan');
-                                        })
-                                        .catch(function (error) {
-                                            toastr.error("Gagal menyimpan data", "Kesalahan");
-                                            $("#send_form").html('Simpan');
-                                            console.log(error);
-                                        });
-                            }
-                        </script>--}}
-                    </form>
-                </div>
+                console.log(response);
+                $("#send_form").html('Simpan');
+                })
+                .catch(function (error) {
+                toastr.error("Gagal menyimpan data", "Kesalahan");
+                $("#send_form").html('Simpan');
+                console.log(error);
+                });
+                }
+                </script>--}}
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
