@@ -12,30 +12,19 @@
                     <form id="formNoteSupply" method="post" action="javascript:void(0)">
                         <fieldset disabled>
                             <div class="form-group">
-                                <label for="kodeNoteSupply">Kode Note Supply</label>
-                                <input type="text" class="form-control" id="kodeNoteSupply" placeholder="NS001">
+                                <label for="namaCabang">Cabang</label>
+                                <input type="text" id="namaCabang" value="{{$cabang->nama}}" class="form-control" placeholder="Disabled input">
                             </div>
                         </fieldset>
-                        <div class="form-group">
-                            <label for="namaCabang">Cabang</label>
-                            <select id="namaCabang" class="form-control col-md-2">
-                                <option selected>Pilih ..</option>
-                                <option value="1">Bekasi1</option>
-                                <option value="2">Bekasi2</option>
-                                <option value="3">Purwokerto</option>
-                                <option value="4">Yogyakarta</option>
-                            </select> 
-                        </div>
+
                         <div class="form-group">
                             <label for="namaSupplier">Supplier</label>
                             <select id="namaSupplier" class="form-control">
                                 <option selected>Pilih ..</option>
-                                <option value="1">Adinda Miftahul Ilmi Habiba</option>
-                                <option value="2">Hesa Abda Arrasyid</option>
-                                <option value="3">Khalid Abdurrahman</option>
-                                <option value="4">Lela Sari Kristina</option>
-                                <option value="5">Muhammad Ilham Hijriyanta</option>
-                                <option value="6">Ridwan Risandi</option>
+                                @foreach($suppliers as $sp)
+                                <option value="{{$sp->id}}">{{$sp->nama}}</option>
+                                @endforeach
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -48,13 +37,52 @@
                         </div>
                         <div class="form-group">
                             <label for="tanggalSupply">Tanggal</label>
-                            <input type="date" id="inputMDEx" class="form-control">
+                            <input type="date" id="tanggal" class="form-control">
                         </div>
                         <div class="text-right">
                             <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
                         </div>
                         <script>
+                            async function onSubmitClicked() {
 
+                                $("#send_form").html('Menyimpan...');
+                                axios.post('http://homestead.test/input/supplyobat/store', {
+                                    branch_id: '{{$cabang->id}}',
+                                    supplier_id: jQuery('#namaSupplier').val(),
+                                    deskripsi: jQuery('#deskripsi').val(),
+                                    totalbiaya: jQuery('#totalBiaya').val(),
+                                    tanggalsupply: jQuery('#tanggal').val()
+
+                                })
+                                        .then(function (response) {
+                                            toastr.options = {
+                                                "closeButton": false,
+                                                "debug": false,
+                                                "newestOnTop": false,
+                                                "progressBar": false,
+                                                "positionClass": "toast-top-center",
+                                                "preventDuplicates": false,
+                                                "onclick": null,
+                                                "showDuration": "300",
+                                                "hideDuration": "1000",
+                                                "timeOut": "5000",
+                                                "extendedTimeOut": "1000",
+                                                "showEasing": "swing",
+                                                "hideEasing": "linear",
+                                                "showMethod": "fadeIn",
+                                                "hideMethod": "fadeOut"
+                                            };
+                                            Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
+
+                                            console.log(response);
+                                            $("#send_form").html('Simpan');
+                                        })
+                                        .catch(function (error) {
+                                            toastr.error("Gagal menyimpan data", "Kesalahan");
+                                            $("#send_form").html('Simpan');
+                                            console.log(error);
+                                        });
+                            }
                         </script>
                     </form>
                 </div>
