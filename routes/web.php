@@ -40,9 +40,8 @@ Route::post('/input/obat/store', 'MedicineController@store')->name('storeObat');
   return view('input.supplier');
   })->name('inputSupplier'); */
 Route::get('/input/supplier', 'SupplierController@showInputSupplierView')->name('inputSupplier');
-Route::get('/input/karyawan', function() {
-    return view('input.karyawan');
-})->name('inputKaryawan');
+Route::get('/input/karyawan', 'WorkerController@showWorkerView' )->name('inputKaryawan');
+Route::post('/input/karyawan/store','WorkerController@store');
 Route::get('/input/supplyobat', 'NoteSupplierController@showNoteSupplierView')->name('inputSupplyObat');
 Route::post('/input/supplyobat/store','NoteSupplierController@store');
 Route::post('/supplier', function() {
