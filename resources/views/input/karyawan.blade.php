@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.logged')
 
 @section('content')
 
@@ -10,28 +10,24 @@
 
                 <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
-                        <div class="form-group">
-                            <label for="namaCabang">Cabang</label>
-                            <select id="namaCabang" class="form-control col-md-2">
-                                <option selected>Pilih ..</option>
-                                <option value="1">Bekasi1</option>
-                                <option value="2">Bekasi2</option>
-                                <option value="3">Purwokerto</option>
-                                <option value="4">Yogyakarta</option>
-                            </select> 
-                        </div>
+                        <fieldset disabled>
+                            <div class="form-group">
+                                <label for="namaCabang">Cabang</label>
+                                <input type="text" id="namaCabang" value="{{$cabang->nama}}" class="form-control" placeholder="Disabled input">
+                            </div>
+                        </fieldset>
                         <div class="form-group">
                             <label for="nomorKTP">Nomor KTP</label>
-                            <input type="text" class="form-control" name="nomorKTP" id="kontak" placeholder="321xxxxxxxxxxxxx">
+                            <input type="text" class="form-control" name="nomorKTP" id="noktp" placeholder="321xxxxxxxxxxxxx">
                         </div>
                         <div class="form-group">
                             <label for="nik">NIK</label>
-                            <input type="text" class="form-control" name="nik" id="kontak" placeholder="16102126">
+                            <input type="text" class="form-control" name="nik" id="nik" placeholder="16102126">
                         </div>
 
                         <div class="form-group">
                             <label for="nama">Nama Lengkap</label>
-                            <input type="text" class="form-control" name="nama" id="kontak" placeholder="Khalid Abdurrahman">
+                            <input type="text" class="form-control" name="nama" id="namalengkap" placeholder="Khalid Abdurrahman">
                             <div class="invalid-feedback">Harus di isi!</div>
                         </div>
                         <div class="form-group">
@@ -39,12 +35,8 @@
                             <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Lengkap beserta kecamatan, kabupaten, provinsi hingga kode pos"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="nomorHP">Nomor HP</label>
-                            <input type="text" class="form-control" name="nomorHP" id="kontak" placeholder="+62 xxxxxxxxxxx">
-                        </div>
-                        <div class="form-group">
                             <label for="kodeJabatan">Jabatan</label>
-                            <select id="kodeCabang" class="form-control">
+                            <select id="position_id" class="form-control">
                                 <option selected>Pilih ..</option>
                                 <option value="1">Kepala Cabang</option>
                                 <option value="2">Kasir</option>
@@ -56,6 +48,47 @@
                             <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
                         </div>
                         <script>
+                            async function onSubmitClicked() {
+
+                                $("#send_form").html('Menyimpan...');
+                                axios.post('http://homestead.test/input/karyawan/store', {
+                                    nik : jQuery('#nik').val(),
+                                    branch_id: '{{$cabang->id}}',
+                                    position_id: jQuery('#position_id').val(),
+                                    nama: jQuery('#namalengkap').val(),
+                                    alamat: jQuery('#alamat').val(),
+                                    noktp: jQuery('#noktp').val()
+
+                                })
+                                        .then(function (response) {
+                                            toastr.options = {
+                                                "closeButton": false,
+                                                "debug": false,
+                                                "newestOnTop": false,
+                                                "progressBar": false,
+                                                "positionClass": "toast-top-center",
+                                                "preventDuplicates": false,
+                                                "onclick": null,
+                                                "showDuration": "300",
+                                                "hideDuration": "1000",
+                                                "timeOut": "5000",
+                                                "extendedTimeOut": "1000",
+                                                "showEasing": "swing",
+                                                "hideEasing": "linear",
+                                                "showMethod": "fadeIn",
+                                                "hideMethod": "fadeOut"
+                                            };
+                                            Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
+
+                                            console.log(response);
+                                            $("#send_form").html('Simpan');
+                                        })
+                                        .catch(function (error) {
+                                            toastr.error("Gagal menyimpan data", "Kesalahan");
+                                            $("#send_form").html('Simpan');
+                                            console.log(error);
+                                        });
+                            }
 
                         </script>
                     </form>
