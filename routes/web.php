@@ -43,9 +43,8 @@ Route::get('/input/supplier', 'SupplierController@showInputSupplierView')->name(
 Route::get('/input/karyawan', function() {
     return view('input.karyawan');
 })->name('inputKaryawan');
-Route::get('/input/supplyobat', function() {
-    return view('input.supplyobat');
-})->name('inputSupplyObat');
+Route::get('/input/supplyobat', 'NoteSupplierController@showNoteSupplierView')->name('inputSupplyObat');
+Route::post('/input/supplyobat/store','NoteSupplierController@store');
 Route::post('/supplier', function() {
     $data = $request->all();
     $supplier = new Supplier($data);
