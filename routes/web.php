@@ -54,10 +54,8 @@ Route::get('/supplier/branch/{branch_id}', 'SupplierController@showSupplierByBra
 
 Route::post('/supplier/store', 'SupplierController@store');
 
-Route::get('/absensi', function() {
-    return view('absensi.absensi');
-})->name('absensi');
-
+Route::get('/absensi', 'AttendanceController@showAttendanceView')->name('absensi');
+Route::post('/absensi/store','AttendanceController@store');
 Route::get('/view/obat', function() {
     return view('view.obat');
 })->name('viewObat');
