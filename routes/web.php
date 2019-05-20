@@ -60,9 +60,7 @@ Route::get('/view/obat', function() {
     return view('view.obat');
 })->name('viewObat');
 
-Route::get('/view/supplier', function() {
-    return view('view.supplier');
-})->name('viewSupplier');
+Route::get('/view/supplier', 'SupplierController@showAllSupplier')->name('viewSupplier');
 Route::get('/view/karyawan', function() {
     return view('view.karyawan');
 })->name('viewKaryawan');
