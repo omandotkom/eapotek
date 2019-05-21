@@ -29,11 +29,9 @@
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col">Cabang</th>
-                                <th scope="col">Kode</th>
+                                <th scope="col">Kode Supplier</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Nomor HP</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Lokasi</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -46,10 +44,7 @@
                                 <td>{{$s->branch->nama}}</td>
                                 <td>{{$s->id}}</td>
                                 <td>{{$s->nama}}</td>
-                                <td>{{$s->telepon}}</td>
-                                <td>{{$s->email}}</td>
-                                <td>{{$s->alamat}}</td>
-                            </tr>
+                                </tr>
                             @endforeach
 
                         </tbody>
