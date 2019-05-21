@@ -2,6 +2,30 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/NoteSupplier.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Supplier.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/view/supplier.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/dashboard/dashbranchworker.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/absensi/absensi.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/MedicineController.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Medicine.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/supplier.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/AttendanceController.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/karyawan.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/supplyobat.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/SupplierController.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/NoteSupplierController.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Branch.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Worker.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/input/obat.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Http/Controllers/WorkerController.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/User.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/app/Attendance.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/routes/web.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/database/migrations/2019_05_17_125423_create_attendances_table.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/view/supplyobat.blade.php</file>
+            <file>file:/home/omandotkom/Pemrograman/laravel/eapotek/resources/views/view/karyawan.blade.php</file>
+        </group>
     </open-files>
 </project-private>

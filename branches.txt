@@ -1,0 +1,25 @@
+      DB::table('branches')->insert([
+            'nik' => '16102126',
+            'nama' => 'K-24 JEND. SUDIRMAN',
+            'alamat' => 'JL. JEND. SOEDIRMAN NO. 259 PURWOKERTO',
+        ]);
+
+	      DB::table('branches')->insert([
+            'nik' => '16102126',
+            'nama' => 'K-24 JEND. SUDIRMAN',
+            'alamat' => 'JL. JEND. SOEDIRMAN NO. 259 PURWOKERTO',
+        ]);
+
+
+      DB::table('branches')->insert([
+            'nik' => '16102126',
+            'nama' => 'K-24 JEND. SUDIRMAN',
+            'alamat' => 'JL. JEND. SOEDIRMAN NO. 259 PURWOKERTO',
+        ]);
+
+
+      DB::table('branches')->insert([
+            'nik' => '16102126',
+            'nama' => 'K-24 JEND. SUDIRMAN',
+            'alamat' => 'JL. JEND. SOEDIRMAN NO. 259 PURWOKERTO',
+        ]);

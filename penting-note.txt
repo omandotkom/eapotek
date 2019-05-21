@@ -1,0 +1,22 @@
+view Supplier
+detil supplier
+1. Kode
+2. Cabang
+3. Nama Supplier
+4. Nomer telp
+5. Email
+6. Alamat
+7. Terakhir supply
+
+view Obat
+--sequence diagram hapus detil 
+
+view Karyawan
+detil karyawan
+-no ktp
+-alamat
+-hp
+
+view SupplyObat
+detil Supply
+-deskripsi
