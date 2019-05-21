@@ -27,11 +27,10 @@
                     <table class="table table-responsive-lg table-striped">
                         <thead class="thead text-light bg-success">
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Cabang</th>
                                 <th scope="col">Kode Supplier</th>
+                                <th scope="col">Cabang</th>
                                 <th scope="col">Nama</th>
-                                
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,11 +39,11 @@
                             @endphp
                             @foreach($suppliers as $s)
                             <tr>
-                                <th scope="row">{{$cnt+=1}}</th>
+                                <th scope="row">{{$s->id}}</th>
                                 <td>{{$s->branch->nama}}</td>
-                                <td>{{$s->id}}</td>
                                 <td>{{$s->nama}}</td>
-                                </tr>
+                                <td><button type="button" class="btn btn-success btn-sm">Detail</button></td>
+                            </tr>
                             @endforeach
 
                         </tbody>
