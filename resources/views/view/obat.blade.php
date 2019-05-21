@@ -18,32 +18,35 @@
                         <label for="namaCabang">Cabang</label>
                         <select id="namaCabang" class="form-control col-md-2">
                             <option selected>Semua</option>
-                            <option value="1">Bekasi1</option>
-                            <option value="2">Bekasi2</option>
-                            <option value="3">Purwokerto</option>
-                            <option value="4">Yogyakarta</option>
+                            @foreach($branches as $b)
+                            <option value="{{$b->id}}">{{$b->nama}}</option>
+                            @endforeach
                         </select> 
                     </div>
                     <table class="table table-responsive-lg table-striped">
                         <thead class="thead text-light bg-success">
                             <tr>
-                                <th scope="col">Cabang</th>
                                 <th scope="col">Kode Obat</th>
+                                <th scope="col">Cabang</th>
                                 <th scope="col">Nama Obat</th>
-                                <th scope="col">Satuan</th>
                                 <th scope="col">Stok</th>
+                                <th scope="col">Harga</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                             @foreach($medicines as $s)
                             <tr>
-                                <th scope="row">Bekasi1</th>
-                                <td>BTK01</td>
-                                <td>OBH Combi</td>
-                                <td>Larutan</td>
-                                <td>20</td>
+                                <td>{{$s->id}}</td>
+                                <td>{{$s->branch->nama}}</td>
+                                <td>{{$s->namaobat}}</td>
+                                <td>{{$s->satuan}}</td>
+                                <td>Rp. {{$s->harga}}</td>
                                 <td><button type="button" class="btn btn-success btn-sm">Detail</button></td>
                             </tr>
+                            @endforeach
+
+                            
                         </tbody>
                     </table>
 
