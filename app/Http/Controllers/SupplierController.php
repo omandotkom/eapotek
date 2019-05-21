@@ -46,7 +46,8 @@ class SupplierController extends Controller {
     public function showAllSupplier(){
         $suppliers = Supplier::with('branch')->simplePaginate(10);
         //$suppliers = DB::table("suppliers")->simplePaginate(10);
-        return view('view.supplier',['suppliers' => $suppliers]);
+        $branches = Branch::all();
+        return view('view.supplier',['suppliers' => $suppliers,'branches'=>$branches]);
     }
     
 }
