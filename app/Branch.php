@@ -10,4 +10,7 @@ class Branch extends Model
     public function suppliers(){
         return $this->hasMany('Supplier');
     }
+    public function medicines(){
+        return $this->hasMany('Medicine');
+    }
 }
