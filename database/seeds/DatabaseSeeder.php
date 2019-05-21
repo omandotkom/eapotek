@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
              User_Table_Seeder::class,
              BranchSeeder::class,
              MedicineTableSeeder::class,
+             SupplierTableSeeder::class
     ]);
     }
 }
