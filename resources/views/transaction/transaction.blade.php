@@ -62,23 +62,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><button type="button" class="btn btn-success btn-sm">Delete</button></td>
                         </tr>                        
                     </tbody>
                 </table>
