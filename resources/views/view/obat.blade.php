@@ -27,76 +27,22 @@
                     <table class="table table-responsive-lg table-striped">
                         <thead class="thead text-light bg-success">
                             <tr>
-                                <th scope="col">No.</th>
                                 <th scope="col">Cabang</th>
-                                <th scope="col">Kode Supplier</th>
                                 <th scope="col">Kode Obat</th>
                                 <th scope="col">Nama Obat</th>
                                 <th scope="col">Satuan</th>
                                 <th scope="col">Stok</th>
-                                <th scope="col">Harga</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Bekasi1</td>
-                                <td>SPL2109</td>
+                                <th scope="row">Bekasi1</th>
                                 <td>BTK01</td>
                                 <td>OBH Combi</td>
                                 <td>Larutan</td>
                                 <td>20</td>
-                                <td>Rp 15.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Bekasi2</td>
-                                <td>SPL2124</td>
-                                <td>FL01</td>
-                                <td>Bodrexin</td>
-                                <td>Tablet</td>
-                                <td>15</td>
-                                <td>Rp 1.000</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Bekasi1</td>
-                                <td>SPL2126</td>
-                                <td>PSG01</td>
-                                <td>Paramex</td>
-                                <td>Kaplet</td>
-                                <td>12</td>
-                                <td>Rp 1.500</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Purwokerto</td>
-                                <td>SPL2127</td>
-                                <td>PSG01</td>
-                                <td>Procold</td>
-                                <td>Kaplet</td>
-                                <td>12</td>
-                                <td>Rp 1.500</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Yogyakarta</td>
-                                <td>SPL2131</td>
-                                <td>PGL01</td>
-                                <td>Koyo</td>
-                                <td>Lainnya</td>
-                                <td>50</td>
-                                <td>Rp 5.500</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Purwwokerto</td>
-                                <td>SPL2137</td>
-                                <td>MTH01</td>
-                                <td>Promaag</td>
-                                <td>Puyer</td>
-                                <td>25</td>
-                                <td>Rp 16.500</td>
+                                <td><button type="button" class="btn btn-success btn-sm">Detail</button></td>
                             </tr>
                         </tbody>
                     </table>
