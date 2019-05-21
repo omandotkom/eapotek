@@ -27,20 +27,20 @@
                     <table class="table table-responsive-lg table-striped">
                         <thead class="thead text-light bg-success">
                             <tr>
-                                <th scope="col">No.</th>
                                 <th scope="col">Cabang</th>
                                 <th scope="col">NIK</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Jabatan</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Bekasi1</td>
+                                <th scope="row">Bekasi1</th>
                                 <td>16102109</td>
                                 <td>Adinda Miftahul Ilmi Habiba</td>
                                 <td>Apoteker</td>
+                                <td><button type="button" class="btn btn-success btn-sm">Detail</button></td>
                             </tr>
                             
                         </tbody>
