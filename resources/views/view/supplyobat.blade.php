@@ -27,22 +27,22 @@
                     <table class="table table-responsive-lg table-striped">
                         <thead class="thead text-light bg-success">
                             <tr>
-                                <th scope="col">No.</th>
                                 <th scope="col">Kode Note</th>
                                 <th scope="col">Cabang</th>
                                 <th scope="col">Supplier</th>
                                 <th scope="col">Total Biaya</th>
                                 <th scope="col">Tanggal</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>NS001</td>
+                                <th scope="row">NS001</th>
                                 <td>Bekasi</td>
                                 <td>Adinda Miftahul Ilmi Habiba</td>
                                 <td>Rp 1.500.000</td>
                                 <td>26/04/2019</td>
+                                <td><button type="button" class="btn btn-success btn-sm">Detail</button></td>
                             </tr>
                             
                         </tbody>
