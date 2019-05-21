@@ -32,5 +32,13 @@ class MedicineController extends Controller {
                     'code' => 'storeMedicine'
         ]);
     }
+    public function showAllMedicine(){
+        $medicines = Medicine::with('branch')->simplePaginate(10);
+        //$suppliers = DB::table("suppliers")->simplePaginate(10);
+        $branches = Branch::all();
+        return view('view.obat',['medicines' => $medicines,'branches'=>$branches]);
+    
+    }
+    
 
 }
