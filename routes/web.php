@@ -59,9 +59,7 @@ Route::post('/absensi/store','AttendanceController@store');
 Route::get('/view/obat', 'MedicineController@showAllMedicine')->name('viewObat');
 
 Route::get('/view/supplier', 'SupplierController@showAllSupplier')->name('viewSupplier');
-Route::get('/view/karyawan', function() {
-    return view('view.karyawan');
-})->name('viewKaryawan');
+Route::get('/view/karyawan', 'WorkerController@showAllWorker')->name('viewKaryawan');
 
 Route::get('/view/supplyobat', function() {
     return view('view.supplyobat');
