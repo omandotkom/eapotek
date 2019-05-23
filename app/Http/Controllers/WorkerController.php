@@ -28,5 +28,12 @@ class WorkerController extends Controller {
                     'action' => 'save_worker'
                         ], 201); // Status code here
     }
+    public function showAllWorker(){
+        $workers = Worker::with('branch','position')->simplePaginate(10);
+        //$suppliers = DB::table("suppliers")->simplePaginate(10);
+        $branches = Branch::all();
+        return view('view.karyawan',['workers' => $workers,'branches'=>$branches]);
+    }
+    
 
 }
