@@ -18,10 +18,9 @@
                         <label for="namaCabang">Cabang</label>
                         <select id="namaCabang" class="form-control col-md-2">
                             <option selected>Semua</option>
-                            <option value="1">Bekasi1</option>
-                            <option value="2">Bekasi2</option>
-                            <option value="3">Purwokerto</option>
-                            <option value="4">Yogyakarta</option>
+                            @foreach($branches as $b)
+                            <option value="{{$b->id}}">{{$b->nama}}</option>
+                            @endforeach
                         </select> 
                     </div>
                     <table class="table table-responsive-lg table-striped">
@@ -35,17 +34,20 @@
                             </tr>
                         </thead>
                         <tbody>
+                                @foreach($workers as $s)
                             <tr>
-                                <th scope="row">Bekasi1</th>
-                                <td>16102109</td>
-                                <td>Adinda Miftahul Ilmi Habiba</td>
-                                <td>Apoteker</td>
+                                <td>{{$s->branch->nama}}</td>
+                                <td>{{$s->nik}}</td>
+                                <td>{{$s->nama}}</td>
+                                <td>{{$s->position->nama}}</td>
+                                
                                 <td><button type="button" class="btn btn-success btn-sm">Detail</button></td>
                             </tr>
-                            
+                            @endforeach
+
                         </tbody>
                     </table>
-
+                    {{$workers->links()}}
                 </div>
             </div>
         </div>
