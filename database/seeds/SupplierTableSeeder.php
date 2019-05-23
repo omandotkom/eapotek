@@ -16,7 +16,7 @@ class SupplierTableSeeder extends Seeder {
 
             DB::table('suppliers')->insert([
                 'branch_id' => $faker->numberBetween($min = 1, $max = 4),
-                'nama' => 'CV. ' . ucwords($faker->unique()->word),
+                'nama' => 'CV. ' .$faker->company,
                 'alamat' => $faker->address,
                 'telepon' => $faker->phoneNumber,
                 'email' => $faker->companyEmail,
