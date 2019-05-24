@@ -7,7 +7,8 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Transaksi</div>
-
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+                
                 <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
                         {{-- bagian branch, sedang dikerjakan
@@ -22,13 +23,13 @@
                     <fieldset disabled> 
                         <div class="form-group ml-1 mr-2">
                             <label for="kodeTransaksi">Kode Transaksi</label>
-                            <input type="text" class="form-control" id="kodeTransaksi">
+                            <input type="text" class="form-control" value='{{$hash}}' id="kodeTransaksi">
                         </div>
                     </fieldset>
                     <fieldset disabled>
                         <div class="form-group mr-1">
                             <label for="tanggalTransaksi">Tanggal</label>
-                            <input type="text" class="form-control" id="tanggalTransaksi">
+                            <input type="text" value='{{ date("Y-m-d") }}' class="form-control" id="tanggalTransaksi">
                         </div>
                     </fieldset>
                     <div class="form-group col-md-4">
