@@ -49,7 +49,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Penentuan Gaji adalah sebuah kegiatan penetapan yang dilakukan oleh Pemilik Toko guna mengatur be- saran gaji Karyawan di setiap cabang E-APOTEK sesuai jabatannya.</p>
                     </div>
-                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('inputSalary') }}" class="btn btn-success">Telusuri</a>
                 </div>
                 
                 <div class="card shadow">
