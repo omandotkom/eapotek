@@ -68,3 +68,5 @@ Route::get('/view/supplyobat', function() {
 Route::get('/transaction/add',function(){
     return view('transaction.transaction');
 })->name("transactionAdd");
+
+Route::get('/input/salary', 'SalaryController@showSalaryInputView')->name('inputSalary');
