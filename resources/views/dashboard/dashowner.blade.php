@@ -47,7 +47,7 @@
                     <h4 class="card-header text-center pb-2">Penentuan Gaji</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/penentuangaji.png') }} alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text text-justify">Penentuan Gaji adalah sebuah kegiatan peng- kalkulasian yang dilakukan oleh Pemilik Toko guna mengatur besaran gaji Karyawan di setiap cabang E-APOTEK.</p>
+                        <p class="card-text text-justify">Penentuan Gaji adalah sebuah kegiatan penetapan yang dilakukan oleh Pemilik Toko guna mengatur be- saran gaji Karyawan di setiap cabang E-APOTEK sesuai jabatannya.</p>
                     </div>
                     <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
                 </div>
