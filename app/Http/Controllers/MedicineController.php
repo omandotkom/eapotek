@@ -39,6 +39,10 @@ class MedicineController extends Controller {
         return view('view.obat',['medicines' => $medicines,'branches'=>$branches]);
     
     }
+    public function byBranchID($branch_id){
+        $medicines = Medicine::where('branch_id',$branch_id)->simplePaginate(10);
+        return response()->json($medicines,200);
+    }
     
 
 }
