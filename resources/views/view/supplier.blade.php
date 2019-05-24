@@ -29,7 +29,8 @@
                             <tr>
                                 <th scope="col">Kode Supplier</th>
                                 <th scope="col">Cabang</th>
-                                <th scope="col">Nama</th>
+                                <th scope="col">Nama Supplier</th>
+                                <th scope="col">Nomor HP</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -42,6 +43,7 @@
                                 <th scope="row">{{$s->id}}</th>
                                 <td>{{$s->branch->nama}}</td>
                                 <td>{{$s->nama}}</td>
+                                <td>{{$s->telepon}}</td>
                                 <td><button type="button" class="btn btn-success btn-sm">Detail</button></td>
                             </tr>
                             @endforeach
