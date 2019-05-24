@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Transaksi</div>
+                <div class="card-header">Penentuan Gaji</div>
 
                 <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
@@ -18,87 +18,111 @@
                 </div>
                 </fieldset>
                 --}}
-                <div class="form-row">
-                    <fieldset disabled> 
-                        <div class="form-group ml-1 mr-2">
-                            <label for="kodeTransaksi">Kode Transaksi</label>
-                            <input type="text" class="form-control" id="kodeTransaksi">
+
+                <div class="form-group">
+                    <label for="namaCabang">Cabang</label>
+                    <select id="namaCabang" class="form-control col-md-2">
+                        <option selected>Pilih ..</option>
+
+                        <option value=""></option>
+
+                    </select> 
+                </div>
+                <div class="form-group row">
+                    <h5 class="font-weight-bold col-sm-3">JABATAN</h5>
+                    <h5 class="font-weight-bold col-sm-4">GAJI POKOK</h5>
+                </div>
+                <div class="form-group row">
+                    <label for="branchHead" class="col-sm-3 col-form-label">Kepala Cabang</label>
+                    <div class="input-group col-sm-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="rp">Rp</span>
                         </div>
-                    </fieldset>
-                    <fieldset disabled>
-                        <div class="form-group mr-1">
-                            <label for="tanggalTransaksi">Tanggal</label>
-                            <input type="text" class="form-control" id="tanggalTransaksi">
-                        </div>
-                    </fieldset>
-                    <div class="form-group col-md-4">
-                        <label for="namaObat">Nama Obat</label>
-                        <input type="text" class="form-control" id="namaObat" placeholder="OBH Combine">
-                    </div>
-                    <div class="form-group col-md-1">
-                        <label for="jumlah">Jumlah</label>
-                        <input type="text" class="form-control" id="jumlah" placeholder="ex:10">
-                    </div>
-                    <div class="form-group col-md-1 pt-2 ml-3">
-                        <label></label>
-                        <button type="submit" onclick="onSubmitClicked();" id="add_form" class="btn btn-outline-success">Tambah</button>
+                        <input type="text" class="form-control" name="brancHead" id="branchHead" aria-label="branchHead" aria-describedby="rp">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="dokter" class="col-sm-3 col-form-label">Dokter</label>
+                    <div class="input-group col-sm-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="rp">Rp</span>
+                        </div>
+                        <input type="text" class="form-control" name="dokter" id="dokter" aria-label="dokter" aria-describedby="rp">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="apoteker" class="col-sm-3 col-form-label">Apoteker</label>
+                    <div class="input-group col-sm-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="rp">Rp</span>
+                        </div>
+                        <input type="text" class="form-control" name="apoteker" id="apoteker" aria-label="apoteker" aria-describedby="rp">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="kasir" class="col-sm-3 col-form-label">Kasir</label>
+                    <div class="input-group col-sm-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="rp">Rp</span>
+                        </div>
+                        <input type="text" class="form-control" name="kasir" id="kasir" aria-label="kasir" aria-describedby="rp">
+                    </div>
+                </div>
+
                 <table class="table table-responsive-lg table-striped">
                     <thead class="thead text-light bg-success">
                         <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Tangal</th>
-                            <th scope="col">Nama Barang</th>
-                            <th scope="col">Jumlah</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col">Jabatan</th>
+                            <th scope="col">Gaji Pokok</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-success btn-sm">Delete</button></td>
-                        </tr>                        
+                            <th scope="row">Kepala Cabang</th>
+                            <td><div class="input-group col-sm-auto">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="rp">Rp</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="brancHead" id="branchHead" aria-label="branchHead" aria-describedby="rp">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Dokter</th>
+                            <td><div class="input-group col-sm-auto">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="rp">Rp</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="dokter" id="dokter" aria-label="dokter" aria-describedby="rp">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Apoteker</th>
+                            <td><div class="input-group col-sm-auto">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="rp">Rp</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="apoteker" id="apoteker" aria-label="apoteker" aria-describedby="rp">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Kasir</th>
+                            <td><div class="input-group col-sm-auto">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="rp">Rp</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="kasir" id="kasir" aria-label="kasir" aria-describedby="rp">
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
-                <fieldset disabled> 
-                    <div class="form-group row offset-7">
-                        <label for="totalBiaya" class="col-sm-4 col-form-label">Total</label>
-                        <div class="input-group col-sm-8">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Rp</span>
-                            </div>
-                            <input type="text" class="form-control" id="totalBiaya" aria-label="totalBiaya" aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                </fieldset>
-                <div class="form-group row offset-7">
-                    <label for="jumlahBayar" class="col-sm-4 col-form-label">Jumlah Bayar</label>
-                    <div class="input-group col-sm-8">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon2">Rp</span>
-                        </div>
-                        <input type="text" class="form-control" id="jumlahBayar" aria-label="jumlahBayar" aria-describedby="basic-addon2">
-                    </div>
-                </div>
-                <fieldset disabled>
-                    <div class="form-group row offset-7">
-                        <label for="sisa" class="col-sm-4 col-form-label">Sisa</label>
-                        <div class="input-group col-sm-8">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon3">Rp</span>
-                        </div>
-                            <input type="text" class="form-control" id="sisa" aria-label="sisa" aria-describedby="basic-addon3">
-                        </div>
-                    </div>
-                </fieldset>
                 <div class="text-right">
-                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Cetak</button>
+                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success mr-2">Simpan</button>                
+                    <button type="submit" onclick="onSubmitClicked();" id="edit_form" class="btn btn-outline-success mr-2">Edit</button>                
+                    <button type="submit" onclick="onSubmitClicked();" id="delete_form" class="btn btn-outline-success mr-2">Delete</button>
                 </div>
                 {{--<script>
                             async function onSubmitClicked() {
