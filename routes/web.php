@@ -68,3 +68,5 @@ Route::get('/view/supplyobat', function() {
 Route::get('/transaction/add','TransactionController@showTransactionPage')->name("transactionAdd");
 
 Route::get('/input/salary', 'SalaryController@showSalaryInputView')->name('inputSalary');
+
+Route::get('/view/obat/branch/{branch_id}','MedicineController@byBranchID');
