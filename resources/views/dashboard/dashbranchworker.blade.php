@@ -13,7 +13,7 @@
                     <h4 class="card-header text-center pb-2">Transaksi</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdataobat.png') }} alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text text-justify">Transaksi adalah sebuah kegiatan yang dilakukan oleh Karyawan (bagian Kasir) guna mendata atau memasukan informasi penjualan Obat di E-APOTEK sesuai permintaan konsumen.</p>
+                        <p class="card-text text-justify">Transaksi adalah sebuah kegiatan yang dilakukan oleh Karyawan (bagian Kasir) guna mendata atau me- masukan informasi penjualan Obat di E-APOTEK sesuai permintaan konsumen.</p>
                     </div>
                     <a href="{{ route('transactionAdd') }}" class="btn btn-success">Telusuri</a>
                 </div>
