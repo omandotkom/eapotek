@@ -1,4 +1,4 @@
-view Supplier
+view Supplier (tinggal 7)
 detil supplier
 1. Kode
 2. Cabang
@@ -11,7 +11,7 @@ detil supplier
 view Obat
 --sequence diagram hapus detil 
 
-view Karyawan
+view Karyawan (done)
 detil karyawan
 -no ktp
 -alamat
