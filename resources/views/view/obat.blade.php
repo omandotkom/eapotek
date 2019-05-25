@@ -16,7 +16,7 @@
                     </form>
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
-                        <select onchange="$('#content').remove();" id="namaCabang" class="form-control col-md-2">
+                        <select onchange="updateTable('#content');" id="namaCabang" class="form-control col-md-2">
                             <option selected>Semua</option>
                             @foreach($branches as $b)
                             <option value="{{$b->id}}">{{$b->nama}}</option>
@@ -32,7 +32,7 @@
                                     <th scope="col">Nama Obat</th>
                                     <th scope="col">Stok</th>
                                     <th scope="col">Harga</th>
-                                    <th scope="col">Aksi</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,9 +43,9 @@
                                     <td>{{$s->namaobat}}</td>
                                     <td>{{$s->satuan}}</td>
                                     <td>Rp. {{$s->harga}}</td>
-                                    <td><button type="button" class="btn btn-success btn-sm">Detail</button></td>
-                                </tr>
-                                @endforeach
+                           
+                            </tr>
+                            @endforeach
 
 
                             </tbody>
