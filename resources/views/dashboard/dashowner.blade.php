@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Informasi Supplier adalah sebuah halaman dimana Pemilik Toko akan dapat melihat detail informasi Supplier yang telah be- kerjasama pada E-APOTEK sesuai cabang yang dipilih.</p>
                     </div>
-                    <a href="{{ route('viewSupplier') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('viewSupplier',0) }}" class="btn btn-success">Telusuri</a>
                 </div>
                 
                 <div class="card shadow">
