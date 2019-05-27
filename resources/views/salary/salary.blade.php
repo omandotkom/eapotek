@@ -18,56 +18,16 @@
                 </div>
                 </fieldset>
                 --}}
+<div class="form-group">
+                        <label for="namaCabang">Cabang</label>
+                        <select id="namaCabang" class="form-control col-md-2">
+                            <option selected>Semua</option>
+                            @foreach($branches as $b)
+                            <option value="{{$b->id}}">{{$b->nama}}</option>
+                            @endforeach
+                        </select> 
+                    </div>
 
-                <div class="form-group">
-                    <label for="namaCabang">Cabang</label>
-                    <select id="namaCabang" class="form-control col-md-2">
-                        <option selected>Pilih ..</option>
-
-                        <option value=""></option>
-
-                    </select> 
-                </div>
-                <div class="form-group row">
-                    <h5 class="font-weight-bold col-sm-3">JABATAN</h5>
-                    <h5 class="font-weight-bold col-sm-4">GAJI POKOK</h5>
-                </div>
-                <div class="form-group row">
-                    <label for="branchHead" class="col-sm-3 col-form-label">Kepala Cabang</label>
-                    <div class="input-group col-sm-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="rp">Rp</span>
-                        </div>
-                        <input type="text" class="form-control" name="brancHead" id="branchHead" aria-label="branchHead" aria-describedby="rp">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="dokter" class="col-sm-3 col-form-label">Dokter</label>
-                    <div class="input-group col-sm-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="rp">Rp</span>
-                        </div>
-                        <input type="text" class="form-control" name="dokter" id="dokter" aria-label="dokter" aria-describedby="rp">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="apoteker" class="col-sm-3 col-form-label">Apoteker</label>
-                    <div class="input-group col-sm-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="rp">Rp</span>
-                        </div>
-                        <input type="text" class="form-control" name="apoteker" id="apoteker" aria-label="apoteker" aria-describedby="rp">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="kasir" class="col-sm-3 col-form-label">Kasir</label>
-                    <div class="input-group col-sm-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="rp">Rp</span>
-                        </div>
-                        <input type="text" class="form-control" name="kasir" id="kasir" aria-label="kasir" aria-describedby="rp">
-                    </div>
-                </div>
 
                 <table class="table table-responsive-lg table-striped">
                     <thead class="thead text-light bg-success">
@@ -121,9 +81,7 @@
                 </table>
                 <div class="text-right">
                     <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success mr-2">Simpan</button>                
-                    <button type="submit" onclick="onSubmitClicked();" id="edit_form" class="btn btn-outline-success mr-2">Edit</button>                
-                    <button type="submit" onclick="onSubmitClicked();" id="delete_form" class="btn btn-outline-success mr-2">Delete</button>
-                </div>
+                    </div>
                 {{--<script>
                             async function onSubmitClicked() {
 
