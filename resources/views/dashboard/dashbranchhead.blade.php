@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.logged')
 
 @section('content')
 <div class="container">
@@ -41,7 +41,7 @@
                          <div class="card-body">
                         <p class="card-text text-justify">Cetak Slip Gaji adalah sebuah kegiatan pencetakan data yang dilakukan oleh Kepala Cabang berupa selembar kertas yang berisi catatan rincian gaji yang akan diperoleh Karyawan setelah bekerja.</p>
                     </div>
-                    <a href="#" class="btn btn-success">Telusuri</a>
+                    <a href="{{route('slipGaji')}}" class="btn btn-success">Telusuri</a>
                 </div>
 
                 <div class="card shadow">
