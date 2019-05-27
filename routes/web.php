@@ -50,7 +50,7 @@ Route::post('/supplier', function() {
     $result = $transaction->isValid();
     echo $result;
 })->name('storeSupplier');
-Route::get('/supplier/branch/{branch_id}', 'SupplierController@showSupplierByBranch')->name('getSupplierbyBranchID');
+//Route::get('/supplier/branch/{branch_id}', 'SupplierController@showSupplierbyBranch')->name('getSupplierbyBranchID');
 
 Route::post('/supplier/store', 'SupplierController@store');
 
@@ -58,7 +58,8 @@ Route::get('/absensi', 'AttendanceController@showAttendanceView')->name('absensi
 Route::post('/absensi/store','AttendanceController@store');
 Route::get('/view/obat', 'MedicineController@showAllMedicine')->name('viewObat');
 
-Route::get('/view/supplier', 'SupplierController@showAllSupplier')->name('viewSupplier');
+//Route::get('/view/supplier', 'SupplierController@showAllSupplier')->name('viewSupplier');
+Route::get('/view/supplier/branch/{branch_id}','SupplierController@showSupplierbyBranch')->name('viewSupplier');
 Route::get('/view/karyawan', 'WorkerController@showAllWorker')->name('viewKaryawan');
 
 Route::get('/view/supplyobat', function() {
