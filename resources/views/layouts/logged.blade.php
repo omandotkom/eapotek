@@ -28,7 +28,7 @@
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-light navbar-laravel bg-success">
                 <div class="container">
-                    <a class="navbar-brand text-white" href="{{ __('Dashboard') }}">
+                    <a class="navbar-brand text-white" href="{{route('dashboard')}}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
 
@@ -39,10 +39,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
-                            </li>
-
+                           
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inputObat') }}">{{ __('Obat') }}</a>
                             </li>
@@ -58,11 +55,6 @@
                                 
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inputKaryawan') }}">{{ __('Karyawan') }}</a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('dashboard') }}">{{ __('Informasi Supply') }}</a>
                             </li>
 
                         </ul>
