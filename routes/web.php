@@ -70,3 +70,5 @@ Route::get('/transaction/add','TransactionController@showTransactionPage')->name
 Route::get('/input/salary', 'SalaryController@showSalaryInputView')->name('inputSalary');
 
 Route::get('/view/obat/branch/{branch_id}','MedicineController@byBranchID');
+
+Route::get('/view/slipgaji','SalaryController@showCetakSlipGajiView')->name('slipGaji');
