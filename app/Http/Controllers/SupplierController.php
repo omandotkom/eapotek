@@ -8,6 +8,7 @@ use App\Supplier;
 use Illuminate\Support\Facades\Auth;
 use Response;
 use DB;
+
 class SupplierController extends Controller {
 
     public function showInputSupplierView() {
@@ -23,12 +24,12 @@ class SupplierController extends Controller {
       echo $result;
       } */
 
-    public function showSupplierByBranch(Request $request) {
-        $supplier = Supplier::where('branch_id', $request->branch_id)
-                ->orderBy('nama', 'asc')
-                ->get();
-        return (string) $supplier;
-    }
+    /* public function showSupplierByBranch(Request $request) {
+      $supplier = Supplier::where('branch_id', $request->branch_id)
+      ->orderBy('nama', 'asc')
+      ->get();
+      return (string) $supplier;
+      } */
 
     public function store(Request $request) {
         $supplier = new Supplier;
@@ -42,12 +43,21 @@ class SupplierController extends Controller {
                     'action' => 'save_supplier'
                         ], 201); // Status code here
     }
-    
-    public function showAllSupplier(){
-        $suppliers = Supplier::with('branch')->simplePaginate(10);
-        //$suppliers = DB::table("suppliers")->simplePaginate(10);
-        $branches = Branch::all();
-        return view('view.supplier',['suppliers' => $suppliers,'branches'=>$branches]);
+
+    public function showSupplierbyBranch($branch_id) {
+        if ($branch_id == 0) {
+            //default value is all item
+            $suppliers = Supplier::with('branch')->simplePaginate(10);
+            //$suppliers = DB::table("suppliers")->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.supplier', ['suppliers' => $suppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        } else {
+            //means its not default
+
+            $suppliers = Supplier::where('branch_id', $branch_id)->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.supplier', ['suppliers' => $suppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        }
     }
-    
+
 }
