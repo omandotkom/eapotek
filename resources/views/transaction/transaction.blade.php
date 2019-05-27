@@ -20,12 +20,12 @@
                 </fieldset>
                 --}}
                 <div class="form-row">
-                    <fieldset disabled> 
+                   {{--fieldset disabled> 
                         <div class="form-group ml-1 mr-2">
                             <label for="kodeTransaksi">Kode Transaksi</label>
                             <input type="text" class="form-control" value='{{$hash}}' id="kodeTransaksi">
                         </div>
-                    </fieldset>
+                    </fieldset>--}}
                     <fieldset disabled>
                         <div class="form-group mr-1">
                             <label for="tanggalTransaksi">Tanggal</label>
