@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Branch;
 use Illuminate\Http\Request;
 
 class SalaryController extends Controller
 {
     public function showSalaryInputView(){
-        return view('salary.salary');
-    }
+        $branches = Branch::all();
+        return view('salary.salary',['branches'=>$branches]);
+    
+         }
 }
