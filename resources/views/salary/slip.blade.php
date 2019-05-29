@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Penentuan Gaji</div>
+                <div class="card-header">Slip Gaji</div>
 
                 <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
@@ -16,72 +16,183 @@
                                 <label for="namaCabang">Cabang</label>
                                 <input type="text" id="namaCabang" value="{{$cabang->nama}}" class="form-control" placeholder="Disabled input">
                 </div>
+                </fieldset>--}}
+                <div class="row">
+                    <div class="col-md-6">
+                        <fieldset disabled>
+                            <div class="form-group col-md-6">
+                                <label for="tanggalTransaksi">Tanggal</label>
+                                <input type="text" value='{{ date("Y-m-d") }}' class="form-control" id="tanggalTransaksi">
+                            </div>
+                        </fieldset>
+                        <div class="form-row">
+                            <div class="form-group ml-3">
+                                <label for="periode">Periode</label>
+                                <input type="date" id="periode" class="form-control">
+                            </div>
+
+                            <div class="form-group mx-3 pt-4">
+                                <label> _ </label>
+                            </div>
+                            <div class="form-group pt-2">
+                                <label></label>
+                                <input type="date" id="periodend" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group col-md-6">
+                            <label for="nik">NIK</label>
+                            <select id="nik" class="form-control">
+                                <option selected>Pilih</option>
+                                @foreach($branches as $b)
+                                <option value="{{$b->id}}">{{$b->nik}}</option>
+                                @endforeach
+                            </select> 
+                        </div>
+                        <fieldset disabled>
+                            <div class="form-group col-md-auto">
+                                <label for="nama">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama">
+                            </div>
+                        </fieldset>
+                        <fieldset disabled>
+                            <div class="form-group col-md-6">
+                                <label for="jabatan">Jabatan</label>
+                                <input type="text" class="form-control" id="jabatan">
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-responsive-lg table-striped">
+                            <thead class="thead text-light bg-success">
+                                <tr class="bg-secondary">
+                                    <th scope="col">ABSENSI</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Keterangan</th>
+                                    <th scope="col">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hari Masuk</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Hari Absen</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Lainnya</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">                        
+                        <table class="table table-responsive-lg table-striped">
+                            <thead class="thead text-light bg-success">
+                                <tr class="bg-secondary">
+                                    <th scope="col">PENDAPATAN</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Keterangan</th>
+                                    <th scope="col">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Gaji Pokok</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Lembur</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon2">Rp</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="lembur" aria-label="lembur" aria-describedby="basic-addon2">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>THR</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Lainnya</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table class="table table-responsive-lg table-striped">
+                            <thead class="thead text-light bg-success">
+                                <tr class="bg-secondary">
+                                    <th scope="col">POTONGAN</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Keterangan</th>
+                                    <th scope="col">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pinjaman</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon2">Rp</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="jumlahBayar" aria-label="jumlahBayar" aria-describedby="basic-addon2">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Hutang</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon2">Rp</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="hutang" aria-label="hutang" aria-describedby="basic-addon2">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lainnya</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon2">Rp</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="lainnya" aria-label="lainnya" aria-describedby="basic-addon2">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <fieldset disabled> 
+                    <div class="form-group row offset-7">
+                        <label for="totalBiaya" class="col-sm-4 col-form-label">Total</label>
+                        <div class="input-group col-sm-8">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Rp</span>
+                            </div>
+                            <input type="text" class="form-control" id="totalBiaya" aria-label="totalBiaya" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
                 </fieldset>
-                --}}
-<div class="form-group">
-                        <label for="namaCabang">Cabang</label>
-                        <select id="namaCabang" class="form-control col-md-2">
-                            <option selected>Semua</option>
-                            @foreach($branches as $b)
-                            <option value="{{$b->id}}">{{$b->nama}}</option>
-                            @endforeach
-                        </select> 
-                    </div>
-
-
-                <table class="table table-responsive-lg table-striped">
-                    <thead class="thead text-light bg-success">
-                        <tr>
-                            <th scope="col">Jabatan</th>
-                            <th scope="col">Gaji Pokok</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Kepala Cabang</th>
-                            <td><div class="input-group col-sm-auto">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="rp">Rp</span>
-                                    </div>
-                                    <input type="text" class="form-control" name="brancHead" id="branchHead" aria-label="branchHead" aria-describedby="rp">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Dokter</th>
-                            <td><div class="input-group col-sm-auto">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="rp">Rp</span>
-                                    </div>
-                                    <input type="text" class="form-control" name="dokter" id="dokter" aria-label="dokter" aria-describedby="rp">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Apoteker</th>
-                            <td><div class="input-group col-sm-auto">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="rp">Rp</span>
-                                    </div>
-                                    <input type="text" class="form-control" name="apoteker" id="apoteker" aria-label="apoteker" aria-describedby="rp">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Kasir</th>
-                            <td><div class="input-group col-sm-auto">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="rp">Rp</span>
-                                    </div>
-                                    <input type="text" class="form-control" name="kasir" id="kasir" aria-label="kasir" aria-describedby="rp">
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
                 <div class="text-right">
-                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success mr-2">Simpan</button>                
-                    </div>
+                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>                
+                </div>
                 {{--<script>
                             async function onSubmitClicked() {
 
