@@ -16,7 +16,7 @@
                     </form>
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
-                        <select id="namaCabang" class="form-control col-md-2">
+                        <select id="namaCabang" class="form-control col-md-3">
                             <option selected>Semua</option>
                             <option value="1">Bekasi1</option>
                             <option value="2">Bekasi2</option>
