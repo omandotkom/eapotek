@@ -27,7 +27,7 @@
                         </div>
                     </fieldset>--}}
                     <fieldset disabled>
-                        <div class="form-group mr-1">
+                        <div class="form-group mx-1">
                             <label for="tanggalTransaksi">Tanggal</label>
                             <input type="text" value='{{ date("Y-m-d") }}' class="form-control" id="tanggalTransaksi">
                         </div>
@@ -40,7 +40,7 @@
                         <label for="jumlah">Jumlah</label>
                         <input type="text" class="form-control" id="jumlah" placeholder="ex:10">
                     </div>
-                    <div class="form-group col-md-1 pt-2 ml-3">
+                    <div class="form-group col-md-1 pt-2 ml-4">
                         <label></label>
                         <button type="submit" onclick="onSubmitClicked();" id="add_form" class="btn btn-outline-success">Tambah</button>
                     </div>
