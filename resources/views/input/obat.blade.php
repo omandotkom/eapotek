@@ -59,9 +59,9 @@
                             <input type="text" class="form-control" id="stokObat" placeholder="">
                         </div>
                         <div class="text-right">
-                            <button type="submit"  id="send_form" class="btn btn-outline-success">Simpan</button>
-                            <button type="submit" onclick="onSubmitClicked();" id="edit_form" class="btn btn-outline-success mr-2">Edit</button>                
-                            <button type="submit" onclick="onSubmitClicked();" id="delete_form" class="btn btn-outline-success mr-2">Delete</button>
+                            <button type="submit"  id="send_form" class="btn btn-outline-success mr-2">Simpan</button>
+                            <button type="submit" onclick="onSubmitClicked();" id="edit_form" class="btn btn-outline-info mr-2">Edit</button>                
+                            <button type="submit" onclick="onSubmitClicked();" id="delete_form" class="btn btn-outline-danger">Delete</button>
                         </div>
                         <script>
                             jQuery(document).ready(function () {
