@@ -15,12 +15,11 @@
                             <div class="form-group">
                                 <label for="namaCabang">Cabang</label>
                                 <input type="text" id="namaCabang" value="{{$cabang->nama}}" class="form-control" placeholder="Disabled input">
-                </div>
-                </fieldset>
-                --}}
-<div class="form-group">
+                            </div>
+                        </fieldset>--}}
+                    <div class="form-group">
                         <label for="namaCabang">Cabang</label>
-                        <select id="namaCabang" class="form-control col-md-2">
+                        <select id="namaCabang" class="form-control col-md-3">
                             <option selected>Semua</option>
                             @foreach($branches as $b)
                             <option value="{{$b->id}}">{{$b->nama}}</option>
@@ -34,54 +33,23 @@
                         <tr>
                             <th scope="col">Jabatan</th>
                             <th scope="col">Gaji Pokok</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Kepala Cabang</th>
-                            <td><div class="input-group col-sm-auto">
+                            <th scope="row"></th>
+                            <td><div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="rp">Rp</span>
                                     </div>
                                     <input type="text" class="form-control" name="brancHead" id="branchHead" aria-label="branchHead" aria-describedby="rp">
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Dokter</th>
-                            <td><div class="input-group col-sm-auto">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="rp">Rp</span>
-                                    </div>
-                                    <input type="text" class="form-control" name="dokter" id="dokter" aria-label="dokter" aria-describedby="rp">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Apoteker</th>
-                            <td><div class="input-group col-sm-auto">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="rp">Rp</span>
-                                    </div>
-                                    <input type="text" class="form-control" name="apoteker" id="apoteker" aria-label="apoteker" aria-describedby="rp">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Kasir</th>
-                            <td><div class="input-group col-sm-auto">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="rp">Rp</span>
-                                    </div>
-                                    <input type="text" class="form-control" name="kasir" id="kasir" aria-label="kasir" aria-describedby="rp">
-                                </div>
-                            </td>
+                            <td><button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button></td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="text-right">
-                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success mr-2">Simpan</button>                
-                    </div>
                 {{--<script>
                             async function onSubmitClicked() {
 
