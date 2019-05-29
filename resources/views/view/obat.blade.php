@@ -16,7 +16,7 @@
                     </form>
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
-                        <select onchange="updateTable('#content');" id="namaCabang" class="form-control col-md-2">
+                        <select onchange="updateTable('#content');" id="namaCabang" class="form-control col-md-3">
                             <option selected>Semua</option>
                             @foreach($branches as $b)
                             <option value="{{$b->id}}">{{$b->nama}}</option>
