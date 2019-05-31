@@ -35,5 +35,20 @@ class WorkerController extends Controller {
         return view('view.karyawan',['workers' => $workers,'branches'=>$branches]);
     }
     
+      public function showWorkerbyBranch($branch_id){
+        if ($branch_id == 0) {
+            //default value is all item
+            $workers = Worker::with('branch')->simplePaginate(10);
+            //$suppliers = DB::table("suppliers")->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.karyawan', ['workers' => $workers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        } else {
+            //means its not default
+
+            $workers = Worker::where('branch_id', $branch_id)->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.karyawan', ['workers' => $workers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        }
+    }
 
 }

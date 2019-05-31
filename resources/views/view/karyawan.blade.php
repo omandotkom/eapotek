@@ -16,11 +16,20 @@
                     </form>
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
-                        <select id="namaCabang" class="form-control col-md-3">
-                            <option selected>Semua</option>
+                        <select onchange="onBranchChanged('worker', document.getElementById('namaCabang').value);"  id="namaCabang" class="form-control col-md-3">
+                            <option value="0">Semua</option>
                             @foreach($branches as $b)
+                            @if($b->id==$branch_id){
+                            <option value="{{$b->id}}" selected>{{$b->nama}}</option>
+
+                            }@else{
                             <option value="{{$b->id}}">{{$b->nama}}</option>
+
+                            }
+                            @endif
+
                             @endforeach
+
                         </select> 
                     </div>
                     <table class="table table-responsive-lg table-striped">

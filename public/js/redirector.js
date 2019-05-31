@@ -13,6 +13,8 @@ function onBranchChanged(type, branch_id) {
         case "medicine" : 
             window.location = "http://homestead.test/view/obat/branch/" + branch_id;
             break;
-
+        case "worker" :
+            window.location = "http://homestead.test/view/karyawan/branch/" + branch_id;
+            break;
     }
 }

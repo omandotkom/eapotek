@@ -117,7 +117,8 @@ Route::get('/view/slipgaji','SalaryController@showCetakSlipGajiView')->name('sli
     Route::get('/view/obat/branch/{branch_id}','MedicineController@showSupplierbyBranch')->name('viewObat');
 
     Route::get('/input/karyawan', 'WorkerController@showWorkerView' )->name('inputKaryawan');
-    Route::get('/view/karyawan', 'WorkerController@showAllWorker')->name('viewKaryawan');
+    //Route::get('/view/karyawan', 'WorkerController@showAllWorker')->name('viewKaryawan');
+    Route::get('/view/karyawan/branch/{branch_id}','WorkerController@showWorkerbyBranch')->name('viewKaryawan');
     Route::post('/input/karyawan/store','WorkerController@store');
 
     Route::get('/input/supplyobat', 'NoteSupplierController@showNoteSupplierView')->name('inputSupplyObat');
