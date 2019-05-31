@@ -39,9 +39,20 @@ class MedicineController extends Controller {
         return view('view.obat',['medicines' => $medicines,'branches'=>$branches]);
     
     }
-    public function byBranchID($branch_id){
-        $medicines = Medicine::where('branch_id',$branch_id)->simplePaginate(10);
-        return response()->json($medicines,200);
+    public function showSupplierbyBranch($branch_id){
+        if ($branch_id == 0) {
+            //default value is all item
+            $medicines = Medicine::with('branch')->simplePaginate(10);
+            //$suppliers = DB::table("suppliers")->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.obat', ['medicines' => $medicines, 'branches' => $branches, 'branch_id' => $branch_id]);
+        } else {
+            //means its not default
+
+            $medicines = Medicine::where('branch_id', $branch_id)->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.obat', ['medicines' => $medicines, 'branches' => $branches, 'branch_id' => $branch_id]);
+        }
     }
     
 

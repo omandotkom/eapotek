@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 
-function onBranchChanged(type,branch_id){
-    switch(type){
+function onBranchChanged(type, branch_id) {
+    switch (type) {
         case "supplier" :
-            if (branch_id > 0){
-                //if the value is not "Semua"
-                 window.location = "http://homestead.test/view/supplier/branch/"+branch_id;
-            }
-            break
+            //if the value is not "Semua"
+            window.location = "http://homestead.test/view/supplier/branch/" + branch_id;
+            break;
+        case "medicine" : 
+            window.location = "http://homestead.test/view/obat/branch/" + branch_id;
+            break;
+
     }
 }
