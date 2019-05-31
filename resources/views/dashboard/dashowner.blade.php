@@ -40,7 +40,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Supply Obat adalah sebuah halaman dimana Pemilik Toko akan dapat melihat informasi Obat yang di Supply oleh Supplier pada E-APOTEK sesuai cabang yang dipilih.</p>
                     </div>
-                    <a href="{{ route('viewSupplyObat') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('viewSupplyObat',0) }}" class="btn btn-success">Telusuri</a>
                 </div>
                 
                 <div class="card shadow">

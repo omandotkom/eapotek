@@ -10,11 +10,15 @@ function onBranchChanged(type, branch_id) {
             //if the value is not "Semua"
             window.location = "http://homestead.test/view/supplier/branch/" + branch_id;
             break;
-        case "medicine" : 
+        case "medicine" :
             window.location = "http://homestead.test/view/obat/branch/" + branch_id;
             break;
         case "worker" :
             window.location = "http://homestead.test/view/karyawan/branch/" + branch_id;
             break;
+        case "notesupplier" :
+            window.location = "http://homestead.test/view/supplyobat/branch/" + branch_id;
+            break;
+
     }
 }

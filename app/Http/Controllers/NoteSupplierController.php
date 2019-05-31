@@ -29,5 +29,19 @@ class NoteSupplierController extends Controller {
                     'action' => 'save_supplynote'
                         ], 201); // Status code here
     }
+    public function showNoteSupplierbyBranch($branch_id){
+        if ($branch_id == 0) {
+            //default value is all item
+            $NoteSuppliers = NoteSupplier::with('branch')->simplePaginate(10);
+            //$suppliers = DB::table("suppliers")->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.supplyobat', ['notesuppliers' => $NoteSuppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        } else {
+            //means its not default
+            $NoteSuppliers = NoteSupplier::where('branch_id', $branch_id)->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.supplyobat', ['notesuppliers' => $NoteSuppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        }
+    }
 
 }

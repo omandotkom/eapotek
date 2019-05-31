@@ -122,9 +122,7 @@ Route::get('/view/slipgaji','SalaryController@showCetakSlipGajiView')->name('sli
     Route::post('/input/karyawan/store','WorkerController@store');
 
     Route::get('/input/supplyobat', 'NoteSupplierController@showNoteSupplierView')->name('inputSupplyObat');
-    Route::get('/view/supplyobat', function() {
-        return view('view.supplyobat');
-    })->name('viewSupplyObat');
+    Route::get('/view/supplyobat/branch/{branch_id}', 'NoteSupplierController@showNoteSupplierbyBranch')->name('viewSupplyObat');
     Route::post('/input/supplyobat/store','NoteSupplierController@store');
 
     Route::post('/absensi/store','AttendanceController@store');
