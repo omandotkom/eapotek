@@ -11,9 +11,7 @@
 
                 <!--sampai sini-->
                 <div class="card-body">
-                    <form class="form-inline justify-content-center">
-                        <input class="form-control w-50" type="text" placeholder="Cari Note Supply">
-                    </form>
+                   
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
                       <select id="namaCabang" onchange="onBranchChanged('notesupplier', document.getElementById('namaCabang').value);" class="form-control col-md-2">
