@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel='stylesheet'>
+        
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -40,29 +43,22 @@
                     </div>
                     <div class="form-group col-md-1 pt-2 ml-4">
                         <label></label>
-                        <button type="submit" onclick="" id="add_form" class="btn btn-outline-success">Tambah</button>
+                        <button type="submit" onclick="onAdd();" id="add_form" class="btn btn-outline-success">Tambah</button>
                     </div>
                 </div>
-                <table class="table table-responsive-lg table-striped">
+                <table id ="productTable" class="table table-responsive-lg table-striped table-hover">
                     <thead class="thead text-light bg-success">
                         <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Tangal</th>
+                            <th scope="col">Kode Barang</th>
                             <th scope="col">Nama Barang</th>
                             <th scope="col">Jumlah</th>
+                            <th scope="col">Satuan</th>
                             <th scope="col">Harga</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button type="button" class="btn btn-success btn-sm">Delete</button></td>
-                        </tr>                        
+                                     
                     </tbody>
                 </table>
                 <fieldset disabled> 
@@ -148,7 +144,96 @@
 </div>
 </div>
 <script>
+var items = new Map();
+var medicine;
+var total=0;
+    function onAdd(){
+        var qty = $('#jumlah').val();
+        if (medicine.stok < qty){
+            //if stock kurang
+            Command: toastr["error"]("Stok barang hanya " + medicine.stok + ' ' + medicine.satuan , "Kesalahan")
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+//end of if stock is kurang
+        }
+        else if (items.has(medicine.id.toString().replace(/\s/g, ''))){
+            Command: toastr["error"]("Barang sudah ditambahkan sebelumnya" , "Kesalahan")
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": false,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}           
+        }
+        else{
+            //berarti stok ada
+            medicine.qty = qty;
+            var rowid = medicine.id.toString().replace(/\s/g, '');
+        items.set(rowid,medicine);
+        
+        $("#productTable tbody").append(
+      "<tr id=" + rowid + ">" +
+        "<td>" + medicine.id + "</td>" +
+        "<td>" + medicine.namaobat + "</td>" +
+        "<td>" + medicine.qty + "</td>" +
+        "<td>" + medicine.satuan + "</td>" +
+        "<td>" + medicine.harga + "</td>" +
+        "<td><button type='button' onclick='productDelete(this);' class='btn btn-success btn-sm'>Hapus</button></td>" +
+      "</tr>"
+  );
+  update();
+        }
+
+    }
+
+function update(){
+  total = 0;
+        for (let [k, v] of items) {
+            total = total + (v.qty * v.harga);
+        }
+        $("#totalBiaya").val(total);
+        
+}
+function productDelete(ctl) {
+    
+   var rowid = $(ctl).parents("tr").attr('id');
+   if(items.has(rowid)){
+       items.delete(rowid);
+       console.log("successfuly remove " + rowid + " from maplist");
+   }
+  $(ctl).parents("tr").remove();
+    update();
+}
 $(document).ready(function(){
+    
    
   $('#namaObat').select2({
     placeholder: 'Cari...',
@@ -166,7 +251,12 @@ $(document).ready(function(){
           results:  $.map(data, function (item) {
             return {
               text: item.namaobat,
-              id: item.id
+              id: item.id,
+              branch_id : item.branch_id,
+              namaobat : item.namaobat,
+              satuan : item.satuan,
+              harga : item.harga,
+              stok : item.stok
             }
           })
         };
@@ -174,6 +264,19 @@ $(document).ready(function(){
       cache: true
     }
   });
+
+  $('#namaObat').on('select2:select', function (e) {
+    var data = e.params.data;
+    var myJSON = JSON.stringify(data); 
+    medicine = JSON.parse(myJSON);
+    medicine.qty=0;
+    /*stok = medicine.stok;
+    id = medicine.id;
+    namaobat = medicine.namaobat;
+    branch_id = medicine.branch_id;
+    satuan = medicine.satuan;
+    harga = medicine.harga;*/
+});
 
 });
 </script>
