@@ -1,14 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Transaksi</div>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-                
+                 
                 <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
                         {{-- bagian branch, sedang dikerjakan
@@ -34,7 +32,7 @@
                     </fieldset>
                     <div class="form-group col-md-4">
                         <label for="namaObat">Nama Obat</label>
-                        <input type="text" class="form-control" id="namaObat" placeholder="OBH Combine">
+                        <select class="form-control" id="namaObat"> </select>
                     </div>
                     <div class="form-group col-md-1">
                         <label for="jumlah">Jumlah</label>
@@ -42,7 +40,7 @@
                     </div>
                     <div class="form-group col-md-1 pt-2 ml-4">
                         <label></label>
-                        <button type="submit" onclick="onSubmitClicked();" id="add_form" class="btn btn-outline-success">Tambah</button>
+                        <button type="submit" onclick="" id="add_form" class="btn btn-outline-success">Tambah</button>
                     </div>
                 </div>
                 <table class="table table-responsive-lg table-striped">
@@ -149,4 +147,34 @@
     </div>
 </div>
 </div>
+<script>
+$(document).ready(function(){
+   
+  $('#namaObat').select2({
+    placeholder: 'Cari...',
+    ajax: {
+      url: 'http://homestead.test/view/obat/search',
+      dataType: 'json',
+      data: function (params) {
+            return {
+                q: $.trim(params.term)
+            };
+        },
+      delay: 250,
+      processResults: function (data) {
+        return {
+          results:  $.map(data, function (item) {
+            return {
+              text: item.namaobat,
+              id: item.id
+            }
+          })
+        };
+      },
+      cache: true
+    }
+  });
+
+});
+</script>
 @endsection
