@@ -8,6 +8,7 @@ use App\Supplier;
 use Illuminate\Support\Facades\Auth;
 use App\Medicine;
 use App\Supplying;
+use DB;
 
 class MedicineController extends Controller {
 
@@ -33,7 +34,7 @@ class MedicineController extends Controller {
         ]);
     }
 
-    public function showSupplierbyBranch($branch_id){
+    public function showSupplierbyBranch($branch_id) {
         if ($branch_id == 0) {
             //default value is all item
             $medicines = Medicine::with('branch')->simplePaginate(10);
@@ -48,6 +49,12 @@ class MedicineController extends Controller {
             return view('view.obat', ['medicines' => $medicines, 'branches' => $branches, 'branch_id' => $branch_id]);
         }
     }
-    
+
+    public function loadData(Request $request) {
+            $cari = $request->q;
+            $data = DB::table('medicines')->where('namaobat','like','%'.$cari.'%')->get();
+            return response()->json($data);
+        
+    }
 
 }
