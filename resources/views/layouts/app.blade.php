@@ -10,16 +10,19 @@
         <title>{{ config('app.name', 'E-APOTEK') }}</title>
 
         <!-- Scripts -->
-         <script src="{{asset('js/jquery-3.4.0.min.js')}}"></script>
-
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        --><script src="{{asset('js/app.js')}}"></script>
         <script src="{{asset('js/redirector.js')}}" ></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
     </head>
     <body>
         <div id="app">
@@ -54,7 +57,7 @@
                             @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    ({{ Auth::user()->role }}) | {{ Auth::user()->name }} <span class="caret"></span>
+                                    ({{ Auth::user()->role }} ) | {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
