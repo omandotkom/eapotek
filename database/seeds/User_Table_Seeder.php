@@ -11,6 +11,7 @@ class User_Table_Seeder extends Seeder
      */
     public function run()
     {
+     
         DB::table('users')->insert([
             'name' => 'Khalid Abdurrahman',
             'nik' => '16102126',
@@ -31,5 +32,6 @@ class User_Table_Seeder extends Seeder
             'role' => 'branchworker',
             'password' => Hash::make('system3298'),
         ]);
+    
     }
 }

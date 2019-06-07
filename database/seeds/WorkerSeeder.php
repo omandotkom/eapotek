@@ -11,7 +11,7 @@ class WorkerSeeder extends Seeder
      */
     public function run()
     {
-         $faker = Faker::create();
+        $faker = Faker::create();
         for ($i = 1; $i <= 80; $i++) {
 
             DB::table('workers')->insert([

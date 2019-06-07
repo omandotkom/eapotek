@@ -238,7 +238,7 @@ $(document).ready(function(){
   $('#namaObat').select2({
     placeholder: 'Cari...',
     ajax: {
-      url: 'http://homestead.test/view/obat/search',
+      url: 'http://homestead.test/view/obat/search/branch/{{Auth::user()->worker->branch_id}}',
       dataType: 'json',
       data: function (params) {
             return {

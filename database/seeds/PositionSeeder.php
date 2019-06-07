@@ -22,6 +22,7 @@ class PositionSeeder extends Seeder {
                 'salary' => $faker->numberBetween($min = 2300000, $max = 3100000), // 8567,
                 ]);
         }
+        
     }
 
 }

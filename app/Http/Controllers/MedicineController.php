@@ -50,9 +50,9 @@ class MedicineController extends Controller {
         }
     }
 
-    public function loadData(Request $request) {
+    public function loadData(Request $request,$branch_id) {
             $cari = $request->q;
-            $data = DB::table('medicines')->where('namaobat','like','%'.$cari.'%')->get();
+            $data = DB::table('medicines')->where('namaobat','like','%'.$cari.'%')->where('branch_id','=',$branch_id)->get();
             return response()->json($data);
         
     }
