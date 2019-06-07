@@ -17,7 +17,7 @@ class NoteSupplierTableSeeder extends Seeder {
             // insert data ke table pegawai menggunakan Faker
             DB::table('note_supplier')->insert([
                 'branch_id' => 1, // 8567
-                'supplier_id' => $faker->randomElement($array = array(6, 7, 9, 10)), // 'b'
+                'supplier_id' => $faker->randomElement($array = array(72, 76, 78, 79)), // 'b'
                 'deskripsi' => $faker->text($maxNbChars = 300), // 8567,
                 'totalbiaya' => $faker->numberBetween($min = 5500000, $max = 12000000),
                 'tanggalsupply' => $faker->date($format = 'Y-m-d', $max = 'now') // '1979-06-09'
