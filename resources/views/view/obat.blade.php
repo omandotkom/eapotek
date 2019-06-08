@@ -1,7 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-
+<script>
+    function onSearchClicked() {
+        var obatname = $("#searchObat").val();
+        var branch_id = $("#namaCabang").val();
+        if (branch_id == 0) {
+            bootbox.confirm("Apakah anda yakin ingin mencari " + obatname + " di semua cabang ?", function (result) {
+                if (!result) {
+                    return;
+                }
+                
+            });
+        }
+        searchbyParam("medicine", branch_id, obatname);
+    }
+</script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -11,13 +25,16 @@
 
                 <!--sampai sini-->
                 <div class="card-body">
-                    <form class="form-inline justify-content-center">
-                        <input class="form-control w-50" type="text" placeholder="Cari Nama Obat">
-                    </form>
+                    <div class="input-group input-group-md mb-3">
+                        <input id="searchObat" type="text" class="form-control" placeholder="Nama Obat" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button onclick="onSearchClicked();" class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
                         <select onchange="onBranchChanged('medicine', document.getElementById('namaCabang').value);" id="namaCabang" class="form-control col-md-3">
-                          <option value="0">Semua</option>
+                            <option value="0">Semua</option>
                             @foreach($branches as $b)
                             @if($b->id==$branch_id){
                             <option value="{{$b->id}}" selected>{{$b->nama}}</option>
@@ -41,7 +58,7 @@
                                     <th scope="col">Nama Obat</th>
                                     <th scope="col">Stok</th>
                                     <th scope="col">Harga</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,9 +69,9 @@
                                     <td>{{$s->namaobat}}</td>
                                     <td>{{$s->satuan}}</td>
                                     <td>Rp. {{$s->harga}}</td>
-                           
-                            </tr>
-                            @endforeach
+
+                                </tr>
+                                @endforeach
 
 
                             </tbody>
