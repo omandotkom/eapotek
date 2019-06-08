@@ -22,3 +22,10 @@ function onBranchChanged(type, branch_id) {
 
     }
 }
+function searchbyParam(type, branch_id, name){
+    switch(type){
+        case "medicine" :
+            window.location = "http://homestead.test/view/obat/search/branch/" + branch_id + "/" + name 
+            break
+    }
+}
