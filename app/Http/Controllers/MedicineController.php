@@ -50,11 +50,22 @@ class MedicineController extends Controller {
         }
     }
 
-    public function loadData(Request $request,$branch_id) {
-            $cari = $request->q;
-            $data = DB::table('medicines')->where('namaobat','like','%'.$cari.'%')->where('branch_id','=',$branch_id)->get();
-            return response()->json($data);
-        
+    public function loadData(Request $request, $branch_id) {
+        $cari = $request->q;
+        $data = DB::table('medicines')->where('namaobat', 'like', '%' . $cari . '%')->where('branch_id', '=', $branch_id)->get();
+        return response()->json($data);
+    }
+
+    public function searchName($branch_id, $namaobat) {
+        if ($branch_id != 0) {
+            $medicines = Medicine::with('branch')->where('namaobat', 'like', '%' . $namaobat . '%')->where('branch_id', '=', $branch_id)->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.obat', ['medicines' => $medicines, 'branches' => $branches, 'branch_id' => $branch_id]);
+        } else {
+            $medicines = Medicine::with('branch')->where('namaobat', 'like', '%' . $namaobat . '%')->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.obat', ['medicines' => $medicines, 'branches' => $branches, 'branch_id' => $branch_id]);
+        }
     }
 
 }
