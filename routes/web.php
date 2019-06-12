@@ -39,6 +39,7 @@
     })->name('inputSupplier'); */
     Route::get('/input/supplier', 'SupplierController@showInputSupplierView')->name('inputSupplier');
     Route::get('/view/supplier/branch/{branch_id}','SupplierController@showSupplierbyBranch')->name('viewSupplier');
+    Route::get('/view/supplier/search/branch/{branch_id}/{namasupplier}','SupplierController@searchName')->name('viewSupplierByName');
     Route::post('/supplier', function() {
         $data = $request->all();
         $supplier = new Supplier($data);
