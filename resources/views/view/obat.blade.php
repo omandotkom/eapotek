@@ -7,13 +7,12 @@
         var branch_id = $("#namaCabang").val();
         if (branch_id == 0) {
             bootbox.confirm("Apakah anda yakin ingin mencari " + obatname + " di semua cabang ?", function (result) {
-                if (!result) {
-                    return;
-                }
-                
+                 if (result==true){
+                    searchbyParam("medicine", branch_id, obatname);
+                 }
             });
         }
-        searchbyParam("medicine", branch_id, obatname);
+        
     }
 </script>
 <div class="container">
