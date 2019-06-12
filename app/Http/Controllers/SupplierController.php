@@ -60,4 +60,16 @@ class SupplierController extends Controller {
         }
     }
 
+    public function searchName($branch_id, $namasupplier) {
+        if ($branch_id != 0) {
+            $suppliers = Supplier::with('branch')->where('nama', 'like', '%' . $namasupplier . '%')->where('branch_id', '=', $branch_id)->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.supplier', ['suppliers' => $suppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        } else {
+            $suppliers = Supplier::with('branch')->where('nama', 'like', '%' . $namasupplier . '%')->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.supplier', ['suppliers' => $suppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        }
+    }
+
 }
