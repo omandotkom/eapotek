@@ -1,6 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+
+    $(document).ready(function () {
+        $("#searchbtn").click(function () {
+            var suppliername = $("#searchSupplier").val();
+            var branch_id = $("#namaCabang").val();
+            if (branch_id == 0) {
+                bootbox.confirm("Apakah anda yakin ingin mencari " + suppliername + " di semua cabang ?", function (result) {
+                    if (result == true) {
+                        searchbyParam("supplier", branch_id, suppliername);
+                    }
+                });
+            }else{
+                   searchbyParam("supplier", branch_id, suppliername);
+                   
+            }
+        });
+    });
+
+</script>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -11,9 +31,12 @@
 
                 <!--sampai sini-->
                 <div class="card-body">
-                    <form class="form-inline justify-content-center">
-                        <input class="form-control w-50" type="text" placeholder="Cari Nama Supplier">
-                    </form>
+                    <div class="input-group input-group-md mb-3">
+                        <input id="searchSupplier" type="text" class="form-control" placeholder="Nama Supplier"  aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button  class="btn btn-outline-secondary" type="button" id="searchbtn" >Cari</button>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
                         <select id="namaCabang" onchange="onBranchChanged('supplier', document.getElementById('namaCabang').value);" class="form-control col-md-2">
