@@ -50,5 +50,17 @@ class WorkerController extends Controller {
             return view('view.karyawan', ['workers' => $workers, 'branches' => $branches, 'branch_id' => $branch_id]);
         }
     }
+    
+    public function searchName($branch_id, $namaworker) {
+        if ($branch_id != 0) {
+            $workers = Worker::with('branch')->where('nama', 'like', '%' . $namaworker . '%')->where('branch_id', '=', $branch_id)->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.karyawan', ['workers' => $workers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        } else {
+            $workers = Worker::with('branch')->where('nama', 'like', '%' . $namaworker . '%')->simplePaginate(10);
+            $branches = Branch::all();
+            return view('view.karyawan', ['workers' => $workers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        }
+    }
 
 }
