@@ -1,7 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+    $(document).ready(function(){
+        $("#searchbtn").click(function(){
+            onSearchClicked();
+        });
+    });
+    function onSearchClicked() {
+        var karyawanname = $("#searchKaryawan").val();
+        var branch_id = $("#namaCabang").val();
+        if (branch_id == 0) {
+            bootbox.confirm("Apakah anda yakin ingin mencari " + karyawanname + " di semua cabang ?", function (result) {
+                if (result == true) {
+                    searchbyParam("worker", branch_id, karyawanname);
+                }
+            });
+        } else {
+            searchbyParam("worker", branch_id, karyawanname);
 
+        }
+
+
+    }
+</script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -11,9 +33,12 @@
 
                 <!--sampai sini-->
                 <div class="card-body">
-                    <form class="form-inline justify-content-center">
-                        <input class="form-control w-50" type="text" placeholder="Cari Nama Karyawan">
-                    </form>
+                    <div class="input-group input-group-md mb-3">
+                        <input id="searchKaryawan" type="text" class="form-control" placeholder="Nama Karyawan"  aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button  class="btn btn-outline-secondary" type="button" id="searchbtn" >Cari</button>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
                         <select onchange="onBranchChanged('worker', document.getElementById('namaCabang').value);"  id="namaCabang" class="form-control col-md-3">
@@ -43,14 +68,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                                @foreach($workers as $s)
+                            @foreach($workers as $s)
                             <tr>
                                 <td>{{$s->branch->nama}}</td>
                                 <td>{{$s->nik}}</td>
                                 <td>{{$s->nama}}</td>
                                 <td>{{$s->position->nama}}</td>
-                                
-                             <td><button type="button" data-toggle="modal" data-target="#mdl{{$s->nik}}" class="btn btn-success btn-sm">Detail</button></td>
+
+                                <td><button type="button" data-toggle="modal" data-target="#mdl{{$s->nik}}" class="btn btn-success btn-sm">Detail</button></td>
                                 <!-- Modal -->
                         <div class="modal fade" id="mdl{{$s->nik}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -79,7 +104,7 @@
                                                 <div class="col-6 col-md-4">Alamat</div>
                                                 <div class="col-6 col-md-8">{{$s->alamat}}</div>
                                             </div>
-                                           <div class="row">
+                                            <div class="row">
                                                 <div class="col-6 col-md-4">Tempat Bekerja</div>
                                                 <div class="col-6 col-md-8">{{$s->branch->nama}}</div>
                                             </div>
@@ -95,8 +120,8 @@
                                 </div>
                             </div>
                         </div>   
-                            </tr>
-                            @endforeach
+                        </tr>
+                        @endforeach
 
                         </tbody>
                     </table>
