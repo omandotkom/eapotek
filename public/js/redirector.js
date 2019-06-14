@@ -28,8 +28,11 @@ function searchbyParam(type, branch_id, name) {
             window.location = "http://homestead.test/view/obat/search/branch/" + branch_id + "/" + name;
             break;
         case "supplier" :
-
             var url = "http://homestead.test/view/supplier/search/branch/" + branch_id + "/" + name;
+            window.location = url;
+            break;
+        case "worker" :
+            var url = "http://homestead.test/view/karyawan/search/branch/" + branch_id + "/" + name;
             window.location = url;
             break;
     }
