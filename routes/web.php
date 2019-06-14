@@ -59,7 +59,8 @@
     //Route::get('/view/karyawan', 'WorkerController@showAllWorker')->name('viewKaryawan');
     Route::get('/view/karyawan/branch/{branch_id}','WorkerController@showWorkerbyBranch')->name('viewKaryawan');
     Route::post('/input/karyawan/store','WorkerController@store');
-
+    Route::get('/view/karyawan/search/branch/{branch_id}/{namaworker}','WorkerController@searchName')->name('viewObatByName');
+    
     Route::get('/input/supplyobat', 'NoteSupplierController@showNoteSupplierView')->name('inputSupplyObat');
     Route::get('/view/supplyobat/branch/{branch_id}', 'NoteSupplierController@showNoteSupplierbyBranch')->name('viewSupplyObat');
     Route::post('/input/supplyobat/store','NoteSupplierController@store');
