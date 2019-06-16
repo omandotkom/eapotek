@@ -73,12 +73,24 @@
                     </div>
                 </fieldset>
                 <div class="form-group row offset-7">
-                    <label for="jumlahBayar" class="col-sm-4 col-form-label">Jumlah Bayar</label>
+                    <label for="jumlahBayar"  class="col-sm-4 col-form-label">Jumlah Bayar</label>
+                    <script>
+                    $(document).ready(function(){
+                        $( "#jumlahBayar" ).keyup(function() {
+var ttl = $("#totalBiaya").val();
+var jmlbyr = $("#jumlahBayar").val();
+if (jmlbyr > ttl){
+    var kurang = jmlbyr -ttl;
+    $("#sisa").val(kurang);
+}
+});
+                    });
+                    </script>
                     <div class="input-group col-sm-8">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon2">Rp</span>
                         </div>
-                        <input type="text" class="form-control" id="jumlahBayar" aria-label="jumlahBayar" aria-describedby="basic-addon2">
+                        <input type="number" class="form-control" id="jumlahBayar" aria-label="jumlahBayar" aria-describedby="basic-addon2">
                     </div>
                 </div>
                 <fieldset disabled>
