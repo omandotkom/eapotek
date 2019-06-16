@@ -1,27 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/table-to-json@0.13.0/lib/jquery.tabletojson.min.js" integrity="sha256-AqDz23QC5g2yyhRaZcEGhMMZwQnp8fC6sCZpf+e7pnw=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel='stylesheet'>
-        
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Transaksi</div>
-                 
+
                 <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
-                        {{-- bagian branch, sedang dikerjakan
                         <fieldset disabled>
                             <div class="form-group">
                                 <label for="namaCabang">Cabang</label>
-                                <input type="text" id="namaCabang" value="{{$cabang->nama}}" class="form-control" placeholder="Disabled input">
+                                <input type="text" id="namaCabang" value="{{ Auth::user()->worker->branch->nama }}" class="form-control" placeholder="Disabled input">
                 </div>
                 </fieldset>
-                --}}
+                
                 <div class="form-row">
-                   {{--fieldset disabled> 
+                   {{--fieldset disabled>
                         <div class="form-group ml-1 mr-2">
                             <label for="kodeTransaksi">Kode Transaksi</label>
                             <input type="text" class="form-control" value='{{$hash}}' id="kodeTransaksi">
@@ -49,8 +49,8 @@
                 <table id ="productTable" class="table table-responsive-lg table-striped table-hover">
                     <thead class="thead text-light bg-success">
                         <tr>
-                            <th scope="col">Kode Barang</th>
-                            <th scope="col">Nama Barang</th>
+                            <th scope="col">Kode</th>
+                            <th scope="col">Nama</th>
                             <th scope="col">Jumlah</th>
                             <th scope="col">Satuan</th>
                             <th scope="col">Harga</th>
@@ -58,10 +58,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                                     
+
                     </tbody>
                 </table>
-                <fieldset disabled> 
+                <fieldset disabled>
                     <div class="form-group row offset-7">
                         <label for="totalBiaya" class="col-sm-4 col-form-label">Total</label>
                         <div class="input-group col-sm-8">
@@ -95,18 +95,21 @@
                 <div class="text-right">
                     <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Cetak</button>
                 </div>
-                {{--<script>
-                            async function onSubmitClicked() {
-
-                                $("#send_form").html('Menyimpan...');
-                                axios.post('http://homestead.test/supplier/store', {
-                                    branch_id: '{{$cabang->id}}',
-                nama: jQuery('#namaSupplier').val(),
-                alamat: jQuery('#lokasi').val(),
-                telepon: jQuery('#kontak').val(),
-                email: jQuery('#email').val()
-
-                })
+                <script>
+                 function onSubmitClicked(){
+                    var table = $('#productTable').tableToJSON({
+        ignoreColumns: [5]
+            });
+          var trans = JSON.stringify(table);
+          console.log(trans);       
+          $("#send_form").html('Menyimpan...');
+                                axios.post('http://homestead.test/transaction/add/save', {
+                                   
+                branch_id: '{{Auth::user()->worker->branch_id}}',
+                hash: '{{$hash}}',
+                totalbiaya: jQuery('#totalBiaya').val(),
+                transaction : trans
+            })
                 .then(function (response) {
                 toastr.options = {
                 "closeButton": false,
@@ -136,7 +139,7 @@
                 console.log(error);
                 });
                 }
-                </script>--}}
+                </script>
                 </form>
             </div>
         </div>
@@ -191,14 +194,14 @@ toastr.options = {
   "hideEasing": "linear",
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
-}           
+}
         }
         else{
             //berarti stok ada
             medicine.qty = qty;
             var rowid = medicine.id.toString().replace(/\s/g, '');
         items.set(rowid,medicine);
-        
+
         $("#productTable tbody").append(
       "<tr id=" + rowid + ">" +
         "<td>" + medicine.id + "</td>" +
@@ -220,10 +223,10 @@ function update(){
             total = total + (v.qty * v.harga);
         }
         $("#totalBiaya").val(total);
-        
+
 }
 function productDelete(ctl) {
-    
+
    var rowid = $(ctl).parents("tr").attr('id');
    if(items.has(rowid)){
        items.delete(rowid);
@@ -233,8 +236,8 @@ function productDelete(ctl) {
     update();
 }
 $(document).ready(function(){
-    
-   
+
+
   $('#namaObat').select2({
     placeholder: 'Cari...',
     ajax: {
@@ -267,7 +270,7 @@ $(document).ready(function(){
 
   $('#namaObat').on('select2:select', function (e) {
     var data = e.params.data;
-    var myJSON = JSON.stringify(data); 
+    var myJSON = JSON.stringify(data);
     medicine = JSON.parse(myJSON);
     medicine.qty=0;
     /*stok = medicine.stok;
