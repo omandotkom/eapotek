@@ -33,7 +33,7 @@
 
                 <!--sampai sini-->
                 <div class="card-body">
-                    <div class="input-group input-group-md mb-3">
+                    <div class="input-group input-group-md col-md-6 offset-3 mb-3">
                         <input id="searchKaryawan" type="text" class="form-control" placeholder="Nama Karyawan"  aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button  class="btn btn-outline-secondary" type="button" id="searchbtn" >Cari</button>
