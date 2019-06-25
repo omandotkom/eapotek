@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
+<script>
+    function hello(id,salary){
+        
+        alert(id+ " gaji " + salary);
+    }
+</script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -37,17 +42,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($positions as $position)
                         <tr>
-                            <th scope="row"></th>
+                            <td>{{$position->nama}}</td>
                             <td><div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="rp">Rp</span>
                                     </div>
-                                    <input type="text" class="form-control" name="brancHead" id="branchHead" aria-label="branchHead" aria-describedby="rp">
+                                    <input type="text" value="{{$position->salary}}"  class="form-control" name="brancHead" id="salary{{$position->id}}" aria-label="branchHead" aria-describedby="rp">
                                 </div>
                             </td>
-                            <td><button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button></td>
+                            <td><button type="submit" onclick="hello({{$position->id}},$('#salary'+'{{$position->id}}').val());" id="send_form" class="btn btn-outline-success">Simpan</button></td>
                         </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 {{--<script>
