@@ -13,4 +13,7 @@ class Branch extends Model
     public function medicines(){
         return $this->hasMany('Medicine');
     }
+    public function positions(){
+        return $this->hasMany('Position','branch_id','id');
+    }
 }
