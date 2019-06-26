@@ -40,13 +40,10 @@
     Route::get('/input/supplier', 'SupplierController@showInputSupplierView')->name('inputSupplier');
     Route::get('/view/supplier/branch/{branch_id}','SupplierController@showSupplierbyBranch')->name('viewSupplier');
     Route::get('/view/supplier/search/branch/{branch_id}/{namasupplier}','SupplierController@searchName')->name('viewSupplierByName');
-    Route::post('/supplier', function() {
-        $data = $request->all();
-        $supplier = new Supplier($data);
-        $result = $transaction->isValid();
-        echo $result;
-    })->name('storeSupplier');
+    Route::get('/view/supplier/search/branch/{branch_id}','SupplierController@loadData');
     Route::post('/supplier/store', 'SupplierController@store');
+    Route::post('/input/supplier/update','SupplierController@update');
+    Route::post('/input/supplier/delete','SupplierController@delete');
 
     Route::get('/input/obat', 'MedicineController@showInputObatView')->name('inputObat');
     //Route::get('/view/obat', 'MedicineController@showAllMedicine')->name('viewObat');
