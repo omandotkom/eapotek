@@ -73,6 +73,7 @@
 
     Route::get('/input/salary/{branch_id}', 'SalaryController@showSalaryInputView')->name('inputSalary');
     Route::get('/view/slipgaji','SalaryController@showCetakSlipGajiView')->name('slipGaji');
+    Route::post('/input/salary/update','SalaryController@updateSalary');
     
    
 Route::get('/sample', function(){
