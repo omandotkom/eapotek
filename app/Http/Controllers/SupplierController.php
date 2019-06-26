@@ -72,4 +72,24 @@ class SupplierController extends Controller {
         }
     }
 
+    public function loadData(Request $request, $branch_id) {
+        $cari = $request->q;
+        $data = DB::table('suppliers')->where('nama', 'like', '%' . $cari . '%')->where('branch_id', '=', $branch_id)->get();
+        return response()->json($data);
+    }
+
+    public function update(Request $request){
+        $supplier = Supplier::find($request->id);
+       
+        $supplier->alamat = $request->alamat;
+        $supplier->telepon = $request->telepon;
+        $supplier->email = $request->email;
+        $supplier->save();
+        return Response::json([
+            'action' => 'update_supplier'
+                ], 200); // Status code here
+    }
+    public function delete(Request $request){
+        Supplier::destroy($request->id);
+    }
 }
