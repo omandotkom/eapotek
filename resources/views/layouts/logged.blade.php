@@ -11,12 +11,12 @@
         <title>{{ config('app.name', 'E-APOTEK') }}</title>
 
         <!-- Scripts -->
-        <script src="{{asset('js/jquery-3.4.0.min.js')}}"></script>
-
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{asset('js/app.js')}}"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
