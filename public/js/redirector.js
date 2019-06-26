@@ -19,7 +19,9 @@ function onBranchChanged(type, branch_id) {
         case "notesupplier" :
             window.location = "http://homestead.test/view/supplyobat/branch/" + branch_id;
             break;
-
+        case "salary" :
+            window.location = "http://homestead.test/input/salary/" + branch_id;
+            break;
     }
 }
 function searchbyParam(type, branch_id, name) {
