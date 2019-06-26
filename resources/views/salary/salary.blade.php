@@ -2,9 +2,49 @@
 
 @section('content')
 <script>
-    function hello(id,salary){
-        
-        alert(id+ " gaji " + salary);
+    function updateSalary(id_position,salary_position){
+        console.log("updating " + id_position + " to " + salary_position);
+        if (!isNaN(salary_position)){
+            //true
+            
+
+
+axios.post('http://homestead.test/input/salary/update', {
+    id: id_position,
+    salary: salary_position,
+})
+.then(function (response) {
+toastr.options = {
+"closeButton": false,
+"debug": false,
+"newestOnTop": false,
+"progressBar": false,
+"positionClass": "toast-top-center",
+"preventDuplicates": false,
+"onclick": null,
+"showDuration": "300",
+"hideDuration": "1000",
+"timeOut": "5000",
+"extendedTimeOut": "1000",
+"showEasing": "swing",
+"hideEasing": "linear",
+"showMethod": "fadeIn",
+"hideMethod": "fadeOut"
+};
+Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
+
+console.log(response);
+})
+.catch(function (error) {
+toastr.error("Gagal menyimpan data", "Kesalahan");
+;
+console.log(error);
+});
+
+        }else{
+            //false
+            console.log("not a number");
+        }
     }
 </script>
 <div class="container">
@@ -24,11 +64,20 @@
                         </fieldset>--}}
                     <div class="form-group">
                         <label for="namaCabang">Cabang</label>
-                        <select id="namaCabang" class="form-control col-md-3">
-                            <option selected>Semua</option>
+                        <select onchange="onBranchChanged('salary', document.getElementById('namaCabang').value);"  id="namaCabang" class="form-control col-md-3">
+                       
                             @foreach($branches as $b)
+                            @if($b->id==$branch_id){
+                            <option value="{{$b->id}}" selected>{{$b->nama}}</option>
+
+                            }@else{
                             <option value="{{$b->id}}">{{$b->nama}}</option>
+
+                            }
+                            @endif
+
                             @endforeach
+
                         </select> 
                     </div>
 
@@ -52,7 +101,7 @@
                                     <input type="text" value="{{$position->salary}}"  class="form-control" name="brancHead" id="salary{{$position->id}}" aria-label="branchHead" aria-describedby="rp">
                                 </div>
                             </td>
-                            <td><button type="submit" onclick="hello({{$position->id}},$('#salary'+'{{$position->id}}').val());" id="send_form" class="btn btn-outline-success">Simpan</button></td>
+                            <td><button type="submit" onclick="updateSalary({{$position->id}},$('#salary'+'{{$position->id}}').val());" id="send_form" class="btn btn-outline-success">Simpan</button></td>
                         </tr>
                     @endforeach
                     </tbody>
