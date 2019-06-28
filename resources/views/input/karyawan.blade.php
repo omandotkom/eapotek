@@ -38,11 +38,10 @@
                             <label for="kodeJabatan">Jabatan</label>
                             <select id="position_id" class="form-control">
                                 <option selected>Pilih ..</option>
-                                <option value="1">Kepala Cabang</option>
-                                <option value="2">Kasir</option>
-                                <option value="3">Apoteker</option>
-                                <option value="4">Dokter</option>
-                            </select> 
+                                @foreach($cabang->Positions as $p)
+                                <option value="{{$p->id}}">{{$p->nama}}</option>
+                                @endforeach
+                              </select> 
                         </div>
                         <div class="text-right">
                             <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success mr-2">Simpan</button>

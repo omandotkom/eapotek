@@ -12,6 +12,7 @@ class WorkerController extends Controller {
 
     public function showWorkerView() {
         $cabang = Branch::where('nik', Auth::user()->nik)->first();
+        
         return view('input.karyawan', ['cabang' => $cabang]);
     }
 
