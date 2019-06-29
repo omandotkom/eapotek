@@ -1,7 +1,19 @@
 @extends('layouts.logged')
 
 @section('content')
-
+<script>
+function check(){
+    var chk = document.getElementById("checkEnable");
+    
+    document.getElementById("idSupply").disabled = (!chk.checked);
+    document.getElementById("cariKode").disabled = (!chk.checked);
+}
+$(document).ready(function(){
+        document.getElementById("checkEnable").checked =false;
+        document.getElementById("idSupply").disabled = true;
+        document.getElementById("cariKode").disabled = true;
+    });
+</script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -16,6 +28,19 @@
                                 <input type="text" id="namaCabang" value="{{$cabang->nama}}" class="form-control" placeholder="Disabled input">
                             </div>
                         </fieldset>
+                        <label>Kode Supply</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend"> 
+                                <div class="input-group-text">
+                                
+                                <input type="checkbox" onclick="check();" id="checkEnable" aria-label="Checkbox for following text input"> Enable (untuk update)
+                                </div>
+                            </div>
+                            <input type="text" class="form-control" id="idSupply" aria-describedby="basic-addon2" aria-label="Text input with checkbox">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" id="cariKode" type="button">Cari Kode</button>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label for="namaSupplier">Supplier</label>
