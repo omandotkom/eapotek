@@ -63,6 +63,7 @@
     Route::post('/input/supplyobat/store','NoteSupplierController@store');
     Route::get('/input/supplyobat/searchbyid/{branch_id}/{id}','NoteSupplierController@search');
     Route::post('/input/supplyobat/update', 'NoteSupplierController@update');
+    Route::get('/input/supplyobat/delete/{id}','NoteSupplierController@delete');
 
     Route::post('/absensi/store','AttendanceController@store');
     Route::get('/absensi', 'AttendanceController@showAttendanceView')->name('absensi');
