@@ -58,4 +58,12 @@ class NoteSupplierController extends Controller {
         $NoteSupplier = NoteSupplier::where('branch_id',$branch_id)->where('id',$id)->first();
         return $NoteSupplier->toJson();
     }
+    public function delete($id){
+        $NoteSupplier = NoteSupplier::find($id);
+        $NoteSupplier->delete();
+        return Response::json([
+            'action' => 'delete_supplier'
+                ], 200); // Status code here
+   
+    }
 }
