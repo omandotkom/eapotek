@@ -61,7 +61,8 @@
     Route::get('/input/supplyobat', 'NoteSupplierController@showNoteSupplierView')->name('inputSupplyObat');
     Route::get('/view/supplyobat/branch/{branch_id}', 'NoteSupplierController@showNoteSupplierbyBranch')->name('viewSupplyObat');
     Route::post('/input/supplyobat/store','NoteSupplierController@store');
-    Route::get('/input/supplyobat/searchbyid/{id}','NoteSupplierController@search');
+    Route::get('/input/supplyobat/searchbyid/{branch_id}/{id}','NoteSupplierController@search');
+    Route::post('/input/supplyobat/update', 'NoteSupplierController@update');
 
     Route::post('/absensi/store','AttendanceController@store');
     Route::get('/absensi', 'AttendanceController@showAttendanceView')->name('absensi');
