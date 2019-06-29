@@ -91,5 +91,9 @@ class SupplierController extends Controller {
     }
     public function delete(Request $request){
         Supplier::destroy($request->id);
+        return Response::json([
+            'action' => 'delete_supplier'
+                ], 200); // Status code here
+   
     }
 }
