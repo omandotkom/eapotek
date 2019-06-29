@@ -16,7 +16,18 @@ class NoteSupplierController extends Controller {
         $suppliers = Supplier::where('branch_id', $cabang->id)->get();
         return view('input.supplyobat', ['cabang' => $cabang, 'suppliers' => $suppliers]);
     }
+    public function update(Request $request){
+        $NoteSupplier = NoteSupplier::find($request->id);
+        $NoteSupplier->supplier_id = $request->supplier_id;
+        $NoteSupplier->deskripsi = $request->deskripsi;
+        $NoteSupplier->totalbiaya = $request->totalbiaya;
+        $NoteSupplier->tanggalSupply = $request->tanggalsupply;
+        $NoteSupplier->save();
+        return Response::json([
+            'action' => 'update_supplynote'
+                ], 200); // Status code here
 
+    }
     public function store(Request $request) {
         $NoteSupplier = new NoteSupplier;
         $NoteSupplier->supplier_id = $request->supplier_id;
@@ -43,5 +54,8 @@ class NoteSupplierController extends Controller {
             return view('view.supplyobat', ['notesuppliers' => $NoteSuppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
         }
     }
-
+    public function search($branch_id,$id){
+        $NoteSupplier = NoteSupplier::where('branch_id',$branch_id)->where('id',$id)->first();
+        return $NoteSupplier->toJson();
+    }
 }
