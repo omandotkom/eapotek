@@ -67,9 +67,41 @@ $(document).ready(function(){
                         <div class="text-right">
                             <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success mr-2">Simpan</button>
                             <button type="submit" onclick="onUpdateClicked();" id="edit_form" class="btn btn-outline-info mr-2">Edit</button>                
-                            <button type="submit" onclick="onSubmitClicked();" id="delete_form" class="btn btn-outline-danger">Delete</button>
+                            <button type="submit" onclick="onDeleteClicked();" id="delete_form" class="btn btn-outline-danger">Delete</button>
                         </div>
                         <script>
+                        function onDeleteClicked(){
+                            $("#delete_form").html('Menghapus...');
+                                axios.get('http://homestead.test/input/supplyobat/delete/'+ jQuery("#idSupply").val())
+                                        .then(function (response) {
+                                            toastr.options = {
+                                                "closeButton": false,
+                                                "debug": false,
+                                                "newestOnTop": false,
+                                                "progressBar": false,
+                                                "positionClass": "toast-top-center",
+                                                "preventDuplicates": false,
+                                                "onclick": null,
+                                                "showDuration": "300",
+                                                "hideDuration": "1000",
+                                                "timeOut": "5000",
+                                                "extendedTimeOut": "1000",
+                                                "showEasing": "swing",
+                                                "hideEasing": "linear",
+                                                "showMethod": "fadeIn",
+                                                "hideMethod": "fadeOut"
+                                            };
+                                            Command: toastr["success"]("Berhasil menghapus data", "Berhasil");
+
+                                            console.log(response);
+                                            $("#delete_form").html('Delete');
+                                        })
+                                        .catch(function (error) {
+                                            toastr.error("Gagal menghapus data", "Kesalahan");
+                                            $("#delete_form").html('Delete');
+                                            console.log(error);
+                                        });
+                        }
                         function onUpdateClicked(){
                             $("#edit_form").html('Memperbarui...');
                                 axios.post('http://homestead.test/input/supplyobat/update', {
@@ -139,6 +171,8 @@ $(document).ready(function(){
                                             $("#totalBiaya").val(response.data.totalbiaya);
                                             $("#tanggal").val(response.data.tanggalsupply);
                                             $("#cariKode").html('Cari Kode');
+                                            document.getElementById("checkEnable").checked =false;
+                                            document.getElementById("idSupply").disabled = true;
                                         })
                                         .catch(function (error) {
                                             toastr.error("Data dengan kode tersebut tidak ditemukan", "Kesalahan");
