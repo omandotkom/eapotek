@@ -51,12 +51,13 @@
     Route::get('/view/obat/branch/{branch_id}','MedicineController@showSupplierbyBranch')->name('viewObat');
     Route::get('/view/obat/search/branch/{branch_id}','MedicineController@loadData');
     Route::get('/view/obat/search/branch/{branch_id}/{namaobat}','MedicineController@searchName')->name('viewObatByName');
+    Route::get('/view/obat/search/branch/{branch_id}','MedicineController@branch')->name('viewObatBranch');
     
     Route::get('/input/karyawan', 'WorkerController@showWorkerView' )->name('inputKaryawan');
     //Route::get('/view/karyawan', 'WorkerController@showAllWorker')->name('viewKaryawan');
     Route::get('/view/karyawan/branch/{branch_id}','WorkerController@showWorkerbyBranch')->name('viewKaryawan');
     Route::post('/input/karyawan/store','WorkerController@store');
-    Route::get('/view/karyawan/search/branch/{branch_id}/{namaworker}','WorkerController@searchName')->name('viewObatByName');
+    Route::get('/view/karyawan/search/branch/{branch_id}/{namaworker}','WorkerController@searchName');
     
     Route::get('/input/supplyobat', 'NoteSupplierController@showNoteSupplierView')->name('inputSupplyObat');
     Route::get('/view/supplyobat/branch/{branch_id}', 'NoteSupplierController@showNoteSupplierbyBranch')->name('viewSupplyObat');
