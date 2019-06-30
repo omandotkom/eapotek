@@ -12,7 +12,9 @@
 
         <!-- Scripts -->
         <script src="{{asset('js/app.js')}}"></script>
+        <script src="{{asset('js/redirector.js')}}" ></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="{{asset('js/bootbox.min.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
@@ -40,7 +42,18 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                           
+                        @switch($type)
+                         @case("viewobat")
+                            @if (Auth::user()->role == "branchworker")
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('transactionAdd') }}">{{ __('Transaksi') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('viewObatBranch', Auth::user()->worker->branch_id) }}">{{ __('Obat') }}</a>
+                            </li>
+                            @elseif (Auth::user()->role == "owner")
+
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inputObat') }}">{{ __('Obat') }}</a>
                             </li>
@@ -58,6 +71,11 @@
                                 <a class="nav-link text-white" href="{{ route('inputKaryawan') }}">{{ __('Karyawan') }}</a>
                             </li>
 
+
+                            @endif
+                            
+                         @break
+                        @endswitch
                         </ul>
 
                         <!-- Right Side Of Navbar -->
