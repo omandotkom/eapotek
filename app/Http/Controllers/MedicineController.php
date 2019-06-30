@@ -68,4 +68,9 @@ class MedicineController extends Controller {
         }
     }
 
+    public function branch($branch_id){
+        $medicines = Medicine::where('branch_id',$branch_id)->simplePaginate(10);
+        $branches = Branch::all();
+        return view('view.obat', ['medicines' => $medicines, 'branches' => $branches, 'branch_id' => $branch_id]);
+    }
 }
