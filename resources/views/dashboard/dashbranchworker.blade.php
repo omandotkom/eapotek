@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Informasi Obat adalah sebuah halaman dimana Karyawan akan melihat informasi detail Obat yang tersedia dan dijual oleh Cabang E-APOTEK sesuai lokasi Karyawan bekerja.</p>
                     </div>
-                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('viewObatBranch', Auth::user()->worker->branch_id) }}" class="btn btn-success">Telusuri</a>
                 </div>
                 
                 <div class="card bg-transparent border-0">
