@@ -14,4 +14,8 @@ class Worker extends Model
         return $this->hasOne('App\Position','id','position_id');
     }
 
+    public function attendance(){
+        return $this->hasMany('App\Attendance','nik','nik');
+    }
+
 }
