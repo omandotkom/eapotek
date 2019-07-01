@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@php
+$type="salary";
+@endphp
+@extends('layouts.logged')
 
 @section('content')
 <script>
