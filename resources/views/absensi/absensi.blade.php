@@ -1,3 +1,6 @@
+@php
+$type="input-absensi";
+@endphp
 @extends('layouts.logged')
 
 @section('content')

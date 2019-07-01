@@ -49,7 +49,7 @@
     //Route::get('/view/obat', 'MedicineController@showAllMedicine')->name('viewObat');
     Route::post('/input/obat/store', 'MedicineController@store')->name('storeObat');
     Route::get('/view/obat/branch/{branch_id}','MedicineController@showSupplierbyBranch')->name('viewObat');
-    Route::get('/view/obat/search/branch/{branch_id}','MedicineController@loadData');
+    Route::get('/view/obat/search/dynamic/branch/{branch_id}','MedicineController@loadData');
     Route::get('/view/obat/search/branch/{branch_id}/{namaobat}','MedicineController@searchName')->name('viewObatByName');
     Route::get('/view/obat/search/branch/{branch_id}','MedicineController@branch')->name('viewObatBranch');
     

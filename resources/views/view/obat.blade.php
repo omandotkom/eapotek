@@ -38,7 +38,7 @@ $type="viewobat";
                     </div>
                     
                     <div class="form-group">
-                    @if(Auth::user()->role=="branchworker")
+                    @if(Auth::user()->role!="owner")
                         <label for="namaCabang">Cabang</label>
                             <select onchange="onBranchChanged('medicine', document.getElementById('namaCabang').value);" id="namaCabang" disabled="true" class="form-control col-md-3">
                                 <option value="0">Semua</option>

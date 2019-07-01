@@ -1,3 +1,6 @@
+@php
+$type="input-branchhead";
+@endphp
 @extends('layouts.logged')
 
 @section('content')

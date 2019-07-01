@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@php
+$type="slip-gaji";
+@endphp
+@extends('layouts.logged')
 
 @section('content')
 

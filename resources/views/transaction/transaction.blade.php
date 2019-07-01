@@ -1,4 +1,7 @@
-@extends('layouts.transaction')
+@php
+$type="transaction"
+@endphp
+@extends('layouts.logged')
 
 @section('content')
 <script src="https://cdn.jsdelivr.net/npm/table-to-json@0.13.0/lib/jquery.tabletojson.min.js" integrity="sha256-AqDz23QC5g2yyhRaZcEGhMMZwQnp8fC6sCZpf+e7pnw=" crossorigin="anonymous"></script>
@@ -249,11 +252,11 @@ function productDelete(ctl) {
 }
 $(document).ready(function(){
 
-
+console.log("http://homestead.test/view/obat/search/dynamic/branch/{{Auth::user()->worker->branch_id}}");
   $('#namaObat').select2({
     placeholder: 'Cari...',
     ajax: {
-      url: 'http://homestead.test/view/obat/search/branch/{{Auth::user()->worker->branch_id}}',
+      url: 'http://homestead.test/view/obat/search/dynamic/branch/{{Auth::user()->worker->branch_id}}',
       dataType: 'json',
       data: function (params) {
             return {

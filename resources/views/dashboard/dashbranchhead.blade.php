@@ -1,3 +1,6 @@
+@php
+$type="dashboard";
+@endphp
 @extends('layouts.logged')
 
 @section('content')
@@ -21,7 +24,7 @@
                          <div class="card-body">
                         <p class="card-text text-justify">Melihat Informasi adalah sebuah kegiatan yang di- lakukan oleh Kepala Cabang untuk dapat melihat seluruh informasi E-APOTEK mulai dari Obat, Karyawan, Supplier hingga Supply Obat.</p>
                     </div>
-                    <a href="#" class="btn btn-success">Telusuri</a>
+                    <a <a href="{{ route('viewObatBranch', Auth::user()->worker->branch_id) }}" class="btn btn-success">Telusuri</a>
                 </div>
 
                 <div class="card shadow">

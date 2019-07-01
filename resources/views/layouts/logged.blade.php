@@ -42,8 +42,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                        @switch($type)
-                         @case("viewobat")
+                            @switch($type)
+                            @case("viewobat")
                             @if (Auth::user()->role == "branchworker")
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('transactionAdd') }}">{{ __('Transaksi') }}</a>
@@ -61,6 +61,58 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inputSupplier') }}">{{ __('Supplier') }}</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('inputSupplyObat') }}">{{ __('Supply') }}</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('inputKaryawan') }}">{{ __('Karyawan') }}</a>
+                            </li>
+                            @elseif (Auth::user()->role == "branchhead")
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('viewObat',Auth::user()->worker->branch_id) }}">{{ __('Obat') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('viewSupplier',Auth::user()->worker->branch_id) }}">{{ __('Supplier') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white"  href="{{ route('viewSupplyObat',Auth::user()->worker->branch_id) }}" >{{ __('Supply') }}</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('viewKaryawan',Auth::user()->worker->branch_id) }}">{{ __('Karyawan') }}</a>
+                            </li>
+                            
+
+                            @endif
+
+                            @break
+                            @case("transaction")
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('transactionAdd') }}">{{ __('Transaksi') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('viewObatBranch', Auth::user()->worker->branch_id) }}">{{ __('Obat') }}</a>
+                            </li>
+                            
+                            @break
+                            @case("dashboard")
+                            
+                            @break
+                            @case("input-branchhead")
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('inputObat') }}">{{ __('Obat') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{{ route('inputSupplier') }}">{{ __('Supplier') }}</a>
+                            </li>
                             
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('inputSupplyObat') }}">{{ __('Supply') }}</a>
@@ -71,11 +123,8 @@
                                 <a class="nav-link text-white" href="{{ route('inputKaryawan') }}">{{ __('Karyawan') }}</a>
                             </li>
 
-
-                            @endif
-                            
-                         @break
-                        @endswitch
+                            @break
+                            @endswitch
                         </ul>
 
                         <!-- Right Side Of Navbar -->
@@ -99,7 +148,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                               document.getElementById('logout-form').submit();">
+                                       document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
