@@ -55,21 +55,22 @@
                             @elseif (Auth::user()->role == "owner")
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('inputObat') }}">{{ __('Obat') }}</a>
+                                <a class="nav-link text-white" href="{{ route('viewObat',Auth::user()->worker->branch_id) }}">{{ __('Obat') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('inputSupplier') }}">{{ __('Supplier') }}</a>
+                                <a class="nav-link text-white" href="{{ route('viewSupplier',Auth::user()->worker->branch_id) }}">{{ __('Supplier') }}</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('inputSupplyObat') }}">{{ __('Supply') }}</a>
+                                <a class="nav-link text-white"  href="{{ route('viewSupplyObat',Auth::user()->worker->branch_id) }}" >{{ __('Supply') }}</a>
                             </li>
 
 
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="{{ route('inputKaryawan') }}">{{ __('Karyawan') }}</a>
+                                <a class="nav-link text-white" href="{{ route('viewKaryawan',Auth::user()->worker->branch_id) }}">{{ __('Karyawan') }}</a>
                             </li>
+                            
                             @elseif (Auth::user()->role == "branchhead")
                             <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('viewObat',Auth::user()->worker->branch_id) }}">{{ __('Obat') }}</a>
