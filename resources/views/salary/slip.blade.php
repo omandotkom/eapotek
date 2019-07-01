@@ -31,7 +31,7 @@ $type="slip-gaji";
                         <div class="form-row">
                             <div class="form-group ml-3">
                                 <label for="periode">Periode</label>
-                                <input type="date" id="periode" class="form-control">
+                                <input type="date" id="start" class="form-control">
                             </div>
 
                             <div class="form-group mx-3 pt-4">
@@ -39,17 +39,17 @@ $type="slip-gaji";
                             </div>
                             <div class="form-group pt-2">
                                 <label></label>
-                                <input type="date" id="periodend" class="form-control">
+                                <input type="date" id="end" class="form-control">
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group col-md-6">
                             <label for="nik">NIK</label>
-                            <select id="nik" class="form-control">
-                                <option selected>Pilih</option>
-                                @foreach($branches as $b)
-                                <option value="{{$b->id}}">{{$b->nik}}</option>
+                            <select onchange="nikchanged();" id="nik" class="form-control">
+                                <option value="0" selected>Pilih</option>
+                                @foreach($workers as $b)
+                                <option value="{{$b->nik}}">{{$b->nik}}</option>
                                 @endforeach
                             </select> 
                         </div>
@@ -82,15 +82,16 @@ $type="slip-gaji";
                             <tbody>
                                 <tr>
                                     <td>Hari Masuk</td>
-                                    <td></td>
+                                    <td id="masuk"></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td>Hari Izin</td>
+                                    <td id="izin"></td>
                                 </tr>
                                 <tr>
-                                    <td>Hari Absen</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Lainnya</td>
-                                    <td></td>
+                                    <td>Hari Alpha</td>
+                                    <td id="alpha"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -109,7 +110,7 @@ $type="slip-gaji";
                             <tbody>
                                 <tr>
                                     <td>Gaji Pokok</td>
-                                    <td></td>
+                                    <td id="gajipokok"></td>
                                 </tr>
                                 <tr>
                                     <td>Lembur</td>
@@ -122,14 +123,7 @@ $type="slip-gaji";
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>THR</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>Lainnya</td>
-                                    <td></td>
-                                </tr>
+                              
                             </tbody>
                         </table>
                     </div>
@@ -194,8 +188,46 @@ $type="slip-gaji";
                     </div>
                 </fieldset>
                 <div class="text-right">
-                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>                
+                    <button type="submit" onclick="onPrintClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>                
                 </div>
+                <script>
+                function onPrintClicked(){
+                    console.log($("#periodestart").val());
+                }
+                function nikchanged(){
+                    console.log("from : " +$("#start").val() + " to " + $("#end").val() );
+                    if ($("#nik").val() != "0"){
+                        axios.post('http://homestead.test/view/slipgaji/nik',{
+                            nik : $("#nik").val(),
+                            from : $("#start").val(),
+                            to : $("#end").val()
+                        })
+                            .then(function (response) {
+                                // handle success
+                                $("#nama").val(response.data.worker.nama);
+                                $("#jabatan").val(response.data.worker.position.nama);
+                                document.getElementById("gajipokok").innerHTML = response.data.worker.position.salary;
+                                document.getElementById("masuk").innerHTML = response.data.masuk;
+                                document.getElementById("izin").innerHTML = response.data.izin;
+                                document.getElementById("alpha").innerHTML = response.data.alpha;
+                                
+                                console.log(response);
+                            })
+                            .catch(function (error) {
+                                // handle error
+                               
+                                console.log(error);
+                            })
+                            .finally(function () {
+                                // always executed
+                            });    
+                    }else{
+                        console.log("cannot view because 0");
+                    }
+                    
+
+                }
+                </script>
                 {{--<script>
                             async function onSubmitClicked() {
 
@@ -238,6 +270,7 @@ $type="slip-gaji";
                 });
                 }
                 </script>--}}
+                
                 </form>
             </div>
         </div>
