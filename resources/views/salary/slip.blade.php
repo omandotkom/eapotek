@@ -4,11 +4,11 @@ $type="slip-gaji";
 @extends('layouts.logged')
 
 @section('content')
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.print/1.6.0/jQuery.print.js"></script>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card">
+            <div class="card" id="card">
                 <div class="card-header">Slip Gaji</div>
 
                 <div class="card-body">
@@ -146,7 +146,7 @@ $type="slip-gaji";
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon2">Rp</span>
                                             </div>
-                                            <input type="text" class="form-control" id="jumlahBayar" aria-label="jumlahBayar" aria-describedby="basic-addon2">
+                                            <input type="text" class="form-control" id="pinjaman" aria-label="jumlahBayar" aria-describedby="basic-addon2">
                                         </div>
                                     </td>
                                 </tr>
@@ -183,16 +183,40 @@ $type="slip-gaji";
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Rp</span>
                             </div>
-                            <input type="text" class="form-control" id="totalBiaya" aria-label="totalBiaya" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" id="total" aria-label="totalBiaya" aria-describedby="basic-addon1">
                         </div>
                     </div>
                 </fieldset>
                 <div class="text-right">
-                    <button type="submit" onclick="onPrintClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>                
+                    <button type="submit" onclick="onPrintClicked();" id="send_form" class="btn btn-outline-success .d-print-none">Hitung</button>                
                 </div>
                 <script>
                 function onPrintClicked(){
-                    console.log($("#periodestart").val());
+                 var potongan  = parseInt($("#pinjaman").val()) +parseInt( $("#hutang").val())  + parseInt($("#lainnya").val());
+                 var tidakmasuk = parseInt($("#izin").text()) + parseInt($("#alpha").text());
+                 var gajipokok = parseInt($("#gajipokok").text());
+                 var lembur = parseInt($("#lembur").val());
+                 var gajipokokperhari = gajipokok / 20;
+                 tidakmasuk = tidakmasuk * gajipokokperhari;
+                 gajipokok = gajipokok - tidakmasuk;
+                 gajipokok = gajipokok + lembur;
+                 gajipokok = gajipokok - potongan;
+                 $("#total").val(gajipokok);
+                 $("#send_form").hide();
+                 $("#card").print({
+        	globalStyles: true,
+        	mediaPrint: false,
+        	stylesheet: null,
+        	noPrintSelector: ".no-print",
+        	iframe: true,
+        	append: null,
+        	prepend: null,
+        	manuallyCopyFormValues: true,
+        	deferred: $.Deferred(),
+        	timeout: 750,
+        	title: "Slip Gaji a.n " + $("#nama").val() ,
+        	doctype: '<!doctype html>'
+	});
                 }
                 function nikchanged(){
                     console.log("from : " +$("#start").val() + " to " + $("#end").val() );
@@ -207,6 +231,7 @@ $type="slip-gaji";
                                 $("#nama").val(response.data.worker.nama);
                                 $("#jabatan").val(response.data.worker.position.nama);
                                 document.getElementById("gajipokok").innerHTML = response.data.worker.position.salary;
+                                
                                 document.getElementById("masuk").innerHTML = response.data.masuk;
                                 document.getElementById("izin").innerHTML = response.data.izin;
                                 document.getElementById("alpha").innerHTML = response.data.alpha;
