@@ -206,7 +206,7 @@ $type="slip-gaji";
                  $("#card").print({
         	globalStyles: true,
         	mediaPrint: false,
-        	stylesheet: null,
+        	stylesheet: "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css",
         	noPrintSelector: ".no-print",
         	iframe: true,
         	append: null,
