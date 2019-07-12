@@ -43,7 +43,7 @@ $type="viewobat";
                     <div class="form-group">
                     @if(Auth::user()->role!="owner")
                         <label for="namaCabang">Cabang</label>
-                            <select onchange="onBranchChanged('medicine', document.getElementById('namaCabang').value);" id="namaCabang" disabled="true" class="form-control col-md-3">
+                            <select onchange="onBranchChanged('supplier', document.getElementById('namaCabang').value);" id="namaCabang" disabled="true" class="form-control col-md-3">
                                 <option value="0">Semua</option>
                                     @foreach($branches as $b)
                                         @if($b->id==$branch_id)
@@ -55,7 +55,7 @@ $type="viewobat";
                         </select>
                      @else
                             <label for="namaCabang">Cabang</label>
-                        <select onchange="onBranchChanged('medicine', document.getElementById('namaCabang').value);" id="namaCabang" class="form-control col-md-3">
+                        <select onchange="onBranchChanged('supplier', document.getElementById('namaCabang').value);" id="namaCabang" class="form-control col-md-3">
                             <option value="0">Semua</option>
                             @foreach($branches as $b)
                             @if($b->id==$branch_id)
