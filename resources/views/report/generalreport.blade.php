@@ -31,7 +31,7 @@ $type="viewobat";
                 <!--sampai sini-->
                 <div class="card-body">
                 <div id="poll_div"></div>
-                @barchart('BarChart', 'poll_div')
+                @areachart('AreaChart', 'poll_div')
                 </div>
             </div>
         </div>
