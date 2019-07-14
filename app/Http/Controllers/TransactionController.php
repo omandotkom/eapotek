@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\Branch;
 use Carbon\Carbon;
+use App\Transaction;
 use DB;
 class TransactionController extends Controller {
     public function showTransactionPage() {
@@ -30,8 +31,18 @@ class TransactionController extends Controller {
         $totalbiaya = $request->totalbiaya;
         $transactions = $request->transaction;
         $someObject = json_decode($transactions);
+        $time = Carbon::now();
+        $tanggal = $time->toDateString();
         foreach($someObject as $key => $value) {
-          
+          $transaksi = new Transaction;
+          $transaksi->hash = $hash;
+          $transaksi->medicine_id = $value->Kode;
+          $transaksi->branch_id = $branch_id;
+          $tb = $value->Jumlah * $value->Harga;
+          $transaksi->quantity = $value->Jumlah;
+          $transaksi->totalbiaya = $tb;
+          $transaksi->tanggal = $tanggal;
+          $transaksi->save();
             DB::table("medicines")->where('id',$value->Kode)
                     ->decrement("stok",$value->Jumlah);
           }
