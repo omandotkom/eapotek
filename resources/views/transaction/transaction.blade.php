@@ -13,10 +13,10 @@ $type="transaction"
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Transaksi</div>
-
-                <div class="card-body">
+    <div class="card-body">
                     <form id="formSupplier" method="post" action="javascript:void(0)">
-                        <fieldset disabled>
+                        
+            <fieldset disabled>
                             <div class="form-group">
                                 <label for="namaCabang">Cabang</label>
                                 <input type="text" id="namaCabang" value="{{ Auth::user()->worker->branch->nama }}" class="form-control" placeholder="Disabled input">

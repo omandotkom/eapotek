@@ -18,7 +18,7 @@ $transaksiTahunanA = \Lava::DataTable();
 $transaksiTahunanA->addStringColumn('Performa Tahunan Semua Cabang')
       ->addNumberColumn('Performa');
 $data = DB::table('transactions')
-        ->select(DB::raw('count(transactions.id) as jumlah, branch_id as id'))
+        ->select(DB::raw('sum(transactions.quantity) as jumlah, branch_id as id'))
         ->whereRaw("YEAR(transactions.tanggal) = '". $date->year ."'")
         ->groupBy('branch_id')->get();
 
@@ -53,7 +53,7 @@ $Tahunan = \Lava::BarChart('Tahunan',$transaksiTahunanA);
         $bulanan = \Lava::DataTable();
 $bulanan->addStringColumn("Bulan")
 ->addNumberColumn("Performa");
-        $data = DB::select("select count(id) as jumlah from `transactions` where YEAR(tanggal)='".$date->year."' and branch_id=".$branch->id." group by month(tanggal)");
+        $data = DB::select("select sum(quantity) as jumlah from `transactions` where YEAR(tanggal)='".$date->year."' and branch_id=".$branch->id." group by month(tanggal)");
         $monthCounter = 0;
             foreach($data as $d){
                 $bulanan->addRow([$short[$monthCounter],$d->jumlah]);

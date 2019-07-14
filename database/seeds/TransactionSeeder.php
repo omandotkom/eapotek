@@ -33,7 +33,7 @@ class TransactionSeeder extends Seeder
                             'branch_id' => 1,
                             'hash' => $hash,
                             'medicine_id' => 'Mdc 701xai',
-                            'quantity' => 1,
+                            'quantity' => $faker->numberBetween($min = 1, $max = 4),
                             'totalbiaya' => $faker->numberBetween($min = 16000, $max = 30000),
                             'tanggal' => Carbon::createFromDate(2019,$bulan,$hari)->toDateString(),
                         ]);
@@ -60,7 +60,7 @@ class TransactionSeeder extends Seeder
                             'branch_id' => 2,
                             'hash' => $hash,
                             'medicine_id' => 'Mdc 824sdb',
-                            'quantity' => 1,
+                            'quantity' => $faker->numberBetween($min = 1, $max = 6),
                             'totalbiaya' => $faker->numberBetween($min = 16000, $max = 30000),
                             'tanggal' => Carbon::createFromDate(2019,$bulan,$hari)->toDateString(),
                         ]);
@@ -87,7 +87,7 @@ class TransactionSeeder extends Seeder
                             'branch_id' => 3,
                             'hash' => $hash,
                             'medicine_id' => 'Mdc 531zno',
-                            'quantity' => 1,
+                            'quantity' => $faker->numberBetween($min = 1, $max = 3),
                             'totalbiaya' => $faker->numberBetween($min = 16000, $max = 30000),
                             'tanggal' => Carbon::createFromDate(2019,$bulan,$hari)->toDateString(),
                         ]);
@@ -114,7 +114,7 @@ class TransactionSeeder extends Seeder
                             'branch_id' => 4,
                             'hash' => $hash,
                             'medicine_id' => 'Mdc 421wxd',
-                            'quantity' => 1,
+                            'quantity' => $faker->numberBetween($min = 1, $max = 9),
                             'totalbiaya' => $faker->numberBetween($min = 16000, $max = 30000),
                             'tanggal' => Carbon::createFromDate(2019,$bulan,$hari)->toDateString(),
                         ]);
