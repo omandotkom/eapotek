@@ -12,5 +12,8 @@ class Medicine extends Model
     public function branch(){
         return $this->hasOne('App\Branch','id','branch_id');
     }
-    
+
+    public function supplying(){
+        return  $this->hasOne('App\Supplying','id_medicine','id');
+    }
 }
