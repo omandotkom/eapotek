@@ -52,7 +52,9 @@
     Route::get('/view/obat/search/dynamic/branch/{branch_id}','MedicineController@loadData');
     Route::get('/view/obat/search/branch/{branch_id}/{namaobat}','MedicineController@searchName')->name('viewObatByName');
     Route::get('/view/obat/search/branch/{branch_id}','MedicineController@branch')->name('viewObatBranch');
-    
+    Route::get('/view/obat/search/id/{id}','MedicineController@detil');
+    Route::post('/input/obat/update','MedicineController@update');
+
     Route::get('/input/karyawan', 'WorkerController@showWorkerView' )->name('inputKaryawan');
     //Route::get('/view/karyawan', 'WorkerController@showAllWorker')->name('viewKaryawan');
     Route::get('/view/karyawan/branch/{branch_id}','WorkerController@showWorkerbyBranch')->name('viewKaryawan');

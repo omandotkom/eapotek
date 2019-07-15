@@ -9,15 +9,19 @@ use Illuminate\Support\Facades\Auth;
 use App\Medicine;
 use App\Supplying;
 use DB;
-
+use Response;
 class MedicineController extends Controller {
 
     public function showInputObatView() {
         $cabang = Branch::where('nik', Auth::user()->nik)->first();
         $supplier = Supplier::where('branch_id', $cabang->id)->get();
-        return view('input.obat', ['cabang' => $cabang, 'supplier' => $supplier]);
+        $medicine = Medicine::where('branch_id', $cabang->id)->get();
+        return view('input.obat', ['cabang' => $cabang, 'supplier' => $supplier,'medicine'=>$medicine]);
     }
-
+    public function detil($id){
+        $medicine = Medicine::with('supplying')->where('id',$id)->first();
+        return $medicine->toJson();
+    }
     public function store(Request $request) {
         $medicine = new Medicine;
         $medicine->id = $request->id;
@@ -55,7 +59,21 @@ class MedicineController extends Controller {
         $data = DB::table('medicines')->where('namaobat', 'like', '%' . $cari . '%')->where('branch_id', '=', $branch_id)->get();
         return response()->json($data);
     }
-
+    
+    public function update(Request $request){
+        $medicine = Medicine::find($request->id);
+       
+        $medicine->namaobat = $request->namaobat;
+        $medicine->satuan = $request->satuan;
+        $medicine->harga = $request->harga;
+        $medicine->stok = $request->stok;
+        
+        $medicine->save();
+        return Response::json([
+            'action' => 'update_medicine'
+                ], 200); // Status code here
+   
+    }
     public function searchName($branch_id, $namaobat) {
         if ($branch_id != 0) {
             $medicines = Medicine::with('branch')->where('namaobat', 'like', '%' . $namaobat . '%')->where('branch_id', '=', $branch_id)->simplePaginate(10);
