@@ -36,7 +36,7 @@ $type="viewobat";
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">Performa Bulanan Setiap Cabang</div>
+                <div class="card-header">Jumlah Item yang Dibeli di Setiap Cabang</div>
                 <!-- tulis kode disini-->
 
                 <!--sampai sini-->
