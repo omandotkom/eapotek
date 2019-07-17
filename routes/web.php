@@ -79,4 +79,5 @@
     Route::post('/input/salary/update','SalaryController@updateSalary');
     Route::post('/view/slipgaji/nik','SalaryController@loadData');
    
-Route::get('/sample', "ReportController@load");
+    Route::get('/view/report/general', "ReportController@load")->name('ownerReport');
+    Route::get('/view/report/branchhead','ReportController@branchload')->name('branchheadReport');
