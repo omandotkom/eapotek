@@ -53,7 +53,7 @@ $type="dashboard";
                          <div class="card-body">
                         <p class="card-text text-justify">Laporan adalah sebuah halaman berisi informasi dalam bentuk catatan rincian mulai dari Keuangan, Transaksi, dan Absensi yang dapat ditentukan rentang waktu pengambilan data-Nya.</p>
                     </div>
-                    <a href="#" class="btn btn-success">Telusuri</a>
+                    <a href="{{route('branchheadReport')}}" class="btn btn-success">Telusuri</a>
                 </div>
                 
                 <div class="card bg-transparent border-0">

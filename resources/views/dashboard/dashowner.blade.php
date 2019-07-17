@@ -58,7 +58,7 @@
                     <div class="card-body">
                         <p class="card-text text-justify">Laporan adalah sebuah halaman berisi informasi dalam bentuk catatan rincian mulai dari Keuangan, Transaksi, dan Absensi yang dapat ditentukan rentang waktu pengambilan data-Nya.</p>
                     </div>
-                    <a href="{{ route('inputObat') }}" class="btn btn-success">Telusuri</a>
+                    <a href="{{ route('ownerReport') }}" class="btn btn-success">Telusuri</a>
                 </div>
 
             </div>
