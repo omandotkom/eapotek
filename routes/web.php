@@ -73,11 +73,13 @@
     
     Route::get('/transaction/add','TransactionController@showTransactionPage')->name("transactionAdd");
     Route::post('/transaction/add/save','TransactionController@store');
+    Route::get('/sample/{branch_id}','TransactionController@showSupplierbyBranch');
 
     Route::get('/input/salary/{branch_id}', 'SalaryController@showSalaryInputView')->name('inputSalary');
     Route::get('/view/slipgaji','SalaryController@showCetakSlipGajiView')->name('slipGaji');
     Route::post('/input/salary/update','SalaryController@updateSalary');
     Route::post('/view/slipgaji/nik','SalaryController@loadData');
    
-    Route::get('/view/report/general', "ReportController@load")->name('ownerReport');
-    Route::get('/view/report/branchhead','ReportController@branchload')->name('branchheadReport');
+    Route::get('/view/report/general/{dari}/{sampai}', "ReportController@load")->name('ownerReport');
+    Route::get('/view/report/branchhead/{dari}/{sampai}','ReportController@branchload')->name('branchheadReport');
+    

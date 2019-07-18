@@ -53,12 +53,34 @@ $type="dashboard";
                          <div class="card-body">
                         <p class="card-text text-justify">Laporan adalah sebuah halaman berisi informasi dalam bentuk catatan rincian mulai dari Keuangan, Transaksi, dan Absensi yang dapat ditentukan rentang waktu pengambilan data-Nya.</p>
                     </div>
-                    <a href="{{route('branchheadReport')}}" class="btn btn-success">Telusuri</a>
-                </div>
+                    <a onclick="compose(); return false;" href="#"  class="btn btn-success">Telusuri</a>
+                    </div>
                 
                 <div class="card bg-transparent border-0">
                 </div>
-
+                <script>
+                function compose(){
+                    bootbox.dialog({ 
+    title: 'Pilih Jarak Tanggal Laporan',
+    message: '<p>Pilih Jarak Tanggal Pelaporan (Per Bulan, Minggu, Hari atau tanggal tertentu)</p>dari<input type="date" id="start" class="form-control"></input>sampai<input type="date" id="sampai" class="form-control"></input>',
+    size: 'large',
+    closeButton: true,
+    centerVertical: true,
+    onEscape: true,
+    backdrop: true,
+    buttons: {
+        next: {
+            label: 'Lanjutkan',
+            className: 'btn-success',
+            callback: function(){
+                var dari = $("#start").val();
+                var sampai = $("#sampai").val();
+                window.location.replace("/view/report/general/"+dari+"/"+sampai);                
+            }
+        }}
+});
+                }
+                </script>
             </div>
         </div>
     </div>

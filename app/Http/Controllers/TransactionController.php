@@ -9,6 +9,7 @@ use App\Branch;
 use Carbon\Carbon;
 use App\Transaction;
 use DB;
+use App\Supplier;
 class TransactionController extends Controller {
     public function showTransactionPage() {
         $cabang = Auth::user()->worker->branch->name;
@@ -18,7 +19,21 @@ class TransactionController extends Controller {
         $hash = Hash::make($hash);
         return view('transaction.transaction',['hash' => $hash]);
     }
+    public function showSupplierbyBranch($branch_id) {
+        if ($branch_id == 0) {
+            //default value is all item
+            $suppliers = Supplier::with('branch')->simplePaginate(10);
+            //$suppliers = DB::table("suppliers")->simplePaginate(10);
+            $branches = Branch::all();
+            return view('transaction.view', ['suppliers' => $suppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        } else {
+            //means its not default
 
+            $suppliers = Supplier::where('branch_id', $branch_id)->simplePaginate(10);
+            $branches = Branch::all();
+            return view('transaction.view', ['suppliers' => $suppliers, 'branches' => $branches, 'branch_id' => $branch_id]);
+        }
+    }
     public function store(Request $request){
         $request->validate([
             'branch_id' => 'bail|required',

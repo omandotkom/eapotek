@@ -26,7 +26,7 @@ $type="viewobat";
         <div class="col-md-10">
        
             <div class="card">
-                <div class="card-header">Jumlah Item yang Dibeli di Cabang {{ Auth::user()->worker->branch->nama}}</div>
+                <div class="card-header">Jumlah Penjualan Item di {{ Auth::user()->worker->branch->nama}}</div>
                 <!-- tulis kode disini-->
 
                 <!--sampai sini-->

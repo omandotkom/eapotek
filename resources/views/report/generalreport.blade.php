@@ -25,7 +25,7 @@ $type="viewobat";
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Penjualan Tahunan Semua Cabang</div>
+                <div class="card-header">Jumlah Transaksi Setiap Cabang</div>
                 
                 <div class="card-body">
                 <div id="poll_div"></div>
@@ -36,7 +36,7 @@ $type="viewobat";
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">Jumlah Item yang Dibeli di Setiap Cabang</div>
+                <div class="card-header">Jumlah Penjualan Item Setiap Cabang</div>
                 <!-- tulis kode disini-->
 
                 <!--sampai sini-->

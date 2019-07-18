@@ -12,15 +12,15 @@ use Auth;
 class ReportController extends Controller
 {
 
-    function load(){
-$date = Carbon::now();
+    function load($dari,$sampai){
+
 $branches = Branch::all();
 $transaksiTahunanA = \Lava::DataTable();
 $transaksiTahunanA->addStringColumn('Performa Tahunan Semua Cabang')
       ->addNumberColumn('Performa');
 $data = DB::table('transactions')
-        ->select(DB::raw('sum(transactions.quantity) as jumlah, branch_id as id'))
-        ->whereRaw("YEAR(transactions.tanggal) = '". $date->year ."'")
+        ->select(DB::raw('count(distinct transactions.hash) as jumlah, branch_id as id'))
+        ->whereRaw("transactions.tanggal BETWEEN '". $dari ."' and '".$sampai."'")
         ->groupBy('branch_id')->get();
 
 foreach($data as $d){
@@ -28,20 +28,13 @@ foreach($data as $d){
 }
 $Tahunan = \Lava::BarChart('Tahunan',$transaksiTahunanA);
 
-
-
-/*$data2 = DB::table('transactions')
-    ->select(DB::raw('count(id) as jumlah'))
-    ->whereRaw("YEAR(tanggal)='".$date->year."'")
-    ->whereRaw("branch_id=1")
-    ->groupBy('month(tanggal)')->get();*/
-   
+   $date = Carbon::Now();
       $BulananList = array();
       foreach($branches as $branch){
         $bulanan = \Lava::DataTable();
 $bulanan->addStringColumn("Bulan")
 ->addNumberColumn("Performa");
-        $data = DB::select("select sum(quantity) as jumlah, MONTHNAME(tanggal) as bulan from `transactions` where YEAR(tanggal)='".$date->year."' and branch_id=".$branch->id." group by month(tanggal), bulan");
+        $data = DB::select("select sum(quantity) as jumlah, DAYNAME(tanggal) as bulan from `transactions` where tanggal BETWEEN '".$dari."' AND '".$sampai."' and branch_id=".$branch->id." group by month(tanggal), bulan");
        
             foreach($data as $d){
                 $bulanan->addRow([$d->bulan,$d->jumlah]);
@@ -55,9 +48,8 @@ $bulanan->addStringColumn("Bulan")
 return view('report.generalreport',['Tahunan' => $Tahunan,'BulananList' => $BulananList,'branches' => $branches]);
     }
 
-    public function branchload(){
+    public function branchload($dari,$sampai){
    
-        $date = Carbon::now();
         $branch_id  = Auth::user()->worker->branch_id;
         $bulanan = \Lava::DataTable();
         $bulanan->addStringColumn("Bulan")
