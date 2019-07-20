@@ -40,7 +40,7 @@
     Route::get('/input/supplier', 'SupplierController@showInputSupplierView')->name('inputSupplier');
     Route::get('/view/supplier/branch/{branch_id}','SupplierController@showSupplierbyBranch')->name('viewSupplier');
     Route::get('/view/supplier/search/branch/{branch_id}/{namasupplier}','SupplierController@searchName')->name('viewSupplierByName');
-    Route::get('/view/supplier/search/branch/{branch_id}','SupplierController@loadData');
+    Route::get('/view/supplier/search/{id}','SupplierController@loadData');
     Route::post('/supplier/store', 'SupplierController@store');
     Route::post('/input/supplier/update','SupplierController@update');
     Route::post('/input/supplier/delete','SupplierController@delete');
