@@ -73,8 +73,9 @@
     
     Route::get('/transaction/add','TransactionController@showTransactionPage')->name("transactionAdd");
     Route::post('/transaction/add/save','TransactionController@store');
-    Route::get('/sample/{branch_id}','TransactionController@showSupplierbyBranch');
-
+    Route::get('/view/transaction/{branch_id}','TransactionController@showTransactionbyBranch');
+    Route::post('/transaction/detil','TransactionController@showTransactionDetil');
+   
     Route::get('/input/salary/{branch_id}', 'SalaryController@showSalaryInputView')->name('inputSalary');
     Route::get('/view/slipgaji','SalaryController@showCetakSlipGajiView')->name('slipGaji');
     Route::post('/input/salary/update','SalaryController@updateSalary');
