@@ -22,10 +22,10 @@ function onBranchChanged(type, branch_id) {
         case "salary":
             window.location = "/input/salary/" + branch_id;
             break;
-        case "transaction":
-            window.location = "/view/transaction/" + branch_id;
-            break;
-    }
+      }
+}
+function onTransactionBranchChanged(branch_id,from,to){
+    window.location = "/view/transaction/" + branch_id + "/" + from + "/" + to;
 }
 function searchbyParam(type, branch_id, name) {
     switch (type) {

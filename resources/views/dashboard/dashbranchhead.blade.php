@@ -6,7 +6,7 @@ $type="dashboard";
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card-deck">
 
                 <div class="card shadow">
@@ -31,7 +31,7 @@ $type="dashboard";
                     <h4 class="card-header text-center pb-2">Absensi</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdatakaryawan.png') }} alt="Card image cap">
                          <div class="card-body">
-                        <p class="card-text text-justify">Absensi adalah sebuah kegiatan pengambilan data yang dilakukan oleh Kepala Cabang guna mengetahui jumlah kehadiran Karyawan di E-APOTEK.</p>
+                        <p class="card-text text-justify">Absensi adalah sebuah kegiatan pengambilan data yang di-lakukan oleh Kepala Cabang guna mengetahui jumlah kehadiran Karyawan di E-APOTEK.</p>
                     </div>
                     <a href="{{ route('absensi') }}" class="btn btn-success">Telusuri</a>
                 </div>
@@ -46,7 +46,14 @@ $type="dashboard";
                     </div>
                     <a href="{{route('slipGaji')}}" class="btn btn-success">Telusuri</a>
                 </div>
-
+                <div class="card shadow">
+                    <h4 class="card-header text-center pb-2">Transaksi</h4>
+                    <img class="card-img-top" src={{ asset('img/dashboard/owner/penentuangaji.png') }} alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text text-justify">Transaksi adalah sebuah kegiatan yang dilakukan oleh Kepala Cabang untuk me-manipulasi data seperti Tanggal, Nama Barang, Jumlah dan Harga yang ada di E-APOTEK guna menunjang sebuah proses jual beli dengan Customer.</p>
+                    </div>
+                    <a href="#" onclick="composeTransaction(); return false;" class="btn btn-success">Telusuri</a>
+                </div>
                 <div class="card shadow">
                     <h4 class="card-header text-center pb-2">Laporan</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/mencetaklaporan.png') }} alt="Card image cap">
@@ -55,9 +62,6 @@ $type="dashboard";
                     </div>
                     <a onclick="compose(); return false;" href="#"  class="btn btn-success">Telusuri</a>
                     </div>
-                
-                <div class="card bg-transparent border-0">
-                </div>
                 <script>
                 function compose(){
                     bootbox.dialog({ 

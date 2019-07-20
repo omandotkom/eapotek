@@ -73,7 +73,7 @@
     
     Route::get('/transaction/add','TransactionController@showTransactionPage')->name("transactionAdd");
     Route::post('/transaction/add/save','TransactionController@store');
-    Route::get('/view/transaction/{branch_id}','TransactionController@showTransactionbyBranch');
+    Route::get('/view/transaction/{branch_id}/{form}/{to}','TransactionController@showTransactionbyBranch');
     Route::post('/transaction/detil','TransactionController@showTransactionDetil');
    
     Route::get('/input/salary/{branch_id}', 'SalaryController@showSalaryInputView')->name('inputSalary');

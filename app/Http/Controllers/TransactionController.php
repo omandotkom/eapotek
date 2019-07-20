@@ -18,34 +18,35 @@ class TransactionController extends Controller
         $cabang = Auth::user()->worker->branch->name;
         $nik = Auth::user()->nik;
         $mytime = Carbon::now();
-        $hash = $cabang . $nik . $mytime->toDateTimeString().$cabang;
+        $hash = $cabang . $nik . $mytime->toDateTimeString() . $cabang;
         $hash = Hash::make($hash);
         return view('transaction.transaction', ['hash' => $hash]);
     }
-    public function showTransactionbyBranch($branch_id)
+    public function showTransactionbyBranch($branch_id, $from, $to)
     {
         if ($branch_id == 0) {
             //default value is all item
-            $transactions = DB::table('transactions')->selectRaw('hash, sum(totalbiaya) as total, tanggal')->groupBy('hash','tanggal')->orderByRaw('tanggal DESC')->simplePaginate(10);
+            $transactions = DB::table("transactions")->selectRaw("hash, sum(totalbiaya) as total, tanggal")->whereRaw("tanggal BETWEEN '" . $from . "' AND '" . $to . "'")->groupBy('hash', 'tanggal')->orderByRaw('tanggal DESC')->simplePaginate(10);
             //$suppliers = DB::table("suppliers")->simplePaginate(10);
             $branches = Branch::all();
-            return view('transaction.view', ['transactions' => $transactions, 'branches' => $branches, 'branch_id' => $branch_id]);
+            return view('transaction.view', ['transactions' => $transactions, 'branches' => $branches, 'branch_id' => $branch_id, 'from' => $from, 'to' => $to]);
         } else {
             //means its not default
 
-           // $transactions = Transaction::where('branch_id', $branch_id)->simplePaginate(10);
-           $transactions = DB::table('transactions')->selectRaw('hash, sum(totalbiaya) as total, tanggal')->where('branch_id',$branch_id)->groupBy('hash','tanggal')->orderByRaw('tanggal DESC')->simplePaginate(10);
-            
-           $branches = Branch::all();
-            return view('transaction.view', ['transactions' => $transactions, 'branches' => $branches, 'branch_id' => $branch_id]);
+            // $transactions = Transaction::where('branch_id', $branch_id)->simplePaginate(10);
+            $transactions = DB::table("transactions")->selectRaw("hash, sum(totalbiaya) as total, tanggal")->where("branch_id", $branch_id)->whereRaw("tanggal BETWEEN '" . $from . "' AND '" . $to . "'")->groupBy('hash', 'tanggal')->orderByRaw('tanggal DESC')->simplePaginate(10);
+
+            $branches = Branch::all();
+            return view('transaction.view', ['transactions' => $transactions, 'branches' => $branches, 'from' => $from, 'to' => $to, 'branch_id' => $branch_id]);
         }
     }
-    public function showTransactionDetil(Request $request){
+    public function showTransactionDetil(Request $request)
+    {
         //$transaction = Transaction::with('medicine')->where('hash',$request->hash)->get();
         //return response()->json(['data'=>$transaction]);
-        $transaction = DB::table('transactions')->join('medicines','transactions.medicine_id','=','medicines.id')
-        ->select('transactions.*','medicines.*')
-        ->where('transactions.hash',$request->hash)->get();
+        $transaction = DB::table('transactions')->join('medicines', 'transactions.medicine_id', '=', 'medicines.id')
+            ->select('transactions.*', 'medicines.*')
+            ->where('transactions.hash', $request->hash)->get();
         return $transaction->toJson();
     }
     public function store(Request $request)

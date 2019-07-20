@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card-deck">
                 <div class="card shadow">
                     <h4 class="card-header text-center pb-2">Informasi Obat</h4>
@@ -18,7 +18,7 @@
                     <h4 class="card-header text-center pb-2">Informasi Supplier</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/melihatdatasupplier.png') }} alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text text-justify">Informasi Supplier adalah sebuah halaman dimana Pemilik Toko akan dapat melihat detail informasi Supplier yang telah be- kerjasama pada E-APOTEK sesuai cabang yang dipilih.</p>
+                        <p class="card-text text-justify">Informasi Supplier adalah sebuah halaman dimana Pemilik Toko akan dapat melihat detail informasi Supplier yang telah bekerjasama pada E-APOTEK sesuai cabang yang dipilih.</p>
                     </div>
                     <a href="{{ route('viewSupplier',0) }}" class="btn btn-success">Telusuri</a>
                 </div>
@@ -45,12 +45,11 @@
                     </div>
                     <a href="{{ route('viewSupplyObat',0) }}" class="btn btn-success">Telusuri</a>
                 </div>
-
                 <div class="card shadow">
                     <h4 class="card-header text-center pb-2">Penentuan Gaji</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/penentuangaji.png') }} alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text text-justify">Penentuan Gaji adalah sebuah kegiatan penetapan yang dilakukan oleh Pemilik Toko guna mengatur be- saran gaji Karyawan di setiap cabang E-APOTEK sesuai jabatannya.</p>
+                        <p class="card-text text-justify">Penentuan Gaji adalah sebuah kegiatan penetapan yang di-lakukan oleh Pemilik Toko guna mengatur besaran gaji Karyawan di setiap cabang E-APOTEK sesuai jabatannya.</p>
                     </div>
                     <a href="{{ route('inputSalary',1) }}" class="btn btn-success">Telusuri</a>
                 </div>
@@ -86,19 +85,46 @@
                         }
                     </script>
                 </div>
-
             </div>
-            <div class="card-deck">
-
+            
+            
+            <div class="card-deck pt-4">
                 <div class="card shadow">
                     <h4 class="card-header text-center pb-2">Transaksi</h4>
                     <img class="card-img-top" src={{ asset('img/dashboard/owner/penentuangaji.png') }} alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text text-justify">Transaksi adalah sebuah kegiatan yang dilakukan oleh pegawai cabang untuk memanipulasi data seperti tanggal , Nama Barang, Jumlah , dan Harga yang ada di E-APOTEK guna menunjang sebuah proses jual beli dengan customer.</p>
+                        <p class="card-text text-justify">Transaksi adalah sebuah kegiatan yang dilakukan oleh pegawai cabang untuk me-manipulasi data seperti Tanggal, Nama Barang, Jumlah dan Harga yang ada di E-APOTEK guna menunjang sebuah proses jual beli dengan customer.</p>
                     </div>
                     <a href="#" onclick="composeTransaction(); return false;" class="btn btn-success">Telusuri</a>
                 </div>
-
+                <script>
+                        function composeTransaction() {
+                            bootbox.dialog({
+                                title: 'Pilih Jarak Tanggal Laporan',
+                                message: '<p>Pilih Jarak Tanggal Pelaporan (Per Bulan, Minggu, Hari atau tanggal tertentu)</p>dari<input type="date" id="startTransaction" class="form-control"></input>sampai<input type="date" id="sampaiTransaction" class="form-control"></input>',
+                                size: 'large',
+                                closeButton: true,
+                                centerVertical: true,
+                                onEscape: true,
+                                backdrop: true,
+                                buttons: {
+                                    next: {
+                                        label: 'Lanjutkan',
+                                        className: 'btn-success',
+                                        callback: function() {
+                                            var dari = $("#startTransaction").val();
+                                            var sampai = $("#sampaiTransaction").val();
+                                            window.location.replace("/view/transaction/0/" + dari + "/" + sampai);
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    </script>
+                <div class="card bg-transparent border-0">
+                </div>
+                <div class="card bg-transparent border-0">
+                </div>
             </div>
         </div>
     </div>
