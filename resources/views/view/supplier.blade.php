@@ -130,10 +130,7 @@ $type="viewobat";
                                                 <div class="col-6 col-md-4">Menyuplai ke</div>
                                                 <div class="col-6 col-md-8">{{$s->branch->nama}}</div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-6 col-md-4">Terakhir Mengirim</div>
-                                                <div class="col-6 col-md-8">{{$s->branch->nama}}</div>
-                                            </div>
+                                          
                                         </div>
                                     </div>
                                     <div class="modal-footer">

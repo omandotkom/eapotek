@@ -8,7 +8,7 @@ $type="viewobat";
         var obatname = $("#searchObat").val();
         var branch_id = $("#namaCabang").val();
         if (branch_id == 0) {
-            bootbox.confirm("Apakah anda yakin ingin mencari " + obatname + " di semua cabang ?", function (result) {
+            bootbox.confirm("Apakah anda yakin ingin mencari " + obatname + " di semua cabang ?", function(result) {
                 if (result == true) {
                     searchbyParam("medicine", branch_id, obatname);
                 }
@@ -26,13 +26,13 @@ $type="viewobat";
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Jumlah Transaksi Setiap Cabang</div>
-                
+
                 <div class="card-body">
-                <div id="poll_div"></div>
-                @barchart('Tahunan','poll_div')
-                @foreach($branches as $branch)
-                {{$branch->id}}. {{$branch->nama}}<br>
-                @endforeach
+                    <div id="poll_div"></div>
+                    @barchart('Tahunan','poll_div')
+                    @foreach($branches as $branch)
+                    {{$branch->id}}. {{$branch->nama}}<br>
+                    @endforeach
                 </div>
             </div>
             <div class="card">
@@ -41,20 +41,26 @@ $type="viewobat";
 
                 <!--sampai sini-->
                 <div class="card-body">
-                
-               <div id="poll_div_bulanan_1"></div>
-               <div id="poll_div_bulanan_2"></div>
-               <div id="poll_div_bulanan_3"></div>
-               <div id="poll_div_bulanan_4"></div>
-               @areachart('Bulanan1','poll_div_bulanan_1')
-               
-               @areachart('Bulanan2','poll_div_bulanan_2')
-               
-               @areachart('Bulanan3','poll_div_bulanan_3')
-               
-               @areachart('Bulanan4','poll_div_bulanan_4')
-               
-                 </div>
+                    @foreach($branches as $b)
+                    <div id="poll_div_bulanan_{{$b->id}}"></div>
+                    @php
+                    $divname = "poll_div_bulanan_".$b->id;
+                    $chartname = "Bulanan".$b->id;
+                    echo Lava::render('AreaChart', $chartname, $divname)
+                    @endphp
+                    @endforeach
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Pendapatan Kotor</div>
+                @foreach($branches as $b)
+                    <div id="poll_div_harian_{{$b->id}}"></div>
+                    @php
+                    $divname = "poll_div_harian_".$b->id;
+                    $chartname = "Harian".$b->id;
+                    echo Lava::render('AreaChart', $chartname, $divname)
+                    @endphp
+                    @endforeach
             </div>
             <div class="card">
                 <div class="card-header">Lihat Informasi Obat</div>
@@ -62,16 +68,7 @@ $type="viewobat";
 
                 <!--sampai sini-->
                 <div class="card-body">
-                <div id="poll_div"></div>
-                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header">Lihat Informasi Obat</div>
-                <!-- tulis kode disini-->
-
-                <!--sampai sini-->
-                <div class="card-body">
-                <div id="poll_div"></div>
+                    <div id="poll_div"></div>
                 </div>
             </div>
         </div>

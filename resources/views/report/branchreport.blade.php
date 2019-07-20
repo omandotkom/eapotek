@@ -49,12 +49,13 @@ $type="viewobat";
                  </div>
             </div>
             <div class="card">
-                <div class="card-header">Lihat Informasi Obat</div>
+                <div class="card-header">Pendapatan Kotor</div>
                 <!-- tulis kode disini-->
 
                 <!--sampai sini-->
                 <div class="card-body">
-                <div id="poll_div"></div>
+                <div id="poll_div_harian"></div>
+                @areachart('Harian','poll_div_harian')
                 </div>
             </div>
         </div>

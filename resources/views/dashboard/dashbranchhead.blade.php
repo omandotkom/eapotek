@@ -75,7 +75,7 @@ $type="dashboard";
             callback: function(){
                 var dari = $("#start").val();
                 var sampai = $("#sampai").val();
-                window.location.replace("/view/report/general/"+dari+"/"+sampai);                
+                window.location.replace("/view/report/branchhead/"+dari+"/"+sampai);                
             }
         }}
 });
