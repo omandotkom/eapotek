@@ -37,9 +37,7 @@ $type="viewobat";
             </div>
             <div class="card">
                 <div class="card-header">Jumlah Penjualan Item Setiap Cabang</div>
-                <!-- tulis kode disini-->
 
-                <!--sampai sini-->
                 <div class="card-body">
                     @foreach($branches as $b)
                     <div id="poll_div_bulanan_{{$b->id}}"></div>
@@ -53,22 +51,31 @@ $type="viewobat";
             </div>
             <div class="card">
                 <div class="card-header">Pendapatan Kotor</div>
-                @foreach($branches as $b)
+                <div class="card-body">
+                    @foreach($branches as $b)
                     <div id="poll_div_harian_{{$b->id}}"></div>
+                    {{$b->nama}}
                     @php
                     $divname = "poll_div_harian_".$b->id;
                     $chartname = "Harian".$b->id;
                     echo Lava::render('AreaChart', $chartname, $divname)
                     @endphp
                     @endforeach
+                </div>
             </div>
             <div class="card">
-                <div class="card-header">Lihat Informasi Obat</div>
-                <!-- tulis kode disini-->
+                <div class="card-header">Selisih Pembelian & Penjualan</div>
 
-                <!--sampai sini-->
                 <div class="card-body">
-                    <div id="poll_div"></div>
+                @foreach($branches as $b)
+                    <div id="poll_div_bj_{{$b->id}}"></div>
+                    @php
+                    $divname = "poll_div_bj_".$b->id;
+                    $chartname = "BeliJual".$b->id;
+                    echo Lava::render('ColumnChart', $chartname, $divname)
+                    @endphp
+                    @endforeach
+                </div>
                 </div>
             </div>
         </div>
