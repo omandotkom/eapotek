@@ -75,7 +75,7 @@ $(document).ready(function(){
                         <script>
                         function onDeleteClicked(){
                             $("#delete_form").html('Menghapus...');
-                                axios.get('http://homestead.test/input/supplyobat/delete/'+ jQuery("#idSupply").val())
+                                axios.get('/input/supplyobat/delete/'+ jQuery("#idSupply").val())
                                         .then(function (response) {
                                             toastr.options = {
                                                 "closeButton": false,
@@ -107,7 +107,7 @@ $(document).ready(function(){
                         }
                         function onUpdateClicked(){
                             $("#edit_form").html('Memperbarui...');
-                                axios.post('http://homestead.test/input/supplyobat/update', {
+                                axios.post('/input/supplyobat/update', {
                                     id: jQuery('#idSupply').val(),
                                     branch_id: '{{$cabang->id}}',
                                     supplier_id: jQuery('#namaSupplier').val(),
@@ -147,7 +147,7 @@ $(document).ready(function(){
                         }
                         function search(){
                             $("#cariKode").html('Mencari...');
-                            var url = 'http://homestead.test/input/supplyobat/searchbyid/' + '{{$cabang->id}}' + '/' + $("#idSupply").val();
+                            var url = '/input/supplyobat/searchbyid/' + '{{$cabang->id}}' + '/' + $("#idSupply").val();
                             console.log (url);
                                 axios.get(url)
                                         .then(function (response) {
@@ -186,7 +186,7 @@ $(document).ready(function(){
                             async function onSubmitClicked() {
 
                                 $("#send_form").html('Menyimpan...');
-                                axios.post('http://homestead.test/input/supplyobat/store', {
+                                axios.post('/input/supplyobat/store', {
                                     branch_id: '{{$cabang->id}}',
                                     supplier_id: jQuery('#namaSupplier').val(),
                                     deskripsi: jQuery('#deskripsi').val(),

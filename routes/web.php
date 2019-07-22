@@ -60,7 +60,11 @@
     Route::get('/view/karyawan/branch/{branch_id}','WorkerController@showWorkerbyBranch')->name('viewKaryawan');
     Route::post('/input/karyawan/store','WorkerController@store');
     Route::get('/view/karyawan/search/branch/{branch_id}/{namaworker}','WorkerController@searchName');
-    
+    Route::post('/input/karyawan/update','WorkerController@update');
+    Route::get('/input/karyawan/delete/{nik}','WorkerController@delete');
+    Route::get('/input/karyawan/search/{nik}','WorkerController@load');
+
+
     Route::get('/input/supplyobat', 'NoteSupplierController@showNoteSupplierView')->name('inputSupplyObat');
     Route::get('/view/supplyobat/branch/{branch_id}', 'NoteSupplierController@showNoteSupplierbyBranch')->name('viewSupplyObat');
     Route::post('/input/supplyobat/store','NoteSupplierController@store');

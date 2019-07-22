@@ -13,8 +13,8 @@ class SupplierController extends Controller {
 
     public function showInputSupplierView() {
         $cabang = Branch::where('nik', Auth::user()->nik)->first();
-
-        return view('input.supplier', ['cabang' => $cabang]);
+        $supplier = Supplier::where('branch_id',Auth::user()->worker->branch_id)->get();
+        return view('input.supplier', ['cabang' => $cabang,'suppliers'=>$supplier]);
     }
 
     /* public function store(Request $request) {
@@ -72,9 +72,9 @@ class SupplierController extends Controller {
         }
     }
 
-    public function loadData(Request $request, $branch_id) {
-        $cari = $request->q;
-        $data = DB::table('suppliers')->where('nama', 'like', '%' . $cari . '%')->where('branch_id', '=', $branch_id)->get();
+    public function loadData($id) {
+        
+        $data = DB::table('suppliers')->where('id',$id)->first();
         return response()->json($data);
     }
 

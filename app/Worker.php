@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Worker extends Model
 {
+    protected $primaryKey = 'nik';
      protected $table = 'workers';
      public function branch(){
         return $this->hasOne('App\Branch','id','branch_id');

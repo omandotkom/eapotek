@@ -12,6 +12,7 @@ class WorkerSeeder extends Seeder
      */
     public function run()
     {
+        /*
         $faker = Faker::create();
         for ($i = 1; $i <= 80; $i++) {
 
@@ -24,32 +25,32 @@ class WorkerSeeder extends Seeder
                 'position_id' => $faker->numberBetween($min = 1, $max = 30),
 
             ]);
-        }
+        }*/
 
 
         DB::table('workers')->insert([
             'branch_id' => '1',
             'nama' => 'Khalid Abdurrahman',
             'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
-            'noktp' => '124212121231212',
+            'noktp' => '19276578129239129',
             'nik' => '16102126',
             'position_id' => 9,
         ]);
 
         DB::table('workers')->insert([
             'branch_id' => '1',
-            'nama' => 'Khalid Abdurrahman',
+            'nama' => 'Ridwan Risandi',
             'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
-            'noktp' => '124212121231212',
-            'nik' => '16102124',
+            'noktp' => '12421266121231212',
+            'nik' => '16102137',
             'position_id' => 1,
         ]);
         DB::table('workers')->insert([
             'branch_id' => '1',
-            'nama' => 'Khalid Abdurrahman',
+            'nama' => 'Hesa Abda Arrasyid',
             'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
             'noktp' => '124212121231212',
-            'nik' => '16102137',
+            'nik' => '16102124',
             'position_id' => 10,
         ]);
         

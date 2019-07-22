@@ -24,13 +24,14 @@ $type="input-branchhead";
                             <input type="text" class="form-control" name="kodeSupplier" id="kodeSupplier" placeholder="--">
                         </div>-->
                         <script>
-                            $(document).ready(function(){
+                            $(document).ready(function() {
                                 $("#updateSupplier").hide();
                             });
-                            function onBrowseClicked(){
+
+                            function onBrowseClicked() {
                                 $("#updateSupplier").toggle();
                                 $("#insertSupplier").toggle();
-                                
+
                             }
                         </script>
                         <div class="input-group mb-3">
@@ -56,7 +57,7 @@ $type="input-branchhead";
                                             $("#kontak").val(response.data.telepon);
                                             $("#email").val(response.data.email);
                                             $("#lokasi").val(response.data.alamat);
-                
+
 
                                         })
                                         .catch(function(error) {
@@ -69,7 +70,7 @@ $type="input-branchhead";
                                 }
                             </script>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="nomorHP">Nomor HP</label>
                             <input type="text" class="form-control" name="nomorHP" id="kontak" placeholder="">
@@ -84,15 +85,15 @@ $type="input-branchhead";
                         </div>
                         <div class="text-right">
                             <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success mr-2">Simpan</button>
-                            <button type="submit" onclick="onUpdateClicked();" id="edit_form"  class="btn btn-outline-info mr-2">Edit</button>
-                            <button type="submit" onclick="onDeleteClicked();" id="delete_form"  class="btn btn-outline-danger">Delete</button>
+                            <button type="submit" onclick="onUpdateClicked();" id="edit_form" class="btn btn-outline-info mr-2">Edit</button>
+                            <button type="submit" onclick="onDeleteClicked();" id="delete_form" class="btn btn-outline-danger">Delete</button>
                         </div>
                         <script>
                             var id = null;
                             var nama = null;
                             async function onDeleteClicked() {
                                 $("#edit_form").html('Memnghapus...');
-                                axios.post('http://homestead.test/input/supplier/delete', {
+                                axios.post('/input/supplier/delete', {
                                         id: id
 
                                     })
@@ -128,7 +129,7 @@ $type="input-branchhead";
                             async function onUpdateClicked() {
 
                                 $("#edit_form").html('Memperbarui...');
-                                axios.post('http://homestead.test/input/supplier/update', {
+                                axios.post('/input/supplier/update', {
                                         branch_id: '{{$cabang->id}}',
                                         id: $("#updateSupplier").val(),
                                         alamat: jQuery('#lokasi').val(),
@@ -168,7 +169,7 @@ $type="input-branchhead";
                             async function onSubmitClicked() {
 
                                 $("#send_form").html('Menyimpan...');
-                                axios.post('http://homestead.test/supplier/store', {
+                                axios.post('/supplier/store', {
                                         branch_id: '{{$cabang->id}}',
                                         nama: jQuery("#insertSupplier").val(),
                                         alamat: jQuery('#lokasi').val(),
