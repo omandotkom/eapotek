@@ -28,7 +28,7 @@ class WorkerSeeder extends Seeder
         }*/
 
 
-        DB::table('workers')->insert([
+        /*DB::table('workers')->insert([
             'branch_id' => '1',
             'nama' => 'Khalid Abdurrahman',
             'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
@@ -53,6 +53,88 @@ class WorkerSeeder extends Seeder
             'nik' => '16102124',
             'position_id' => 10,
         ]);
-        
+        DB::table('workers')->insert([
+            'branch_id' => '2',
+            'nama' => 'Muhammad Ilham',
+            'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
+            'noktp' => '19276578129239129',
+            'nik' => '16102131',
+            'position_id' => 1,
+        ]);
+        DB::table('workers')->insert([
+            'branch_id' => '3',
+            'nama' => 'Adinda Miftahul',
+            'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
+            'noktp' => '19276578129239129',
+            'nik' => '16102110',
+            'position_id' => 1,
+        ]);
+
+        DB::table('workers')->insert([
+            'branch_id' => '3',
+            'nama' => 'Daniel Pedrosa',
+            'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
+            'noktp' => '19276578129239129',
+            'nik' => '16102199',
+            'position_id' => 1,
+        ]);
+
+        //lela branchworker cabang 2
+        DB::table('users')->insert([
+            'name' => 'Lela Sari Kristina',
+            'nik' => '16102127',
+            'role' => 'branchworker',
+            'password' => Hash::make('system3298'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Muhammad Ilham',
+            'nik' => '16102131',
+            'role' => 'branchhead',
+            'password' => Hash::make('system3298'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Adinda Miftahul',
+            'nik' => '16102110',
+            'role' => 'branchworker',
+            'password' => Hash::make('system3298'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Daniel Pedrosa',
+            'nik' => '16102199',
+            'role' => 'branchhead',
+            'password' => Hash::make('system3298'),
+        ]);
+*/
+
+        DB::table('workers')->insert([
+            'branch_id' => '4',
+            'nama' => 'Marcus Ladowe',
+            'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
+            'noktp' => '19276578129239129',
+            'nik' => '16102143',
+            'position_id' => 1,
+        ]);
+
+        DB::table('workers')->insert([
+            'branch_id' => '4',
+            'nama' => 'Cyntia Kondang',
+            'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
+            'noktp' => '19276578129239129',
+            'nik' => '16102112',
+            'position_id' => 1,
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Marcus Ladowe',
+            'nik' => '16102143',
+            'role' => 'branchworker',
+            'password' => Hash::make('system3298'),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Cyntia Kondang',
+            'nik' => '16102112',
+            'role' => 'branchhead',
+            'password' => Hash::make('system3298'),
+        ]);
     }
 }

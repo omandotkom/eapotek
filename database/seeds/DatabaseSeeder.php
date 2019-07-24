@@ -10,7 +10,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
+         $this->call([
+             WorkerSeeder::class,
+        ]);
+        /*$this->call([
             BranchSeeder::class,
             User_Table_Seeder::class,
             NoteSupplierTableSeeder::class,
@@ -18,7 +21,7 @@ class DatabaseSeeder extends Seeder
             WorkerSeeder::class,
         ]);
     
-        /*$this->call([
+        $this->call([
             BranchSeeder::class,
             User_Table_Seeder::class,
             MedicineTableSeeder::class,
@@ -30,5 +33,6 @@ class DatabaseSeeder extends Seeder
 
         ]);
     */
+
     }
 }
