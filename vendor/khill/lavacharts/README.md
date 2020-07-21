@@ -1,4 +1,4 @@
-# Lavacharts 3.1.10
+# Lavacharts 3.1.11
 
 [![Total Downloads](https://img.shields.io/packagist/dt/khill/lavacharts.svg?style=plastic)](https://packagist.org/packages/khill/lavacharts)
 [![License](https://img.shields.io/packagist/l/khill/lavacharts.svg?style=plastic)](http://opensource.org/licenses/MIT)
@@ -242,3 +242,7 @@ Or if you have multiple charts, you can condense theh view code withL
 
 # Changelog
 The complete changelog can be found [here](https://github.com/kevinkhill/lavacharts/wiki/Changelog)
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/kevinkhill/lavacharts.svg)](https://starchart.cc/kevinkhill/lavacharts)

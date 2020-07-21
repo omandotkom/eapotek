@@ -37,10 +37,15 @@ class Lexer
         // map from internal tokens to PhpParser tokens
         $this->tokenMap = $this->createTokenMap();
 
+        // Compatibility define for PHP < 7.4
+        if (!defined('T_BAD_CHARACTER')) {
+            \define('T_BAD_CHARACTER', -1);
+        }
+
         // map of tokens to drop while lexing (the map is only used for isset lookup,
         // that's why the value is simply set to 1; the value is never actually used.)
         $this->dropTokens = array_fill_keys(
-            [\T_WHITESPACE, \T_OPEN_TAG, \T_COMMENT, \T_DOC_COMMENT], 1
+            [\T_WHITESPACE, \T_OPEN_TAG, \T_COMMENT, \T_DOC_COMMENT, \T_BAD_CHARACTER], 1
         );
 
         $defaultAttributes = ['comments', 'startLine', 'endLine'];
@@ -84,7 +89,7 @@ class Lexer
 
         error_clear_last();
         $this->tokens = @token_get_all($code);
-        $this->handleErrors($errorHandler);
+        $this->postprocessTokens($errorHandler);
 
         if (false !== $scream) {
             ini_set('xdebug.scream', $scream);
@@ -92,13 +97,9 @@ class Lexer
     }
 
     private function handleInvalidCharacterRange($start, $end, $line, ErrorHandler $errorHandler) {
+        $tokens = [];
         for ($i = $start; $i < $end; $i++) {
             $chr = $this->code[$i];
-            if ($chr === 'b' || $chr === 'B') {
-                // HHVM does not treat b" tokens correctly, so ignore these
-                continue;
-            }
-
             if ($chr === "\0") {
                 // PHP cuts error message after null byte, so need special case
                 $errorMsg = 'Unexpected null byte';
@@ -108,6 +109,7 @@ class Lexer
                 );
             }
 
+            $tokens[] = [\T_BAD_CHARACTER, $chr, $line];
             $errorHandler->handleError(new Error($errorMsg, [
                 'startLine' => $line,
                 'endLine' => $line,
@@ -115,6 +117,7 @@ class Lexer
                 'endFilePos' => $i,
             ]));
         }
+        return $tokens;
     }
 
     /**
@@ -128,43 +131,57 @@ class Lexer
             && substr($token[1], -2) !== '*/';
     }
 
-    /**
-     * Check whether an error *may* have occurred during tokenization.
-     *
-     * @return bool
-     */
-    private function errorMayHaveOccurred() : bool {
-        if (defined('HHVM_VERSION')) {
-            // In HHVM token_get_all() does not throw warnings, so we need to conservatively
-            // assume that an error occurred
-            return true;
-        }
-
-        return null !== error_get_last();
-    }
-
-    protected function handleErrors(ErrorHandler $errorHandler) {
-        if (!$this->errorMayHaveOccurred()) {
-            return;
-        }
-
+    protected function postprocessTokens(ErrorHandler $errorHandler) {
         // PHP's error handling for token_get_all() is rather bad, so if we want detailed
         // error information we need to compute it ourselves. Invalid character errors are
         // detected by finding "gaps" in the token array. Unterminated comments are detected
         // by checking if a trailing comment has a "*/" at the end.
+        //
+        // Additionally, we canonicalize to the PHP 8 comment format here, which does not include
+        // the trailing whitespace anymore
 
         $filePos = 0;
         $line = 1;
-        foreach ($this->tokens as $token) {
+        $numTokens = \count($this->tokens);
+        for ($i = 0; $i < $numTokens; $i++) {
+            $token = $this->tokens[$i];
+
+            // Since PHP 7.4 invalid characters are represented by a T_BAD_CHARACTER token.
+            // In this case we only need to emit an error.
+            if ($token[0] === \T_BAD_CHARACTER) {
+                $this->handleInvalidCharacterRange($filePos, $filePos + 1, $line, $errorHandler);
+            }
+
+            if ($token[0] === \T_COMMENT && preg_match('/(\r\n|\n|\r)$/D', $token[1], $matches)) {
+                $trailingNewline = $matches[0];
+                $token[1] = substr($token[1], 0, -strlen($trailingNewline));
+                $this->tokens[$i] = $token;
+                if (isset($this->tokens[$i + 1]) && $this->tokens[$i + 1][0] === \T_WHITESPACE) {
+                    // Move trailing newline into following T_WHITESPACE token, if it already exists.
+                    $this->tokens[$i + 1][1] = $trailingNewline . $this->tokens[$i + 1][1];
+                    $this->tokens[$i + 1][2]--;
+                } else {
+                    // Otherwise, we need to create a new T_WHITESPACE token.
+                    array_splice($this->tokens, $i + 1, 0, [
+                        [\T_WHITESPACE, $trailingNewline, $line],
+                    ]);
+                    $numTokens++;
+                }
+            }
+
             $tokenValue = \is_string($token) ? $token : $token[1];
             $tokenLen = \strlen($tokenValue);
 
             if (substr($this->code, $filePos, $tokenLen) !== $tokenValue) {
                 // Something is missing, must be an invalid character
                 $nextFilePos = strpos($this->code, $tokenValue, $filePos);
-                $this->handleInvalidCharacterRange(
+                $badCharTokens = $this->handleInvalidCharacterRange(
                     $filePos, $nextFilePos, $line, $errorHandler);
                 $filePos = (int) $nextFilePos;
+
+                array_splice($this->tokens, $i, 0, $badCharTokens);
+                $numTokens += \count($badCharTokens);
+                $i += \count($badCharTokens);
             }
 
             $filePos += $tokenLen;
@@ -187,8 +204,9 @@ class Lexer
                 $this->tokens[] = [$isDocComment ? \T_DOC_COMMENT : \T_COMMENT, $comment, $line];
             } else {
                 // Invalid characters at the end of the input
-                $this->handleInvalidCharacterRange(
+                $badCharTokens = $this->handleInvalidCharacterRange(
                     $filePos, \strlen($this->code), $line, $errorHandler);
+                $this->tokens = array_merge($this->tokens, $badCharTokens);
             }
             return;
         }
@@ -273,17 +291,23 @@ class Lexer
                 $this->line += substr_count($value, "\n");
                 $this->filePos += \strlen($value);
             } else {
+                $origLine = $this->line;
+                $origFilePos = $this->filePos;
+                $this->line += substr_count($token[1], "\n");
+                $this->filePos += \strlen($token[1]);
+
                 if (\T_COMMENT === $token[0] || \T_DOC_COMMENT === $token[0]) {
                     if ($this->attributeCommentsUsed) {
                         $comment = \T_DOC_COMMENT === $token[0]
-                            ? new Comment\Doc($token[1], $this->line, $this->filePos, $this->pos)
-                            : new Comment($token[1], $this->line, $this->filePos, $this->pos);
+                            ? new Comment\Doc($token[1],
+                                $origLine, $origFilePos, $this->pos,
+                                $this->line, $this->filePos - 1, $this->pos)
+                            : new Comment($token[1],
+                                $origLine, $origFilePos, $this->pos,
+                                $this->line, $this->filePos - 1, $this->pos);
                         $startAttributes['comments'][] = $comment;
                     }
                 }
-
-                $this->line += substr_count($token[1], "\n");
-                $this->filePos += \strlen($token[1]);
                 continue;
             }
 
