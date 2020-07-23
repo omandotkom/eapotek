@@ -16,7 +16,7 @@ class CreateWorkersTable extends Migration
         Schema::create('workers', function (Blueprint $table) {
             $table->string('nik',10)->primary();
             $table->integer('branch_id');
-            $table->string('nama',30);
+            $table->text('nama');
             $table->text('alamat');
             $table->string('noktp',20);
             $table->integer('position_id');
