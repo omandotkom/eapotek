@@ -221,7 +221,7 @@ $type="slip-gaji";
                 function nikchanged(){
                     console.log("from : " +$("#start").val() + " to " + $("#end").val() );
                     if ($("#nik").val() != "0"){
-                        axios.post('http://homestead.test/view/slipgaji/nik',{
+                        axios.post('{{route("slipbynik")}}',{
                             nik : $("#nik").val(),
                             from : $("#start").val(),
                             to : $("#end").val()

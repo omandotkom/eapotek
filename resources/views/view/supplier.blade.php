@@ -27,14 +27,14 @@ $type="viewobat";
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Lihat Informasi Supplier</div>
                 <!-- tulis kode disini-->
 
                 <!--sampai sini-->
                 <div class="card-body">
-                    <div class="input-group input-group-md col-md-6 offset-3 mb-3">
+                    <div class="input-group input-group-md mx-auto w-75">
                         <input id="searchSupplier" type="text" class="form-control" placeholder="Nama Supplier"  aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button  class="btn btn-outline-secondary" type="button" id="searchbtn" >Cari</button>

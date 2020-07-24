@@ -85,7 +85,13 @@ class MedicineController extends Controller {
             return view('view.obat', ['medicines' => $medicines, 'branches' => $branches, 'branch_id' => $branch_id]);
         }
     }
-
+    public function showById($id){
+        $cabang = Branch::where('nik', Auth::user()->nik)->first();
+        $supplier = Supplier::where('branch_id', $cabang->id)->get();
+        
+        $medicine = Medicine::findOrFail($id);
+        return view('input.obat', ['edit' => true,'cabang' => $cabang, 'supplier' => $supplier,'medicine'=>$medicine]);
+    }
     public function branch($branch_id){
         $medicines = Medicine::where('branch_id',$branch_id)->simplePaginate(10);
         $branches = Branch::all();

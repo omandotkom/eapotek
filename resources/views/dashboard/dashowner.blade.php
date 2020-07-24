@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card-deck">
                 <div class="card shadow">
                     <h4 class="card-header text-center pb-2">Informasi Obat</h4>

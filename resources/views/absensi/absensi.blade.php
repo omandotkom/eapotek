@@ -60,7 +60,7 @@ $type="input-absensi";
                             async function onSubmitClicked() {
 
                                 $("#send_form").html('Menyimpan...');
-                                axios.post('http://homestead.test/absensi/store', {
+                                axios.post('{{route("simpanabsensi")}}', {
                                     nik: jQuery('#nik').val(),
                                     tanggal: jQuery('#tanggal').val(),
                                     keterangan: jQuery("input[name='keterangan']:checked").val()

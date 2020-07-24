@@ -106,7 +106,7 @@ if (jmlbyr > ttl){
                     </div>
                 </fieldset>
                 <div class="text-right">
-                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Cetak</button>
+                    <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Transaksi</button>
                 </div>
                 <script>
                  function onSubmitClicked(){
@@ -116,7 +116,7 @@ if (jmlbyr > ttl){
           var trans = JSON.stringify(table);
           console.log(trans);       
           $("#send_form").html('Menyimpan...');
-                                axios.post('http://homestead.test/transaction/add/save', {
+                                axios.post("{{route('savetransaction')}}", {
                                    
                 branch_id: '{{Auth::user()->worker->branch_id}}',
                 hash: '{{$hash}}',
@@ -250,11 +250,10 @@ function productDelete(ctl) {
 }
 $(document).ready(function(){
 
-console.log("http://homestead.test/view/obat/search/dynamic/branch/{{Auth::user()->worker->branch_id}}");
   $('#namaObat').select2({
     placeholder: 'Cari...',
     ajax: {
-      url: 'http://homestead.test/view/obat/search/dynamic/branch/{{Auth::user()->worker->branch_id}}',
+      url :'{{route("loadMedicineData",Auth::user()->worker->branch_id)}}',
       dataType: 'json',
       data: function (params) {
             return {

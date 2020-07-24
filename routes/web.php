@@ -13,7 +13,7 @@
 
  Route::get('/', function () {
         return view('auth.login');
-    });
+    })->middleware('guest');
 
         Auth::routes();
 
@@ -48,8 +48,9 @@
     Route::get('/input/obat', 'MedicineController@showInputObatView')->name('inputObat');
     //Route::get('/view/obat', 'MedicineController@showAllMedicine')->name('viewObat');
     Route::post('/input/obat/store', 'MedicineController@store')->name('storeObat');
+    Route::get('/edit/obat/{id?}','MedicineController@showById')->name("showeditbyid");
     Route::get('/view/obat/branch/{branch_id}','MedicineController@showSupplierbyBranch')->name('viewObat');
-    Route::get('/view/obat/search/dynamic/branch/{branch_id}','MedicineController@loadData');
+    Route::get('/view/obat/search/dynamic/branch/{branch_id}','MedicineController@loadData')->name("loadMedicineData");
     Route::get('/view/obat/search/branch/{branch_id}/{namaobat}','MedicineController@searchName')->name('viewObatByName');
     Route::get('/view/obat/search/branch/{branch_id}','MedicineController@branch')->name('viewObatBranch');
     Route::get('/view/obat/search/id/{id}','MedicineController@detil');
@@ -72,18 +73,18 @@
     Route::post('/input/supplyobat/update', 'NoteSupplierController@update');
     Route::get('/input/supplyobat/delete/{id}','NoteSupplierController@delete');
 
-    Route::post('/absensi/store','AttendanceController@store');
+    Route::post('/absensi/store','AttendanceController@store')->name("simpanabsensi");
     Route::get('/absensi', 'AttendanceController@showAttendanceView')->name('absensi');
     
     Route::get('/transaction/add','TransactionController@showTransactionPage')->name("transactionAdd");
-    Route::post('/transaction/add/save','TransactionController@store');
+    Route::post('/transaction/add/save','TransactionController@store')->name("savetransaction");
     Route::get('/view/transaction/{branch_id}/{form}/{to}','TransactionController@showTransactionbyBranch');
     Route::post('/transaction/detil','TransactionController@showTransactionDetil');
    
     Route::get('/input/salary/{branch_id}', 'SalaryController@showSalaryInputView')->name('inputSalary');
     Route::get('/view/slipgaji','SalaryController@showCetakSlipGajiView')->name('slipGaji');
     Route::post('/input/salary/update','SalaryController@updateSalary');
-    Route::post('/view/slipgaji/nik','SalaryController@loadData');
+    Route::post('/view/slipgaji/nik','SalaryController@loadData')->name("slipbynik");
    
     Route::get('/view/report/general/{dari}/{sampai}', "ReportController@load")->name('ownerReport');
     Route::get('/view/report/branchhead/{dari}/{sampai}','ReportController@branchload')->name('branchheadReport');

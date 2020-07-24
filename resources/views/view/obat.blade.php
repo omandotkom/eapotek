@@ -20,20 +20,24 @@ $type="viewobat";
 
 
     }
+    
 </script>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Lihat Informasi Obat</div>
                 <!-- tulis kode disini-->
 
                 <!--sampai sini-->
                 <div class="card-body">
-                    <div class="input-group input-group-md  col-md-6 offset-3 mb-3 ">
+                    <div class="input-group input-group-md mx-auto w-75 mb-5">
                         <input id="searchObat" type="text" class="form-control" placeholder="Nama Obat" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <div class="input-group-append">
                             <button onclick="onSearchClicked();" class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
+                        </div>
+                        <div class="input-group-append">
+                            <a href="{{route('viewObat',Auth::user()->worker->branch_id)}}" class="btn btn-outline-secondary" type="button" role="button" id="button-addon3">Tampil Semua</a>
                         </div>
                     </div>
                     
@@ -72,7 +76,8 @@ $type="viewobat";
                          
                     </div>
                     <div id="content">
-                        <table id="medicinetable" class="table table-responsive-lg table-striped">
+                    <div class="table-responsive">    
+                    <table id="medicinetable" class="table table-responsive-lg table-striped">
                             <thead class="thead text-light bg-success">
                                 <tr>
                                     <th scope="col">Kode Obat</th>
@@ -80,7 +85,7 @@ $type="viewobat";
                                     <th scope="col">Nama Obat</th>
                                     <th scope="col">Stok</th>
                                     <th scope="col">Harga</th>
-
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,15 +94,16 @@ $type="viewobat";
                                     <td>{{$s->id}}</td>
                                     <td>{{$s->branch->nama}}</td>
                                     <td>{{$s->namaobat}}</td>
-                                    <td>{{$s->satuan}}</td>
+                                    <td>{{$s->stok}}</td>
                                     <td>Rp. {{$s->harga}}</td>
-
+                                    <td><a href="{{route('showeditbyid',$s->id)}}" type="button" class="btn btn-success text-white">Edit</a></td>
                                 </tr>
                                 @endforeach
 
 
                             </tbody>
                         </table>
+                    </div>
                         {{$medicines->links()}}
                     </div>
                 </div>

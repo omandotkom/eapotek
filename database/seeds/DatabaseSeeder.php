@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BranchSeeder::class,
             User_Table_Seeder::class,
-            MedicineTableSeeder::class,
+            //MedicineTableSeeder::class,
             NoteSupplierTableSeeder::class,
             PositionSeeder::class,
             SupplierTableSeeder::class,
