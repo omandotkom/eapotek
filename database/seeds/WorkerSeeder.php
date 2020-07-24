@@ -12,7 +12,7 @@ class WorkerSeeder extends Seeder
      */
     public function run()
     {
-        /*
+        
         $faker = Faker::create();
         for ($i = 1; $i <= 80; $i++) {
 
@@ -25,10 +25,10 @@ class WorkerSeeder extends Seeder
                 'position_id' => $faker->numberBetween($min = 1, $max = 30),
 
             ]);
-        }*/
+        }
 
 
-        /*DB::table('workers')->insert([
+        DB::table('workers')->insert([
             'branch_id' => '1',
             'nama' => 'Khalid Abdurrahman',
             'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
@@ -104,37 +104,8 @@ class WorkerSeeder extends Seeder
             'role' => 'branchhead',
             'password' => Hash::make('system3298'),
         ]);
-*/
 
-        DB::table('workers')->insert([
-            'branch_id' => '4',
-            'nama' => 'Marcus Ladowe',
-            'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
-            'noktp' => '19276578129239129',
-            'nik' => '16102143',
-            'position_id' => 1,
-        ]);
 
-        DB::table('workers')->insert([
-            'branch_id' => '4',
-            'nama' => 'Cyntia Kondang',
-            'alamat' => 'Perumahan Telaga Harapan Blok D9 No.4',
-            'noktp' => '19276578129239129',
-            'nik' => '16102112',
-            'position_id' => 1,
-        ]);
-
-        DB::table('users')->insert([
-            'name' => 'Marcus Ladowe',
-            'nik' => '16102143',
-            'role' => 'branchworker',
-            'password' => Hash::make('system3298'),
-        ]);
-        DB::table('users')->insert([
-            'name' => 'Cyntia Kondang',
-            'nik' => '16102112',
-            'role' => 'branchhead',
-            'password' => Hash::make('system3298'),
-        ]);
+       
     }
 }

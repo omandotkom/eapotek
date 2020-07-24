@@ -1,5 +1,6 @@
 <?php
 
+use App\Medicine;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Carbon\Carbon;
@@ -29,19 +30,20 @@ class TransactionSeeder extends Seeder
                     $hash = $faker->unique()->uuid;
                     //1 hash memiliki 1 sampai 4 item berbeda
                     for ($item = 1; $item <= $faker->numberBetween($min = 2, $max = 3); $item++){
+                        $medicine = Medicine::inRandomOrder()->first();
                         DB::table('transactions')->insert([
-                            'branch_id' => 1,
+                            'branch_id' => $medicine->branch_id,
                             'hash' => $hash,
-                            'medicine_id' => 'Mdc 701xai',
+                            'medicine_id' => $medicine->id,
                             'quantity' => $faker->numberBetween($min = 1, $max = 4),
                             'totalbiaya' => $faker->numberBetween($min = 16000, $max = 30000),
-                            'tanggal' => Carbon::createFromDate(2019,$bulan,$hari)->toDateString(),
+                            'tanggal' => Carbon::createFromDate(2020,$bulan,$hari)->toDateString(),
                         ]);
                     }                   
                 }
             }
         }
-
+/*
         //cabang 2
         //12 bulan
         for ($bulan = 1;$bulan<=12;$bulan++){
@@ -62,7 +64,7 @@ class TransactionSeeder extends Seeder
                             'medicine_id' => 'Mdc 824sdb',
                             'quantity' => $faker->numberBetween($min = 1, $max = 6),
                             'totalbiaya' => $faker->numberBetween($min = 16000, $max = 30000),
-                            'tanggal' => Carbon::createFromDate(2019,$bulan,$hari)->toDateString(),
+                            'tanggal' => Carbon::createFromDate(2020,$bulan,$hari)->toDateString(),
                         ]);
                     }                   
                 }
@@ -122,6 +124,7 @@ class TransactionSeeder extends Seeder
                 }
             }
         }
+        */
     }
 }
 
